@@ -1,4 +1,4 @@
-#Advanced wake-up scene
-##Triggered with Philips Hue wake-up schedule
+# Advanced wake-up scene
+## Triggered with Philips Hue wake-up schedule
 
 Nothing written yet.
