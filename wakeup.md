@@ -25,7 +25,7 @@ You can download the full LUA scenes at the bottom of this page. I only describe
 
 To know which schedules are used for wake-up I set all those schedules with the _Wake_ string in it. Like _Wake-up weekday's_ and _Wake-up weekends_. In the LUA script I find these schedules with the code `if name:find('Wake') and status == 'enabled' then ... end`.
 
-#### Recurring times are saved as a bitmask in the Hue bridge
+#### Recurring day's are saved as a bitmask in the Hue bridge
 
 The Hue API states:
 
@@ -34,7 +34,7 @@ W[bbb]/T[hh]:[mm]:[ss]
 Every day of the week given by bbb at given time
 ```
 
-You have to convert the bitmask to weekday's. So you can check if the alarm is set for _today_. The first step is to convert decimal to a binary. I did this with the folowing LUA function:
+The Hue bridge saves the recurring day's as a bitmask. You have to convert this bitmask to weekday's. So you can check if the alarm is set for _today_. The first step is to convert decimal to a binary. I did this with the folowing LUA function:
 
 ```lua
 function bin(dec)
@@ -54,3 +54,30 @@ function bin(dec)
     return Sresult
 end
 ```
+
+Then I have a binary representation of the scheduled weekday's. For example:
+
+```
+mo tu we th fr sa su
+ 1  1  1  1  0  1  0
+```
+
+You see the alarm is set for monday, tuesday, wednesday, thursday and saturday. With this I can determine if the alarm is set for _today_:
+
+```lua
+if name:find('Wake') and status == 'enabled' then
+      local huedays, huetime = string.match(timepattern, 'W(.*)/T(.*)')
+      -- Hue starts at monday, LUA starts at sunday, so I have to fix this.
+      local dayofweek = os.date("*t").wday-1
+      if dayofweek == 0 then dayofweek = 7 end
+      local scheduleddays = bin(huedays)
+      -- dayofweek+1 because a week is 7 days and binary is 8 digits, so
+      -- a have a pre 0
+      local waketoday = string.sub(scheduleddays, dayofweek+1, dayofweek+1)
+      if waketoday == '1' then
+        wakeUpAlarms =  wakeUpAlarms .. huetime:sub(1, -4) .. '|'
+      end
+...
+end
+```
+
