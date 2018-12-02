@@ -3,4 +3,4 @@ title: Joep's GitHub page
 ---
 # Hello World
 
-This my GitHub page for documentation
+Draft: [Advanced wake-up with Philips Hue and Fibaro Home Center 2](https://docs.joepverhaeg.nl/wakeup)

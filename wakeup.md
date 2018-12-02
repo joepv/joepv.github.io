@@ -101,4 +101,4 @@ end
 
 #### Set WakeUpReady global variable for motion sensor LUA scene
 
-The LUA scene runs every minute using the code ` setTimeout(tempFunc, 60*1000)`. At _04:00_ it checks the schedules in the Hue bridge, but every minute it checks the _WakeUpTime_ global variable to set the _wakeupReady_ global variable to _1_. This variable triggers the second LUA scene used by the motion sensor.
+The LUA scene runs every minute using the code `setTimeout(tempFunc, 60*1000)`. At _04:00_ it checks the schedules in the Hue bridge, but _every minute_ it checks the _WakeUpTime_ global variable to set the _wakeupReady_ global variable to _1_. This variable triggers the second LUA scene used by the motion sensor.
