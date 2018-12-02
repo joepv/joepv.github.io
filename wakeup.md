@@ -3,7 +3,7 @@
 ## Goals
 
 * Use my Philips Hue led strips as a wake-up light.
-* Use one app to schedule the whole home wake-up scene.
+* Use 1 app to schedule the whole home wake-up routine.
 * Start the morning routine when walking downstairs (check motion).
 * Turn on the lights only when it's dark (read lux).
 
@@ -11,7 +11,7 @@ In our bedroom we integrated a Philips Hue lightstrip in the ceiling and use thi
 
 ## TL;DR
 
-* Set wake-up schedule in the Philips Hue app.
+* Set recurring wake-up schedule in the Philips Hue app.
 * Home Center LUA scene reads schedules with the keyword _wake_ in it.
 * If schedule is today and motion detected after scheduled time, run wake-up routine.
 
