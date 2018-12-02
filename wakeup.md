@@ -21,6 +21,10 @@ Reading Hue schedules from the bridge cannot be done with the Fibaro Hue plug-in
 
 You can download the full LUA scenes at the bottom of this page. I only describe snippets of my code to make you understand what it does and show the challenges I ran into.
 
+#### Tag your Hue schedule with a wake-up string in it!
+
+To know which schedules are used for wake-up I set all those schedules with the _Wake_ string in it. Like _Wake-up weekday's_ and _Wake-up weekends_. In the LUA script I find these schedules with the code `if name:find('Wake') and status == 'enabled' then ... end`.
+
 #### Recurring times are saved as a bitmask in the Hue bridge
 
 The Hue API states:
@@ -50,4 +54,3 @@ function bin(dec)
     return Sresult
 end
 ```
-
