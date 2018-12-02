@@ -12,7 +12,7 @@ In our bedroom we integrated a Philips Hue lightstrip in the ceiling and use thi
 ## TL;DR
 
 * Set wake-up schedule in the Philips Hue app.
-* Home Center LUA scene reads schedules.
+* Home Center LUA scene reads schedules with the keyword _wake_ in it.
 * If schedule is today and motion detected after scheduled time, run wake-up routine.
 
 ## How I implemented it
@@ -29,7 +29,7 @@ You can download the full LUA scenes at the bottom of this page. I only describe
 
 #### Tag your Hue schedule with a wake-up string in it!
 
-To know which schedules are used for wake-up I set all those schedules with the _Wake_ string in it. Like _Wake-up weekday's_ and _Wake-up weekends_. In the LUA scene I find these schedules with the code `if name:find('Wake') and status == 'enabled' then ... end`.
+To know which schedules are used for wake-up I set all those schedules with the _Wake_ keyword in it. Like _Wake-up weekday's_ and _Wake-up weekends_. In the LUA scene I find these schedules with the code `if name:find('Wake') and status == 'enabled' then ... end`.
 
 #### Recurring day's are saved as a bitmask in the Hue bridge
 
