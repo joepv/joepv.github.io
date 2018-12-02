@@ -23,7 +23,7 @@ Reading Hue schedules from the bridge cannot be done with the Fibaro Hue plug-in
 1. *Scene 1* _runs every minute_ and polls the Hue bridge schedules at 04:00. If a wake-up is scheduled for today write the wake-up times to a _global variable_. Every minute it checks if there is a wake-up planned by reading the same _global variable_ and if so it sets the _WakeUpReady_ global variable to _1_.
 2. *Scene 2* _runs when motion detected_ by a Fibaro Motion Sensor. If it detects motion it checks if the global variable _WakeUpReady_ is set to _1_ and runs the wake-up routine.
 
-### Code snippets explained
+### Scene 1 explained
 
 You can download the full LUA scenes at the bottom of this page. I only describe snippets of my code to make you understand what it does and show the challenges I ran into.
 
@@ -102,3 +102,25 @@ end
 #### Set WakeUpReady global variable for motion sensor LUA scene
 
 The LUA scene runs every minute using the code `setTimeout(tempFunc, 60*1000)`. At _04:00_ it checks the schedules in the Hue bridge, but _every minute_ it checks the _WakeUpTime_ global variable to set the _wakeupReady_ global variable to _1_. This variable triggers the second LUA scene used by the motion sensor.
+
+```lua
+local wakeupTime  = fibaro:getGlobal("WakeUpTime")
+if wakeupTime ~= "disabled" then
+  local waketimes = {}
+  for match in (wakeupTime..'|'):gmatch("(.-)"..'|') do
+    table.insert(waketimes, match);
+  end
+  for k, v in pairs(waketimes) do
+    if os.date("%H:%M") == v then
+      fibaro:setGlobal("WakeUpReady", 1)
+      fibaro:debug("It's wake-up time! Set motion detector ready!")
+    end
+  end
+end
+```
+
+### Scene 2 explained (motion sensor part)
+
+With scene 1 I created a global variable setting to determine if the wake-up routine must run. Now I create a second scene to act if there is motion in our hallway.
+
+*Still writing, check back soon...*
