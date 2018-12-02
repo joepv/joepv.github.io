@@ -9,6 +9,12 @@
 
 In our bedroom we integrated a Philips Hue lightstrip in the ceiling and use this with the Philips Hue app as a wake-up light. It beautifully fakes a sunrise in our whole room. As we use the Hue app to set our wake-up _alarm_ I use this app to trigger the Home Center to run a wake-up routine for the rest of the house.
 
+## TL;DR
+
+* Set wake-up schedule in the Philips Hue app.
+* Home Center LUA scene reads schedules.
+* If schedule is today and motion detected after scheduled time, run wake-up routine.
+
 ## How I implemented it
 
 ### In words
@@ -23,7 +29,7 @@ You can download the full LUA scenes at the bottom of this page. I only describe
 
 #### Tag your Hue schedule with a wake-up string in it!
 
-To know which schedules are used for wake-up I set all those schedules with the _Wake_ string in it. Like _Wake-up weekday's_ and _Wake-up weekends_. In the LUA script I find these schedules with the code `if name:find('Wake') and status == 'enabled' then ... end`.
+To know which schedules are used for wake-up I set all those schedules with the _Wake_ string in it. Like _Wake-up weekday's_ and _Wake-up weekends_. In the LUA scene I find these schedules with the code `if name:find('Wake') and status == 'enabled' then ... end`.
 
 #### Recurring day's are saved as a bitmask in the Hue bridge
 
@@ -66,18 +72,33 @@ You see the alarm is set for monday, tuesday, wednesday, thursday and saturday. 
 
 ```lua
 if name:find('Wake') and status == 'enabled' then
-      local huedays, huetime = string.match(timepattern, 'W(.*)/T(.*)')
-      -- Hue starts at monday, LUA starts at sunday, so I have to fix this.
-      local dayofweek = os.date("*t").wday-1
-      if dayofweek == 0 then dayofweek = 7 end
-      local scheduleddays = bin(huedays)
-      -- dayofweek+1 because a week is 7 days and binary is 8 digits, so
-      -- a have a pre 0
-      local waketoday = string.sub(scheduleddays, dayofweek+1, dayofweek+1)
-      if waketoday == '1' then
-        wakeUpAlarms =  wakeUpAlarms .. huetime:sub(1, -4) .. '|'
-      end
-...
+  local huedays, huetime = string.match(timepattern, 'W(.*)/T(.*)')
+  -- Hue starts at monday, LUA starts at sunday, so I have to fix this.
+  local dayofweek = os.date("*t").wday-1
+  if dayofweek == 0 then dayofweek = 7 end
+  local scheduleddays = bin(huedays)
+  -- dayofweek+1 because a week is 7 days and binary is 8 digits, so
+  -- a have a pre 0
+  local waketoday = string.sub(scheduleddays, dayofweek+1, dayofweek+1)
+  if waketoday == '1' then
+    wakeUpAlarms =  wakeUpAlarms .. huetime:sub(1, -4) .. '|'
+  end
+  ...
 end
 ```
 
+#### Write wake-up time to global variable
+If there is an alarm schedule for today write it to a _global variable_ for later use:
+
+```lua
+if wakeUpAlarms ~= '' then
+  fibaro:setGlobal("WakeUpTime", wakeUpAlarms:sub(1, -2)) -- remove last |
+else
+  -- If no schedules are set, write disabled to the global variable.
+  fibaro:setGlobal("WakeUpTime", "disabled")
+end
+```
+
+#### Set WakeUpReady global variable for motion sensor LUA scene
+
+The LUA scene runs every minute using the code ` setTimeout(tempFunc, 60*1000)`. At _04:00_ it checks the schedules in the Hue bridge, but every minute it checks the _WakeUpTime_ global variable to set the _wakeupReady_ global variable to _1_. This variable triggers the second LUA scene used by the motion sensor.
