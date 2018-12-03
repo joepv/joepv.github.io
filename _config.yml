@@ -11,8 +11,8 @@
 # (Using that method instead of site.owner, in case your posts get cloned with your repo.)
 
 # Site settings
-title: Joep's Home Automation
-description: This is my description
+title: Home Intelligence
+description: Everything is connected
 owner:
   name: Joep Verhaeg # or company name
   url: "https://docs.joepverhaeg.nl" # your URL
@@ -28,22 +28,22 @@ lang: en-us # used in HTML lang attributes
 # on landing page
 # - set the greeting only if you want to display the first green section
 greeting:
-  title: Home Intelligence  
-  text: Make your life smart!
+  title: Technologically advanced
+  text: With Fibaro, Apple Homekit and Node-RED
 # - displayed at the bottom
 closing-head: test closing
 closing-para: detailed test closing
 
 # on all pages (and the first three you list display with greeting, if included)
 social:
-  twitter: https://twitter.com/_username_
+  twitter: https://twitter.com/Joep__
   github: https://github.com/joepv
-  linkedin-square: https://linkedin.com/in/_username_
-  facebook-official: https://facebook.com/_username_
-  google-plus-square: https://plus.google.com/u/0/+_username_
+  linkedin-square: https://www.linkedin.com/in/joepverhaeg
+  #facebook-official: https://facebook.com/_username_
+  #google-plus-square: https://plus.google.com/u/0/+_username_
   email: /contact/ # you can configure and use this contact page or use your email addy
   #flickr:
-  #instagram:
+  instagram: https://www.instagram.com/joepverhaeg
   #youtube-square:
   #spotify:
   #stack-overflow:
