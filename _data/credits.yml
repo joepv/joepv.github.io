@@ -84,18 +84,14 @@ creds:
     lic : mit
 #
 inspiration:
-  - name : Michael Rose
-    url  : https://github.com/mmistakes
-  - name : David Ollerhead
-    url  : https://github.com/oller
-  - name : Bud Parr
-    url  : https://github.com/budparr
-  - name : Vladimir Zhbanko
-    url  : https://twitter.com/vladdsm
-  - name : Adam Garrett-Harris
-    url  : https://twitter.com/agarrharr
+  - name : Smart Home Forum by FIBARO
+    url  : https://forum.fibaro.com/
+  - name : Smart Home Blog
+    url  : https://www.smarthome.com.au/smarthome-blog/
+  - name : Robbshop Domotica Projecten (Dutch)
+    url  : https://www.robbshop.nl/domotica/projecten
 #
-other-image-credit: All other images are public domain.
+other-image-credit: All other images and screenshots by Joep Verhaeg.
 #
 # Chances are you replaced at least the banner below and will want
 # to change the attribution.
@@ -103,16 +99,20 @@ other-image-credit: All other images are public domain.
 # 'lic' values correspond to the keys in the license hash above
 #
 image-credit:
-  - src : /images/caustic_light.jpg
-    by  : fdecomite
-    url : https://www.flickr.com/photos/fdecomite/1907376527/
-    lic : ccb2
-  - src : /images/flickr-froderik.jpg
-    by  : froderik
-    url : https://www.flickr.com/photos/froderik/9355090806/
-    lic : ccbsa2
   - src : /images/banner.jpg
-    by  : Konstaninos Dafallas
-    url : https://www.flickr.com/photos/72906133@N00/4011647045/
-    lic : ccb2
+    by  : Fibar Group S.A.
+    url : https://www.fibaro.com/
+    lic : 
+  - src : /images/anywhere-access.jpg
+    by  : Fibar Group S.A.
+    url : https://www.fibaro.com/
+    lic : 
+  - src : /images/doorbell_hand.jpg
+    by  : Fibar Group S.A.
+    url : https://www.fibaro.com/
+    lic :
+  - src : /images/morning.jpg
+    by  : Fibar Group S.A.
+    url : https://www.fibaro.com/
+    lic : 
 
