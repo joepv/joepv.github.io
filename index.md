@@ -1,6 +1,5 @@
 ---
-title: Joep's GitHub page
+layout: landing
+sitemap:
+  priority: 1.0
 ---
-# Hello World
-
-Draft: [Advanced wake-up with Philips Hue and Fibaro Home Center 2](https://docs.joepverhaeg.nl/wakeup)

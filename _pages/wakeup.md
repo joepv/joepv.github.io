@@ -12,12 +12,13 @@ In our bedroom we integrated a Philips Hue lightstrip in the ceiling and use thi
 ## TL;DR
 
 * Set recurring wake-up schedule in the Philips Hue app.
-* Home Center LUA scene reads schedules with the keyword _wake_ in it.
-* If schedule is today and motion detected after scheduled time, run wake-up routine.
+* Home Center LUA scene 1 reads schedules at 04:00 with the keyword _Wake_ in it.
+* If schedule is set for today and motion is detected at the hallway after the scheduled time (scene 2), run wake-up routine.
 
 ## How I implemented it
 
 ### In words
+
 Reading Hue schedules from the bridge cannot be done with the Fibaro Hue plug-in. Therefore I wrote a LUA scene to read the Hue schedules from the Hue bridge and run the wake-up routine at the schedules wake-up time. I achieved this with 2 LUA scenes:
 
 1. *Scene 1* _runs every minute_ and polls the Hue bridge schedules at 04:00. If a wake-up is scheduled for today write the wake-up times to a _global variable_. Every minute it checks if there is a wake-up planned by reading the same _global variable_ and if so it sets the _WakeUpReady_ global variable to _1_.
@@ -88,6 +89,7 @@ end
 ```
 
 #### Write wake-up time to global variable
+
 If there is an alarm schedule for today write it to a _global variable_ for later use:
 
 ```lua
