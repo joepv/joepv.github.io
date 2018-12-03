@@ -1,13 +1,13 @@
 ---
 key: 1
-title: Advanced wake-up with Philips Hue and Fibaro Home Center 2
+title: Advanced wake-up routine
 permalink: /wakeup/
-excerpt: Home wake-up with Hue and Fibaro.
+excerpt: Wake-up with Fibaro Home Center 2 and Philips Hue
 image: morning.jpg
 background-image: morning.jpg
 ---
 
-# Advanced wake-up with Philips Hue and Fibaro Home Center 2
+# Advanced wake-up with Fibaro Home Center 2 and Philips Hue
 
 ## Goals
 
