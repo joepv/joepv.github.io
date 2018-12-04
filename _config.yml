@@ -36,15 +36,15 @@ closing-para: Feel free to get in touch.
 
 # on all pages (and the first three you list display with greeting, if included)
 social:
-  twitter: https://twitter.com/Joep__
-  github: https://github.com/joepv
   linkedin-square: https://www.linkedin.com/in/joepverhaeg
+  github: https://github.com/joepv
+  instagram: https://www.instagram.com/joepverhaeg
+  twitter: https://twitter.com/Joep__
   #facebook-official: https://facebook.com/_username_
   #google-plus-square: https://plus.google.com/u/0/+_username_
   email: /contact/ # you can configure and use this contact page or use your email addy
   #flickr:
-  instagram: https://www.instagram.com/joepverhaeg
-  #youtube-square:
+  youtube-square: https://www.youtube.com/channel/UCtx7m36fkmkSrJzaMLC4HWQ
   #spotify:
   #stack-overflow:
   #vimeo:
