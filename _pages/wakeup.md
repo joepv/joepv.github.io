@@ -136,7 +136,7 @@ With scene 1 I created a global variable setting to determine if the wake-up rou
 
 #### Check for motion and if alarm is not armed
 
-First I want to check if there is motion and if the alarm is _not_ armed with the line
+First I want to check if there is motion and if the alarm is _not_ armed with the line:
 
 ```lua
 if tonumber(fibaro:getValue(158, "value")) > 0 and tonumber(fibaro:getValue(158, "armed")) == 0 then
