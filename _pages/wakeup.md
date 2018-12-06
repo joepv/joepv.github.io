@@ -174,7 +174,7 @@ You can download the full LUA scene code from here:
 * Scene 1: [Wakeup.lua](https://github.com/joepv/fibaro/blob/master/Wakeup.lua)
 * Scene 2: [MotionRoutine1.lua](https://github.com/joepv/fibaro/blob/master/MotionRoutine1.lua)
 
-***You have to change the _device id's_ from my motion sensors in this scene to your own id's!***
+**You have to change the _device id's_ from my motion sensors in this scene to your own id's!**
 
 Set the scenes to run _automatic_ in the Fibaro Home Center 2:
 
