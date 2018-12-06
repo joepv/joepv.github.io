@@ -134,4 +134,48 @@ end
 
 With scene 1 I created a global variable setting to determine if the wake-up routine must run. Now I create a second scene to act if there is motion in our hallway.
 
-*Still writing, check back soon...*
+#### Check for motion and if alarm is not armed
+
+First I want to check if there is motion and if the alarm is _not_ armed with the line
+
+```lua
+if tonumber(fibaro:getValue(158, "value")) > 0 and tonumber(fibaro:getValue(158, "armed")) == 0 then
+...
+```
+
+#### Run wake-up routine only if it's dark outside
+
+The Philips Hue wake-up schedule runs always because our bedroom had curtains and the room is always dark. Downstairs I only want to run the wake-up routine when it's dark outside. The _wakeupReady_ global variable check's if the routine needs to run when there is motion (set with scene 1). `fibaro:getValue(160, "value")` gets the current lux reading from the Fibaro motion sensor. If the illuminance is below _20_ I want to turn on my lights.
+
+```lua
+if wakeupReady == "1" then
+      fibaro:setGlobal("WakeUpReady", 0) -- Disable trigger for current wake-up time.
+      -- check lux
+      local currentLux = tonumber(fibaro:getValue(160, "value")) -- id 160 is sensors light device.
+      -- If it's dark then start wake-up routine
+      if currentLux < 20 then
+        fibaro:debug("Illuminance measuring " .. currentLux .. " lx, starting wake-up routine.")
+        fibaro:call(44, "setValue", "8") -- Spots keuken (8%)
+        fibaro:call(29, "setValue", "5") -- Tafel eethoek (5%)
+        fibaro:call(106 , "turnOn") -- Bolles (aan)
+        fibaro:call(118 , "turnOn") -- Spot voordeur (aan)
+        fibaro:call(156, "sendPush", "Started wake-up routine. Debug: " .. currentLux .. " lx")
+      else
+        fibaro:debug("Illuminance measuring " .. currentLux .. " lx, do nothing.")
+        fibaro:call(156, "sendPush", "Skipped wake-up routine. Debug: " .. currentLux .. " lx")
+      end
+...
+```
+
+### Download my scenes complete LUA code
+
+You can download the full LUA scene code from here:
+
+* Scene 1: [Wakeup.lua](https://github.com/joepv/fibaro/blob/master/Wakeup.lua)
+* Scene 2: [MotionRoutine1.lua](https://github.com/joepv/fibaro/blob/master/MotionRoutine1.lua)
+
+***You have to change the _device id's_ from my motion sensors in this scene to your own id's!***
+
+Set the scenes to run _automatic_ in the Fibaro Home Center 2:
+
+![1544128316129](../images/screenshots/1544128316129.png)
