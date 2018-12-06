@@ -1,6 +1,6 @@
 ---
 key: 2
-title: Presence detection with Unifi AP
+title: Presence detection
 permalink: /presence/
 excerpt: Presence detection with Unifi AP and Fibaro Home Center 2 (interfaced with Node-RED)
 image: out-of-home-off.jpg
