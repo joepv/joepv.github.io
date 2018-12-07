@@ -42,7 +42,7 @@ This GitHub page is my personal technology blog to share home automation code I 
        else %}
   <td>{{ c.by }}</td>{%
        endif %}
-  <td>{% if c.lic %}{{ site.data.credits.licenses[c.lic].name }}{% else %}public domain{% endif %}</td>
+  <td>{% if c.lic %}{{ site.data.credits.licenses[c.lic].name }}{% endif %}</td>
 </tr>{%
      endfor %}
   {% for ec in site.data.tokens.extra-credit
@@ -53,7 +53,7 @@ This GitHub page is my personal technology blog to share home automation code I 
        else %}
   <td>{{ ec.by }}</td>{%
        endif %}
-  <td>{% if ec.lic %}{{ site.data.credits.licenses[ec.lic].name }}{% else %}public domain{% endif %}</td>
+  <td>{% if ec.lic %}{{ site.data.credits.licenses[ec.lic].name }}{% endif %}</td>
 </tr>{%
      endfor %}
 </table>
