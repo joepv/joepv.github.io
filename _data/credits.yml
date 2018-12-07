@@ -100,9 +100,6 @@ image-credit:
   - src : /images/banner.jpg
     by  : Fibar Group S.A.
     url : https://www.fibaro.com/
-  - src : /images/anyware-access.jpg
-    by  : Fibar Group S.A.
-    url : https://www.fibaro.com/
   - src : /images/morning.jpg
     by  : Fibar Group S.A.
     url : https://www.fibaro.com/
@@ -111,6 +108,9 @@ image-credit:
     url : https://www.fibaro.com/
 
 image-pexels:
+  - src : /images/contact.jpg
+    by  : Negative Space
+    url : https://www.pexels.com/@negativespace
   - src : /images/credits.jpg
     by  : rawpixel.com
     url : https://www.pexels.com/@rawpixel
