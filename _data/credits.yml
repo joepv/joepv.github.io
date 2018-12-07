@@ -100,20 +100,17 @@ image-credit:
   - src : /images/banner.jpg
     by  : Fibar Group S.A.
     url : https://www.fibaro.com/
-    lic : tm
   - src : /images/anyware-access.jpg
     by  : Fibar Group S.A.
     url : https://www.fibaro.com/
-    lic : tm
-  - src : /images/fabryka_07.jpg
-    by  : Fibar Group S.A.
-    url : https://www.fibaro.com/
-    lic : tm
   - src : /images/morning.jpg
     by  : Fibar Group S.A.
     url : https://www.fibaro.com/
-    lic : tm
   - src : /images/out-of-home-off.jpg
     by  : Fibar Group S.A.
     url : https://www.fibaro.com/
-    lic : tm
+
+image-pexels:
+  - src : /images/credits.jpg
+    by  : Aleksandar Pasaric
+    url : https://www.pexels.com/@apasaric

@@ -86,6 +86,36 @@ This GitHub page is my personal technology blog to share home automation code I 
 </div>{%
    endfor %}
 </div></div>
+
+<h4>Images from Pexels</h4>
+<div class="box alt"><div class="row uniform 50%">
+{% for img in site.data.credits.image-pexels
+%}<div class="4u">
+  {% if img.url %}<a style="border:none !important;" href="{{ img.url }}" target="_blank"
+     title="{% if img.by %}{{ img.by }}, {% endif %}{%
+               if img.lic %}{{ site.data.credits.licenses[img.lic].name }}{%
+               else %}public domain{%
+               endif %}">{%
+     endif %}<img style="width:100%"
+     src="{{ img.src | prepend: site.baseurl }}"
+     alt="the image being credited" />{% if img.url %}</a>{% endif %}
+</div>{%
+   endfor %}{%
+   for eimg in site.data.tokens.extra-image-pexels
+%}<div class="4u">
+  {% if eimg.url %}<a style="border:none !important;" href="{{ eimg.url }}" target="_blank"
+     title="{% if eimg.by %}{{ eimg.by }}, {% endif %}{%
+               if eimg.lic %}{{ site.data.credits.licenses[eimg.lic].name }}{%
+               elsif eimg.license %}{{ eimg.license }}{%
+               else %}public domain{%
+               endif %}">{%
+     endif %}<img style="width:100%"
+     src="{{ eimg.src | prepend: site.baseurl }}"
+     alt="the image being credited" />{% if eimg.url %}</a>{% endif %}
+</div>{%
+   endfor %}
+</div></div>
+
 <p class="pcreds">{%
 if site.data.tokens.other-image-credit %}
 {{ site.data.tokens.other-image-credit}}{%
