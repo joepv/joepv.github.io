@@ -65,7 +65,6 @@ This GitHub page is my personal technology blog to share home automation code I 
   {% if img.url %}<a style="border:none !important;" href="{{ img.url }}" target="_blank"
      title="{% if img.by %}{{ img.by }}, {% endif %}{%
                if img.lic %}{{ site.data.credits.licenses[img.lic].name }}{%
-               else %}public domain{%
                endif %}">{%
      endif %}<img style="width:100%"
      src="{{ img.src | prepend: site.baseurl }}"
@@ -78,7 +77,6 @@ This GitHub page is my personal technology blog to share home automation code I 
      title="{% if eimg.by %}{{ eimg.by }}, {% endif %}{%
                if eimg.lic %}{{ site.data.credits.licenses[eimg.lic].name }}{%
                elsif eimg.license %}{{ eimg.license }}{%
-               else %}public domain{%
                endif %}">{%
      endif %}<img style="width:100%"
      src="{{ eimg.src | prepend: site.baseurl }}"
@@ -94,7 +92,6 @@ This GitHub page is my personal technology blog to share home automation code I 
   {% if img.url %}<a style="border:none !important;" href="{{ img.url }}" target="_blank"
      title="{% if img.by %}{{ img.by }}, {% endif %}{%
                if img.lic %}{{ site.data.credits.licenses[img.lic].name }}{%
-               else %}public domain{%
                endif %}">{%
      endif %}<img style="width:100%"
      src="{{ img.src | prepend: site.baseurl }}"
@@ -107,7 +104,6 @@ This GitHub page is my personal technology blog to share home automation code I 
      title="{% if eimg.by %}{{ eimg.by }}, {% endif %}{%
                if eimg.lic %}{{ site.data.credits.licenses[eimg.lic].name }}{%
                elsif eimg.license %}{{ eimg.license }}{%
-               else %}public domain{%
                endif %}">{%
      endif %}<img style="width:100%"
      src="{{ eimg.src | prepend: site.baseurl }}"
