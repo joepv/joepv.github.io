@@ -5,7 +5,7 @@
 key: 2
 title: Presence detection
 permalink: /presence/
-excerpt: With Unifi, Node-RED and Fibaro Home Center 2
+excerpt: With UniFi, Node-RED and Fibaro Home Center 2
 image: out-of-home-off.jpg
 background-image: out-of-home-off.jpg
 ---
