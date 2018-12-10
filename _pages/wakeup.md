@@ -1,5 +1,5 @@
 ---
-key: 1
+key: 2
 title: Advanced wake-up routine
 permalink: /wakeup/
 excerpt: Wake-up with Fibaro Home Center 2 and Philips Hue

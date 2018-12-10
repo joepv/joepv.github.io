@@ -2,11 +2,11 @@
 key: 3
 title: Hibernate your home
 permalink: /hibernate/
-excerpt: Turn off all lights and devices when everybody has left home
+excerpt: Fibaro Home Center 2 advanced LUA scene to automatically turn off all lights
 image: aurora-scene.jpg
-background-image: banner.jpg
+background-image: aurora-scene.jpg
 ---
 
-# Turn off all lights and devices when everybody has left home
+# When everybody has left home... turn off all lights (and devices)
 
 _This is a draft, I am still writing, come back soon..._ 

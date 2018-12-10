@@ -1,5 +1,5 @@
 ---
-key: 2
+key: 1
 title: Presence detection
 permalink: /presence/
 excerpt: With UniFi, Node-RED and Fibaro Home Center 2
