@@ -1,7 +1,4 @@
 ---
-
-
-
 key: 2
 title: Presence detection
 permalink: /presence/
@@ -12,8 +9,8 @@ background-image: out-of-home-off.jpg
 
 # Presence detection with Unifi, Node-RED and Fibaro Home Center 2
 
-December 10, 2018
-_Applies to: Fibaro Home Center 2, Node-RED and MQTT_.
+December 10, 2018\s\s
+_*Applies to:* Fibaro Home Center 2, Node-RED and MQTT_.
 
 ## Goals
 
