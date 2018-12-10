@@ -9,6 +9,9 @@ background-image: morning.jpg
 
 # Advanced wake-up with Fibaro Home Center 2 and Philips Hue
 
+December 6, 2018
+Applies to: Fibaro Home Center 2, Philips HUE bridge.
+
 ## Goals
 
 * Use my Philips Hue led strips as a wake-up light.
