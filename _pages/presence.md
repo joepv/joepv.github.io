@@ -49,7 +49,7 @@ The following table matches the names used in the devices from in this example:
 | UniFi (device name) | MQTT (topic)     | Home Center 2 (predefined variable) |
 | ------------------- | ---------------- | ----------------------------------- |
 | iPhone Xs (Joep)    | presence/joep    | JoepPresent                         |
-| iPhone 8 (Monique)  | presence/monique | MoniquePresen                       |
+| iPhone 8 (Monique)  | presence/monique | MoniquePresent                      |
 
 ### Fibaro part
 
@@ -77,7 +77,7 @@ Change all names and variables to your own in Node-RED and Home Center 2 variabl
 
 ### Example: lights off when leaving the house
 
-Now you can create a simple _graphic blocks scene_ in Home Center 2 to check the two predefined variables. If both variables are set to `No`start another scene to check if there are lights left on in the house and turn these off.
+Now you can create a simple _graphic blocks scene_ in Home Center 2 to check the two predefined variables. If both variables are set to `No` start another scene to check if there are lights left on in the house and turn these off.
 
 ![1544473294011](../images/screenshots/1544473294011.png)
 
