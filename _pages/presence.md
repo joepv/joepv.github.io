@@ -10,7 +10,7 @@ background-image: out-of-home-off.jpg
 # Presence detection with Unifi, Node-RED and Fibaro Home Center 2
 
 December 10, 2018  
-_*Applies to:* Fibaro Home Center 2, Node-RED and MQTT_.
+_**Applies to:** Fibaro Home Center 2, Node-RED and MQTT_.
 
 ## Goals
 
