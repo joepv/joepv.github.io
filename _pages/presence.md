@@ -44,7 +44,7 @@ The following IPv4 addresses are used in my example:
 | Fibaro Home Center 2 | 192.168.1.2  | 80   |
 | MQTT broker          | localhost    | 1883 |
 
-The following table matches the names used in the devices from in this example:
+The following table matches the names of the devices in this example:
 
 | UniFi (device name) | MQTT (topic)     | Home Center 2 (predefined variable) |
 | ------------------- | ---------------- | ----------------------------------- |
