@@ -1,6 +1,7 @@
 ---
 key: 3
 title: Hibernate your home
+product: Fibaro Home Center 2
 permalink: /hibernate-home/
 excerpt: Advanced LUA scene to automatically turn off all lights (and save state)
 image: aurora-scene.jpg
@@ -198,6 +199,113 @@ Note: the _TurnOffAllLights_ scene has id `33` in my system, you have to change 
 
 ### Scene 3: arrive home explained
 
-The LUA scene to run when the first person arrived home is a little bit more complex.
+The LUA scene to run when the first person arrived home is a little bit more complex. At home I have tree entrances:
 
-**_Still writing, check back soon!_**
+| Entrance     | Sensor                    |
+| ------------ | ------------------------- |
+| Front door   | Fibaro Door/Window Sensor |
+| Garage door  | Fibaro Motion Sensor      |
+| Terrace door | Fibaro Motion Sensor      |
+
+As I can arrive at any of these doors I have to check all sensors for _activity_ and if one sensor sends _breached_ state the Home Center needs to act and start the _arrive home_ scene.
+
+#### Reading the sensors
+
+With the following line I check all three sensors for activity:
+
+```lua
+if tonumber(fibaro:getValue(176, "value") > 0 or tonumber(fibaro:getValue(164, "value") > 0 or tonumber(fibaro:getValue(130, "value") > 0 then
+...
+```
+
+#### Tackling the motion sensor alarm cancellation delay
+
+The _door sensor_ sets it's value to `1` when I open the door, and sets it's value back to `0` when I close the front door. The _motion_ sensors keep their _value_ at `1` until the _alarm cancellation delay_ is reached (set with _parameter 6_).
+
+This is a problem. When I enter the garage to get some stuff before leaving the house the _value_ of the motion sensor stays `1` during the _alarm cancellation delay_, even if there is no motion anymore. If I grab something the garage and leave through the front door within this period the _value of the motion sensor is still' `1` and the lights go immediatly back on when opening the front door. It took a while to figure this out!
+
+I found that the `lastBreached` parameter keeps a timestamp value from the last time motion was detected. In the LUA scene I check if the _active breach_ is within the _alarm cancellation delay_ parameter value (6). In my case this is _5 minutes_ (or 300 seconds). If this is the case I report no movement and it doesn't trigger the arrival scenario.
+
+Another problem is that if the sensor is not breached the _lastBreached_ value is `0`. The sensor is so fast the scene reads _0_ as there is motion detected and it thinks there is no movement. I fix this behaviour with the following code:
+
+```lua
+local lastBreachedGarage = currentime - tonumber(fibaro:getValue(164, "lastBreached"))
+local currentime = os.time(os.date("!*t"))
+local noMovement = 1
+if lastBreachedGarage > 2 and lastBreachedGarage < 310 then
+  noMovement = 0
+end
+```
+
+#### Retrieving the light state and turn the lights back on when arriving home
+
+If all these parameters are correct and the `HomeState` global variable is `away` I set the `HomeState` back to `athome` and check with a Fibaro motion sensor if the _illuminance_ is below _10_ to check if it's dark and the light need to be turned back on:
+
+```lua
+if fibaro:getGlobalValue("HomeState") == "away" and noMovement == 1 then
+  fibaro:setGlobal("HomeState", "athome")
+  fibaro:debug(os.date("%a, %b %d") .. " Set HomeState to \"athome\".")
+
+  local currentLux = fibaro:getValue(160, "value")
+  if ( tonumber(currentLux) < 10 ) then
+    fibaro:debug(os.date("%a, %b %d") .. " Welcome home! Illuminance measuring " .. currentLux .. " lx, turn lights back on!")
+...
+```
+
+If the illuminance is below _10 lux_ the Home Center 2 needs to know which lights to turn back on. I read the `SleepingLights` global variable and put the id's into a table:
+
+```lua
+local sleepinglights = fibaro:getGlobalValue("SleepingLights")
+local lights = {}
+for match in (sleepinglights..'|'):gmatch("(.-)"..'|') do
+  table.insert(lights, match);
+end
+```
+
+Then I check the elapsed time between leaving and arriving back home. If it is _less than 4 hours_ **and** there where _lights left on_, turn them back on:
+
+```lua
+local currentime =  os.time(os.date("!*t"))
+local sleepingtime = lights[1]
+local elapsedtime = currentime - sleepingtime
+
+if elapsedtime < 14400 and lights[2] ~= nill then -- if elapsed time is less than 4 hours.
+fibaro:debug(os.date("%a, %b %d") .. " Last member of the family left less than 4 hours ago, return lights to previous state!")
+for k, v in pairs(lights) do
+  if k ~= 1 then -- skip first, is unixtimestamp
+    fibaro:call(v , "turnOn")
+    fibaro:debug("turn on: " .. v)
+  end
+else
+...
+```
+
+If the elapsed time between leaving and arriving back home is more then _4 hours_ a _standard arrival routine_ will run, because the previous light state is not important anymore. This routine you write in the `else` statement of the previous `if` condition:
+
+```lua
+...
+else
+  fibaro:debug(os.date("%a, %b %d") .. " Last member of the family left more than 4 hours ago, start arrive home scene!")
+
+  fibaro:call(49, "setValue", "8") -- Spots garderobe
+  fibaro:call(172, "turnOn") -- Gurken garden
+
+  fibaro:call(140, "changeHue", "5021") -- Ledstip overloop
+  fibaro:call(140, "changeSaturation", "199") -- Ledstip overloop
+  fibaro:call(140, "changeBrightness", "114") -- Ledstip overloop
+  fibaro:call(140, "turnOn") -- Ledstip overloop
+
+  fibaro:call(44, "setValue", "8") -- Spots keuken
+  fibaro:call(39, "setValue", "35") -- Kookeiland
+end
+```
+
+### Download my scenes complete LUA code
+
+You can download the full LUA scene code from here:
+
+* Scene 1: _full code published soon!_
+* Scene 2: _full code published soon!_
+* Scene 3: _full code published soon!_
+
+**You have to change the _device id's_ from my motion sensors in this scene to your own id's!**

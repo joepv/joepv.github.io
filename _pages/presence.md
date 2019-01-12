@@ -1,6 +1,7 @@
 ---
 key: 1
 title: Presence detection
+product: UniFi, Node-RED and Fibaro Home Center 2
 permalink: /presence/
 excerpt: With UniFi, Node-RED and Fibaro Home Center 2
 image: out-of-home-off.jpg
