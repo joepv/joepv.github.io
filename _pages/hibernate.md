@@ -9,7 +9,7 @@ background-image: aurora-scene.jpg
 
 # Advanced LUA scene to automatically turn off all lights (and save state)
 
-Januari 12, 2019 
+Januari 12, 2019  
 _**Applies to:** Fibaro Home Center 2 and Philips HUE plug-in._
 
 ## Goals
@@ -179,6 +179,25 @@ fibaro:setGlobal("SleepingLights", devicesOn:sub(1, -2)) -- remove last |
 
 ### Scene 2: leave home explained
 
+This scene is pretty simple. If both `JoepPresent` and `MoniquePresent` are set to `No` the `HomeState` variable is set to `away` and the _TurnOffAllLights_ scene is started:
+
+```lua
+if fibaro:getGlobalValue("JoepPresent") == "No" and fibaro:getGlobalValue("MoniquePresent") == "No" then
+  fibaro:setGlobal("HomeState", "away")
+  fibaro:debug(os.date("%a, %b %d") .. " Set HomeState to away.")
+  fibaro:setGlobal("TurnOffExclusions", "0") -- no exclusions
+  if fibaro:countScenes(33) < 1 then
+  	fibaro:startScene(33) -- run Turn All Lights Off Scene
+  else
+    fibaro:debug(os.date("%a, %b %d") .. " Turn Of All Lights scene already running!")
+  end
+end
+```
+
+Note: the _TurnOffAllLights_ scene has id `33` in my system, you have to change that to the id on your own Home Center 2.
+
 ### Scene 3: arrive home explained
+
+The LUA scene to run when the first person arrived home is a little bit more complex.
 
 **_Still writing, check back soon!_**
