@@ -21,7 +21,7 @@ _**Applies to:** Fibaro Home Center 2 and Philips HUE plug-in._
 * Save the lights that where turned off to turn them back on when someone arrives at home.
 * Exclude lights to turn off when using a _go to bed_ scene trigger (make scene for global use).
 
-After I build [reliable precense detection](/presence/) I wanted to automatically turn off the lights when nobody is at home. I though it would be nice if the controller _remembers_ _the state_ of the house and returns to that state when the first person arrives back at home. When there is a lot of time passed a standard arrival routine will run, because the previous light state is not important anymore right then.
+After I build [reliable presence detection](/presence/) I wanted to automatically turn off the lights when nobody is at home. I though it would be nice if the controller _remembers_ _the state_ of the house and returns to that state when the first person arrives back at home. When there is a lot of time passed a standard arrival routine will run, because the previous light state is not important anymore right then.
 
 The scene checking for lights needs to be universal, so I can use it for a _go to bed_ scene also. For this purpose the scene must handle _exclusions_. (you don't want to turn of the light that you just turned on for your bedtime scene).
 
