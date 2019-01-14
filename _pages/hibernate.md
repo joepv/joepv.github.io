@@ -21,7 +21,7 @@ _**Applies to:** Fibaro Home Center 2 and Philips HUE plug-in._
 * Save the lights that where turned off to turn them back on when someone arrives at home.
 * Exclude lights to turn off when using a _go to bed_ scene trigger (make scene for global use).
 
-After I build [reliable precense detection](/presence/) I want to automatically turn off the lights when nobody is at home. I tought it would be nice if the controller _remembers_ _the state_ of the house and returns to that state when the first person arrives back at home. When there is a lot of time passed a standard arrival routine will run, because the previous light state is not important anymore right then.
+After I build [reliable precense detection](/presence/) I wanted to automatically turn off the lights when nobody is at home. I though it would be nice if the controller _remembers_ _the state_ of the house and returns to that state when the first person arrives back at home. When there is a lot of time passed a standard arrival routine will run, because the previous light state is not important anymore right then.
 
 The scene checking for lights needs to be universal, so I can use it for a _go to bed_ scene also. For this purpose the scene must handle _exclusions_. (you don't want to turn of the light that you just turned on for your bedtime scene).
 
@@ -37,15 +37,15 @@ The scene checking for lights needs to be universal, so I can use it for a _go t
 
 ### In words
 
-When Node-RED [detects](/presence/) that somebody left the house it sets a personal presence global variable to `No` in Home Center 2. In my case, if both `JoepPresent` and `MoniquePresent` are set to `No` the _leave home_ scene is triggered. This scene sets another global variable `HomeState` to `away`. This is done to tackle the issue when you arrive at home and on the driveway your phone get's connected to your home Wi-Fi and the system responds immediatly. You don't want that to happen. You want to trigger the _arrive home_ scene with a door- or motion sensor. Then it's triggered as you physically step into your house.
+When Node-RED [detects](/presence/) that somebody left the house it sets a personal presence global variable to `No` in Home Center 2. In my case, if both `JoepPresent` and `MoniquePresent` are set to `No` the _leave home_ scene is triggered. This scene sets another global variable `HomeState` to `away`. This is done to tackle the issue when you arrive at home and on the driveway your phone get's connected to your home Wi-Fi the system responds immediately. You don't want that to happen. You want to trigger the _arrive home_ scene with a door- or motion sensor. Then it's triggered as you physically step into your house.
 
 The _leaving home_ scene triggers the _turn off all lights_ scene to save the light state. If the first person arrive's back at home the _arriving home_ scene is triggered by the earlier mentioned door- or motion sensor.
 
-### Devices you need
+### Devices used
 
 I can enter my house from three doors. At the front door I use a _Fibaro Door/Window Sensor_ and the other rooms are equipped with a _Fibaro Motion Sensor_. You have to change the sensors in my LUA scenes to your own use case.
 
-### Global variables you need
+### Global variables
 
 These are the global variables you need for the routine described on this page only. Presence detection variables are not described as you can have another presence detection system than what I use.
 
@@ -53,6 +53,7 @@ These are the global variables you need for the routine described on this page o
 | ----------------- | ---------- | ------------ |
 | HomeState         | Predefined | athome, away |
 | TurnOffExclusions | Normal     | 0            |
+| SleepingLights    | Normal     | 0            |
 
 ### Scene 1: check and turn off all lights explained
 
@@ -60,7 +61,7 @@ You can download the full LUA scenes at the bottom of this page. I only describe
 
 #### Function to check if value exists in array
 
-I want to keep a table with all rooms with lights on. This information I save for future use, when I want to send a push message with rooms with lights still on message for example. To add only new rooms to the table I wrote the following function:
+I want to keep a table with all rooms that have lights on. This information is for future use, when I want to send a push message with rooms with lights still on message for example. To only add *new* rooms to the table I wrote the following function:
 
 ```lua
 local function has_value (tab, val)
@@ -75,7 +76,7 @@ end
 
 #### Get exclusions from the global variable
 
-Before starting this scene from within the _leave home_ scene I _set_ a global variable with the _id's_ of the lights that not have to turn off automatically:
+Before starting this scene from within the _leave home_ scene I _set_ a global variable with the _id's_ of the lights that not have to turn off automatically (see later on this page), I read this global variable with the following code:
 
 ```lua
 local exclusionsVar = fibaro:getGlobalValue("TurnOffExclusions")
@@ -94,7 +95,7 @@ if fibaro:getValue(i, "isLight") == "1" then
 ...
 ```
 
-With this check I don't have to keep a table with all light source id's. When you add a light to your house it's automatically incorporated in the scenes. Then I check if the device is on:
+With this check I don't have to keep a table with all light source id's. When you add a light to your house it's automatically incorporated in the scenes. Then I check if the device is *on*:
 
 ```lua
 if (fibaro:getValue(i, "value") >= "1")
@@ -132,7 +133,7 @@ end
 
 #### Check Philips Hue lights
 
-If you have Philips Hue devices in your home and use the Fibaro Hue plug-in the Hue light bulbs are not detected with the code above. You can detect Hue devices with the following line of code:
+If you have Philips Hue devices in your home and use the Fibaro Hue plug-in the Hue light sources are not detected with the code above. You can detect Hue devices with the following line of code:
 
 ```lua
 if fibaro:getType(j) == "com.fibaro.philipsHueLight" then
@@ -146,7 +147,7 @@ if (fibaro:getValue(j, "on") == "1") then
 ...
 ```
 
-For Hue devices I created another code block and add also save the id's from the lights that are on:
+For Hue devices I created another code block that also save the id's from the lights that are on:
 
 ```lua
 local j = 0
@@ -172,7 +173,7 @@ end
 
 #### Saving the light state
 
-The above scripts checked the lights that are on in your house and turned them off (if they where not excluded). I saved a table with these lights and now I write this table to a global variable to use with the _arrive home_ scene. With this info I can turn all lights back on in the same state when we left the house.
+The above scripts checked the lights that are still on in our house and turned them off (if they where not excluded). I saved a table with these lights and now I write this table to a global variable to use with the _arrive home_ scene. With this info I can turn all lights back on in the same state when we left the house.
 
 ```lua
 fibaro:setGlobal("SleepingLights", devicesOn:sub(1, -2)) -- remove last |
@@ -180,7 +181,7 @@ fibaro:setGlobal("SleepingLights", devicesOn:sub(1, -2)) -- remove last |
 
 ### Scene 2: leave home explained
 
-This scene is pretty simple. If both `JoepPresent` and `MoniquePresent` are set to `No` the `HomeState` variable is set to `away` and the _TurnOffAllLights_ scene is started:
+This scene is pretty simple. If both `JoepPresent` and `MoniquePresent` are set to `No` the `HomeState` variable is set to `away` and the _TurnOffAllLights_ scene is started. These variables are set with my [presence detection scene](/presence/).
 
 ```lua
 if fibaro:getGlobalValue("JoepPresent") == "No" and fibaro:getGlobalValue("MoniquePresent") == "No" then
@@ -188,7 +189,7 @@ if fibaro:getGlobalValue("JoepPresent") == "No" and fibaro:getGlobalValue("Moniq
   fibaro:debug(os.date("%a, %b %d") .. " Set HomeState to away.")
   fibaro:setGlobal("TurnOffExclusions", "0") -- no exclusions
   if fibaro:countScenes(33) < 1 then
-  	fibaro:startScene(33) -- run Turn All Lights Off Scene
+    fibaro:startScene(33) -- run Turn All Lights Off Scene
   else
     fibaro:debug(os.date("%a, %b %d") .. " Turn Of All Lights scene already running!")
   end
@@ -199,7 +200,7 @@ Note: the _TurnOffAllLights_ scene has id `33` in my system, you have to change 
 
 ### Scene 3: arrive home explained
 
-The LUA scene to run when the first person arrived home is a little bit more complex. At home I have tree entrances:
+The LUA scene to run when the first person arrive's at home is a little bit more complex. At home I have tree entrances:
 
 | Entrance     | Sensor                    |
 | ------------ | ------------------------- |
@@ -207,7 +208,7 @@ The LUA scene to run when the first person arrived home is a little bit more com
 | Garage door  | Fibaro Motion Sensor      |
 | Terrace door | Fibaro Motion Sensor      |
 
-As I can arrive at any of these doors I have to check all sensors for _activity_ and if one sensor sends _breached_ state the Home Center needs to act and start the _arrive home_ scene.
+As a house member can arrive at any of these doors I have to check all sensors for _activity_ and if one sensor sends a _breached_ state the Home Center 2 needs to act and start the _arrive home_ scene.
 
 #### Reading the sensors
 
@@ -222,11 +223,11 @@ if tonumber(fibaro:getValue(176, "value") > 0 or tonumber(fibaro:getValue(164, "
 
 The _door sensor_ sets it's value to `1` when I open the door, and sets it's value back to `0` when I close the front door. The _motion_ sensors keep their _value_ at `1` until the _alarm cancellation delay_ is reached (set with _parameter 6_).
 
-This is a problem. When I enter the garage to get some stuff before leaving the house the _value_ of the motion sensor stays `1` during the _alarm cancellation delay_, even if there is no motion anymore. If I grab something the garage and leave through the front door within this period the _value of the motion sensor is still' `1` and the lights go immediatly back on when opening the front door. It took a while to figure this out!
+This is a problem. When I enter the garage to get some stuff before leaving the house the _value_ of the motion sensor stays `1` during the _alarm cancellation delay_, even if there is no motion anymore. If I grab something the garage and leave through the front door within this period the *value* of the motion sensor is still `1` and the lights go immediately back on when opening the front door. It took a while to figure this out!
 
-I found that the `lastBreached` parameter keeps a timestamp value from the last time motion was detected. In the LUA scene I check if the _active breach_ is within the _alarm cancellation delay_ parameter value (6). In my case this is _5 minutes_ (or 300 seconds). If this is the case I report no movement and it doesn't trigger the arrival scenario.
+I found out that the `lastBreached` parameter keeps a timestamp value from the last time motion was detected. In the LUA scene I check if the _active breach_ is within the _alarm cancellation delay_ parameter value (6). In my case this is _5 minutes_ (or 300 seconds). If this is the case I report no movement and it doesn't trigger the arrival scenario.
 
-Another problem is that if the sensor is not breached the _lastBreached_ value is `0`. The sensor is so fast the scene reads _0_ as there is motion detected and it thinks there is no movement. I fix this behaviour with the following code:
+Another problem is that if the sensor is not breached the _lastBreached_ value is `0`. The sensor is so fast the scene reads 0 as soon there is motion detected and it thinks there is no movement. I fix this behaviour with the following code:
 
 ```lua
 local lastBreachedGarage = currentime - tonumber(fibaro:getValue(164, "lastBreached"))
@@ -300,7 +301,13 @@ else
 end
 ```
 
-### Download my scenes complete LUA code
+## More awesome usecases
+
+Because I made the _TurnOffAllLights_ universal and supports exclusions you can make cool other scenes using it like a _Go to Bed_ scene trigged by a _scene activition_. Also the _arrive home_ scene can be edited to automatically create a nice cup of coffee when arriving home from a long day.
+
+I'll describe these cool features soon as I'm implementing these at the moment.
+
+## Download my scenes complete LUA code
 
 You can download the full LUA scene code from here:
 
