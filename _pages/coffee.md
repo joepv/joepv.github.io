@@ -8,17 +8,28 @@ image: coffee.jpg
 background-image: coffee.jpg
 ---
 
-# Wake-up with a fresh morning coffee
+# Wake-up with a fresh morning coffee<!-- omit in toc -->
 
 January 20, 2018 (_**draft**_)  
 _**Applies to:** Fibaro Home Center 2, Node-RED and Google Calendar._
 
-## Goals
+## Goals<!-- omit in toc -->
 
 * Check in Google Calendar if coffee is desirable _next_ morning.
 * Change [wake-up routine](/wakeup/) to activate the coffee machine if needed.
 
 When I have to get up (very) early for a long ride to a client I make myself a cup of coffee in the morning. I thought why not automate this process by reading my calendar and telling the [wake-up routine](/wakeup/) to check if coffee is desirable in the morning!
+
+## Table of Contents<!-- omit in toc -->
+- [How I implemented it](#how-i-implemented-it)
+  - [In words](#in-words)
+  - [Devices used](#devices-used)
+  - [Node-RED part](#node-red-part)
+    - [Install the node for Node-RED to connect to Google Calendar:](#install-the-node-for-node-red-to-connect-to-google-calendar)
+    - [Import the following flow in Node-RED](#import-the-following-flow-in-node-red)
+    - [Edit the flow in Node-RED](#edit-the-flow-in-node-red)
+  - [Fibaro part](#fibaro-part)
+    - [Global variables](#global-variables)
 
 ## How I implemented it
 
@@ -51,8 +62,8 @@ Change all names and variables to your own in Node-RED and Home Center 2 variabl
 
 This is the global variable you need for the routine to work:
 
-| Global Variable   | Type       | Value        |
-| ----------------- | ---------- | ------------ |
-| MakeCoffee        | Predefined | yes, no      |
+| Global Variable | Type       | Value   |
+| --------------- | ---------- | ------- |
+| MakeCoffee      | Predefined | yes, no |
 
 _**This is a draft, come back soon!**_
