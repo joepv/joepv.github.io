@@ -1,5 +1,5 @@
 ---
-key: 5
+key: 4
 title: Wake-up with a fresh morning coffee
 product: Google Calendar, Node-RED and Fibaro Home Center 2
 permalink: /coffee/

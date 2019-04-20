@@ -1,5 +1,5 @@
 ---
-key: 4
+key: 5
 title: See people at your door
 product: Fibaro Home Center 2 and Ring Video Doorbell
 permalink: /ringdoorbell/
