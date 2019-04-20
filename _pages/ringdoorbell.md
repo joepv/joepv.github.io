@@ -8,7 +8,7 @@ image: ringdoorbell.jpg
 background-image: ringdoorbell.jpg
 ---
 
-# Add your Ring Video Doorbell to the Fibaro HomeCenter 2.
+# Add your Ring  Doorbell to the Fibaro HomeCenter 2.
 
 April 20, 2019  
 _**Applies to:** Fibaro Home Center 2, Ring Video Doorbell, Python and Node-RED_
@@ -25,7 +25,7 @@ With the use of a *Python* library which uses the reverse engineered API and *ff
 ## TL;DR
 
 * Check for the *last* ring, and download the video.
-* Extract *one frame* from the video with ffmpeg to create a *snapshot*.
+* Extract *one frame* from the video with *ffmpeg* to create a *snapshot*.
 * Serve the snapshot with HTTP.
 * Configure the Fibaro Home Center 2 with a new camera to view the snapshot.
 
@@ -49,7 +49,7 @@ Install the [Python Ring Door Bell Library](https://github.com/tchellomello/pyth
 
 `pip install ring_doorbell`
 
-I use Node-RED to serve HTTP in this post, but if you want to use nginx or apache you have to install this first. This is out of the scope of this article.
+I use Node-RED to serve HTTP in this post, but if you want to use NGINX or Apache you have to install this first. This is out of the scope of this article.
 
 ### Python part
 
@@ -91,7 +91,7 @@ Give the camera a usefull name and change the advanced settings to the following
 
 ![fibarocamerasettings](../images/screenshots/fibarocamerasettings.jpg)
 
-*Note! The MJPG stream does not work, you have NO video! I'm still searching for a solution to play the last Ring video as camera stream.*
+**Note! The MJPG stream does not work, you have NO video! I'm still searching for a solution to play the last Ring video as camera stream.**
 
 ## The result
 
