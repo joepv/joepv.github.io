@@ -5,7 +5,7 @@ product: Fibaro Home Center 2
 permalink: /sprinklercontrol/
 excerpt: One-click watering with predefined time-out
 image: sprinklercontrol.jpg
-background-image: sprinklercontrol2.jpg
+background-image: sprinklercontrol.jpg
 ---
 
 # A virtual device to control your garden watering<!-- omit in toc -->
@@ -24,7 +24,7 @@ With Fibaro Home Center 2 I can use the *Sprinkler Panel* to fully automate my g
   - [In words](#in-words)
   - [Before you start](#before-you-start)
     - [Get the Id of the Wall Plug connected to your watering system](#get-the-id-of-the-wall-plug-connected-to-your-watering-system)
-    - [Get Id of your Phone for receiving notifications](#get-id-of-your-phone-for-receiving-notifications)
+    - [Get the Id of your Phone for receiving notifications](#get-the-id-of-your-phone-for-receiving-notifications)
   - [Step 1: Import the Sprinkler Control Virtual Device](#step-1-import-the-sprinkler-control-virtual-device)
     - [Getting the Virtual Device file](#getting-the-virtual-device-file)
     - [Import the Virtual Device file](#import-the-virtual-device-file)
@@ -68,14 +68,14 @@ Before you start implementing I want to state that I control my whole garden irr
 
 * Remember the `id`, or write it on a piece of paper for the next step when you implement the _LUA scene_.
 
-#### Get Id of your Phone for receiving notifications 
+#### Get the Id of your Phone for receiving notifications 
 
 To get the Id of your phone for receiving push notifications is a little bit tricky:
 
 * Open `http://<fibaro_ipaddres>/api/devices?type=iOS_device` in your browser.
 * A `JSON` response will show. Select and copy all text to the clipboard.
 * Open `http://jsonprettyprint.com` in your browser.
-* Paste the text in this website and click the **Pretty Print JSON** button.
+* Paste the text in the *jsonprettyprint.com *website and click the **Pretty Print JSON** button.
 * Find your phone name in the list. The Id is shown above the name. The example below shows an `id` of `156`:
 
 ```json
