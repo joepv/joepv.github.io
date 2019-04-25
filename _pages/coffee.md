@@ -13,7 +13,7 @@ background-image: coffee.jpg
 January 20, 2018 (_**draft**_)  
 _**Applies to:** Fibaro Home Center 2, Node-RED and Google Calendar._
 
-## Goals<!-- omit in toc -->
+## Goals
 
 * Check in Google Calendar if coffee is desirable _next_ morning.
 * Change [wake-up routine](/wakeup/) to activate the coffee machine if needed.
@@ -21,6 +21,7 @@ _**Applies to:** Fibaro Home Center 2, Node-RED and Google Calendar._
 When I have to get up (very) early for a long ride to a client I make myself a cup of coffee in the morning. I thought why not automate this process by reading my calendar and telling the [wake-up routine](/wakeup/) to check if coffee is desirable in the morning!
 
 ## Table of Contents<!-- omit in toc -->
+- [Goals](#goals)
 - [How I implemented it](#how-i-implemented-it)
   - [In words](#in-words)
   - [Devices used](#devices-used)

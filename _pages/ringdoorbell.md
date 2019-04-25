@@ -8,7 +8,7 @@ image: ringdoorbell.jpg
 background-image: ringdoorbell.jpg
 ---
 
-# Add your Ring  Doorbell to the Fibaro HomeCenter 2.
+# Add your Ring  Doorbell to the Fibaro Home Center 2<!-- omit in toc -->
 
 April 20, 2019  
 _**Applies to:** Fibaro Home Center 2, Ring Video Doorbell, Python and Node-RED_
@@ -21,6 +21,18 @@ The Ring Video Doorbell API is closed. So it is very difficult to integrate the 
 Also it is not possible to get a snapshot of the last ringer. 
 
 With the use of a *Python* library which uses the reverse engineered API and *ffmpeg* I managed to get a snapshot in the *Fibaro Home Center App*. To serve the snapshot I use *Node-RED* because I have it already running. You can also use *Apache* or *NGINX*.
+
+## Table of Contents<!-- omit in toc -->
+- [Goals](#goals)
+- [TL;DR](#tldr)
+- [How I implemented it](#how-i-implemented-it)
+  - [What do you need?](#what-do-you-need)
+  - [Linux part](#linux-part)
+  - [Python part](#python-part)
+  - [Node-RED part](#node-red-part)
+  - [Fibaro part](#fibaro-part)
+- [The result](#the-result)
+- [Download](#download)
 
 ## TL;DR
 
