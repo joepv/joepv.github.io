@@ -36,7 +36,7 @@ With Fibaro Home Center 2 I can use the *Sprinkler Panel* to fully automate my g
     - [Configure the LUA scene](#configure-the-lua-scene)
       - [Set the LUA parameters](#set-the-lua-parameters)
       - [Set the Scene parameters](#set-the-scene-parameters)
-    - [Save and get the ID of the LUA scene](#save-and-get-the-id-of-the-lua-scene)
+      - [Save and get the ID of the LUA scene](#save-and-get-the-id-of-the-lua-scene)
   - [Step 3: Change LUA scene ID in Virtual Device configuration](#step-3-change-lua-scene-id-in-virtual-device-configuration)
 - [Congratulations!](#congratulations)
 - [More information about Virtual Devices](#more-information-about-virtual-devices)
@@ -177,7 +177,7 @@ The following table explains the variables:
 * Set the parameter **Max. running instances** to  `2`
 * Set the parameter **Run scene** to `Automatic`
 
-#### Save and get the ID of the LUA scene
+##### Save and get the ID of the LUA scene
 
 * Click the **Save** button (diskette) on the right toolbar to save the LUA scene.
 
