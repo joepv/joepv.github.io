@@ -5,7 +5,7 @@ product: Fibaro Home Center 2
 permalink: /sprinklercontrol/
 excerpt: One-click watering with predefined time-out
 image: sprinklercontrol.jpg
-background-image: sprinklercontrol.jpg
+background-image: sprinklercontrol2.jpg
 ---
 
 # A virtual device to control your garden watering<!-- omit in toc -->
