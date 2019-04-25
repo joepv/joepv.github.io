@@ -158,7 +158,7 @@ At the top of the code you have to **set** the id's of your devices configured i
 local sprinklerVirtualDevice = 182 -- virtual device id
 local sprinklerWallplugId    = 174 -- garden wall plug
 local phoneNotificationId    = 156 -- Joep's Phone
-local sprinkerTimeInMinutes  = 15  -- default sprinkler timeout.
+local sprinkerTimeInMinutes  = 15  -- default sprinkler time-out.
 ```
 
 The following table explains the variables:
