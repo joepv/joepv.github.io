@@ -311,8 +311,8 @@ I'll describe these cool features soon as I'm implementing these at the moment.
 
 You can download the full LUA scene code from here:
 
-* Scene 1: _full code published soon!_
-* Scene 2: _full code published soon!_
-* Scene 3: _full code published soon!_
+* Scene 1: [TurnAllLightsOff.lua](https://github.com/joepv/fibaro/blob/master/TurnAllLightsOff_Public.lua)
+* Scene 2: [LeaveHome.lua](https://github.com/joepv/fibaro/blob/master/LeaveHome_Public.lua)
+* Scene 3: [ArriveHome.lua](https://github.com/joepv/fibaro/blob/master/ArriveHome_Public.lua)
 
 **You have to change the _device id's_ from my motion sensors in this scene to your own id's!**
