@@ -10,7 +10,7 @@ background-image: mowercontrol.jpg
 
 # Intelligent rain detection for your SILENO Robotic Lawnmower<!-- omit in toc -->
 
-July 7, 2019 (draft)  
+July 7, 2019   
 _**Applies to:** Fibaro Home Center 2_
 
 ## Goals
@@ -19,7 +19,7 @@ _**Applies to:** Fibaro Home Center 2_
 * Park my lawnmower until next schedule then there is a rainstorm.
 * When the rain gets worse, park my lawnmower until next schedule.
 
-The Gardena SILENO Robotic Lawnmowers have no rain sensor, they just work in the rain. Amazing technology but when there is a rainstorm it's safer to park the mower. I can program a LUA scene in the Fibaro Home Center to look at the weather forecast and park the mower when rain is expected, but forecast changes a lot here in The Netherlands. I found that BuienRadar.nl is accurate and they have a public API (for non commercial use). BuienRadar gives me current rain conditions in mm/h in 5 minute intervals for the next 2 hours. With this information I can anticipate on the amount of rain and decide if the mower needs to be parked.
+The Gardena SILENO Robotic Lawnmowers have no rain sensor, they just work in the rain. Amazing technology but when there is a rainstorm it's safer to park the mower. I can program a LUA scene in the Fibaro Home Center to look at the weather forecast and park the mower when rain is expected, but forecast changes a lot here in The Netherlands. I found that [BuienRadar](https://www.buienradar.nl/) is accurate and they have a [public API](https://www.buienradar.nl/overbuienradar/gratis-weerdata) (for non commercial use). BuienRadar gives me *current rain conditions in mm/h in 5 minute intervals* for the next 2 hours. With this information I can anticipate on the amount of rain and decide if the mower needs to be parked.
 
 ## Table of Contents<!-- omit in toc -->
 - [Goals](#Goals)
@@ -53,13 +53,13 @@ The Gardena SILENO Robotic Lawnmowers have no rain sensor, they just work in the
 
 ### In words
 
-[Fibaro Forum](https://forum.fibaro.com/) user [Barlow](https://marketplace.fibaro.com/profiles/fibaro-user-unnamed-97289857-ceae-4d7d-a4b3-16fc03a4999d) did an amazing job by creating a [Virtual Device](https://marketplace.fibaro.com/items/gardena-smartsystem) for the Gardena Smart System. But for my intelligent rain detection it is to extensive. I like to utilize only the things I need in my Smart Home / IoT network to keep the network communication and processing power as low as possible. Therefore I used his LUA scene as a reference and made my own.
+[Fibaro Forum](https://forum.fibaro.com/) user [Barlow](https://marketplace.fibaro.com/profiles/fibaro-user-unnamed-97289857-ceae-4d7d-a4b3-16fc03a4999d) did an amazing job by creating a [*Virtual Device*](https://marketplace.fibaro.com/items/gardena-smartsystem) for the Gardena Smart System. But for my intelligent rain detection it is to extensive. I like to utilize only the things I need in my Smart Home to keep the network communication and processing power as low as possible. Therefore I used his LUA scene as a reference and made my own.
 
-The BuienRadar API is public (for non commercial use) and combining these two API's with the Fibaro Home Center I can act on rain accuratly.
+The *BuienRadar API* is public (for non commercial use) and combining these two API's with the *Fibaro Home Center* I can act on rain accuratly.
 
 ### Before you start
 
-* Get the latitude and longitude coordinates for the location your lawnmower is working. You can use the website [latlong.net](https://www.latlong.net/) for it.
+* Get the *latitude* and *longitude* coordinates for the location your lawnmower is working. You can use the website [latlong.net](https://www.latlong.net/) for it.
 * Make sure the [iOS](https://apps.apple.com/nl/app/gardena-smart-system/id971199503) or [Android](https://play.google.com/store/apps/details?id=com.gardena.smartgarden) Gardena App is working on your smartphone and have the login information at hand.
 
 ### Step 1: Import the Mower Control Virtual Device
@@ -102,7 +102,7 @@ Create a _Global variable_ in your Home Center 2 _Variables Panel_ at `http://19
 
 #### Create a new LUA scene and import the code
 
-* **Click** on the **Scenes** tab in* top panel* and then on **Add scene** button in the *left sidebar*.
+* **Click** on the **Scenes** tab in *top panel* and then on **Add scene** button in the *left sidebar*.
 * **Click** in the **New Scene** screen on the **Add** button in the **Add scene in LUA** section.
 
 ![sprinklercontrol_add_scn.jpg](../images/screenshots/sprinklercontrol_add_scn.jpg)
@@ -123,10 +123,10 @@ Create a _Global variable_ in your Home Center 2 _Variables Panel_ at `http://19
 
 ```lua
 gardenaEmail    = "user@domain.com"
-gardenaPassword = "mysupersecretcode"
+gardenaPassword = "mysecretpassword"
 latlon = "lat=52.37&lon=4.89"
-mowerVirtualDevice = 184
-phoneId = 12
+mowerVirtualDevice = 184  -- virtual device id
+phoneId = 156
 ```
 
 ##### Set the Scene parameters
