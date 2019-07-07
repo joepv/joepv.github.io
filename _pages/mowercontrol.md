@@ -10,7 +10,7 @@ background-image: mowercontrol.jpg
 
 # Intelligent rain detection for your SILENO Robotic Lawnmower<!-- omit in toc -->
 
-July 7, 2019 (draft)
+July 7, 2019 (draft)  
 _**Applies to:** Fibaro Home Center 2_
 
 ## Goals

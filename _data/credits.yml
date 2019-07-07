@@ -115,6 +115,9 @@ image-credit:
   - src : /images/ringdoorbell.jpg
     by  : Ring.com
     url : https://eu.ring.com/
+  - src : /images/mowercontrol.jpg
+    by  : Gardena
+    url : https://www.gardena.com/
 
 image-pexels:
   - src : /images/contact.jpg
