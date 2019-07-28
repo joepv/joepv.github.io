@@ -16,32 +16,32 @@ _**Applies to:** Fibaro Home Center 2_
 ## Goals
 
 * Temporary park my lawnmower when there is more than 2 mm/h rain.
-* Park my lawnmower until next schedule then there is a rainstorm.
-* When the rain gets worse, park my lawnmower until next schedule.
+* Park my lawnmower for 8 hours then there is a rainstorm.
+* When the rain gets worse, park my lawnmower for 8 hours.
 
 The Gardena SILENO Robotic Lawnmowers have no rain sensor, they just work in the rain. Amazing technology but when there is a rainstorm it's safer to park the mower. I can program a LUA scene in the Fibaro Home Center to look at the weather forecast and park the mower when rain is expected, but forecast changes a lot here in The Netherlands. I found that [BuienRadar](https://www.buienradar.nl/) is accurate and they have a [public API](https://www.buienradar.nl/overbuienradar/gratis-weerdata) (for non commercial use). BuienRadar gives me *current rain conditions in mm/h in 5 minute intervals* for the next 2 hours. With this information I can anticipate on the amount of rain and decide if the mower needs to be parked.
 
 ## Table of Contents<!-- omit in toc -->
-- [Goals](#Goals)
-- [TL;DR](#TLDR)
-- [How I implemented it](#How-I-implemented-it)
-  - [In words](#In-words)
-  - [Before you start](#Before-you-start)
-  - [Step 1: Import the Mower Control Virtual Device](#Step-1-Import-the-Mower-Control-Virtual-Device)
-    - [Getting the Virtual Device file](#Getting-the-Virtual-Device-file)
-    - [Import the Virtual Device file](#Import-the-Virtual-Device-file)
-    - [Configure the Virtual Device](#Configure-the-Virtual-Device)
-    - [Get the ID of the Virtual Device](#Get-the-ID-of-the-Virtual-Device)
-  - [Step 2: Create a Global Variable](#Step-2-Create-a-Global-Variable)
-  - [Step 3: Create a Mower Control LUA scene](#Step-3-Create-a-Mower-Control-LUA-scene)
-    - [Getting the LUA scene code](#Getting-the-LUA-scene-code)
-    - [Create a new LUA scene and import the code](#Create-a-new-LUA-scene-and-import-the-code)
-    - [Configure the LUA scene](#Configure-the-LUA-scene)
-      - [Set the LUA parameters](#Set-the-LUA-parameters)
-      - [Set the Scene parameters](#Set-the-Scene-parameters)
-- [Congratulations!](#Congratulations)
-- [More information about Virtual Devices](#More-information-about-Virtual-Devices)
-- [Downloads](#Downloads)
+- [Goals](#goals)
+- [TL;DR](#tldr)
+- [How I implemented it](#how-i-implemented-it)
+  - [In words](#in-words)
+  - [Before you start](#before-you-start)
+  - [Step 1: Import the Mower Control Virtual Device](#step-1-import-the-mower-control-virtual-device)
+    - [Getting the Virtual Device file](#getting-the-virtual-device-file)
+    - [Import the Virtual Device file](#import-the-virtual-device-file)
+    - [Configure the Virtual Device](#configure-the-virtual-device)
+    - [Get the ID of the Virtual Device](#get-the-id-of-the-virtual-device)
+  - [Step 2: Create a Global Variable](#step-2-create-a-global-variable)
+  - [Step 3: Create a Mower Control LUA scene](#step-3-create-a-mower-control-lua-scene)
+    - [Getting the LUA scene code](#getting-the-lua-scene-code)
+    - [Create a new LUA scene and import the code](#create-a-new-lua-scene-and-import-the-code)
+    - [Configure the LUA scene](#configure-the-lua-scene)
+      - [Set the LUA parameters](#set-the-lua-parameters)
+      - [Set the Scene parameters](#set-the-scene-parameters)
+- [Congratulations!](#congratulations)
+- [More information about Virtual Devices](#more-information-about-virtual-devices)
+- [Downloads](#downloads)
 
 ## TL;DR
 
