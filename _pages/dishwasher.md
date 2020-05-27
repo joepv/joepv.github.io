@@ -1,7 +1,7 @@
 ---
 key: 9
 title: Smart Energy Management
-product: Bosch Home Connect and Node-RED
+product: Bosch Home Connect, Node-RED and Fibaro Home Center 2
 permalink: /dishwasher/
 excerpt: Wash your dishes with power from your solar panels!
 image: perfectdry.jpg
@@ -11,13 +11,14 @@ background-image: perfectdry.jpg
 # Smart Energy with Solar Panels and a Bosch Home Connected dishwasher<!-- omit in toc -->
 
 May 18, 2020   
-_**Applies to:** Node-RED, DSMR Reader and Bosch Home Connect_
+_**Applies to:** Node-RED, DSMR Reader, Bosch Home Connect and Fibaro Home Center 2_
 
 ## Table of Contents<!-- omit in toc -->
 
 - [Goal](#goal)
 - [TL;DR](#tldr)
 - [Why I chose Node-RED](#why-i-chose-node-red)
+- [Prerequisites](#prerequisites)
 - [Node-RED implementation](#node-red-implementation)
   - [Bosch Home Connect](#bosch-home-connect)
     - [Installation](#installation)
@@ -45,9 +46,19 @@ One of these devices is our dishwasher made by Bosch. The dishwasher has the Hom
 
 ## Why I chose Node-RED
 
-Event based
+If you read my previous articles you know I use the Fibaro System as base of my domotica system. Why do I make this smart energy system with Node-RED and not with LUA in the Home Center?
 
-Find phase dishwasher is connected to, and find power usage in kW
+That is because with the Home Center 2 I can not trigger actions based on events. You have to poll an API for new data, and I want the dishwasher virtual device to be instant updated. Also I don't want to poll API's to much because most public API's like Bosch Home Connect has limits requesting the API.
+
+## Prerequisites
+
+Before you can start with this awesome stuff you must have to following in place:
+
+* Your dishwasher must be connected to [Bosch Home Connect](https://apps.apple.com/nl/app/home-connect-app/id901397789).
+* Node-Red must be installed and configured with the [`node-contrib-home-connect`](https://www.npmjs.com/package/node-red-contrib-homeconnect) node.
+* DSMR Reader must be installed and the API enabled in the configuration settings.
+
+> **Note:** This article is based on a 3-phase power connection, find the correct phase where the dishwasher is connected to and write this down to use later.
 
 ## Node-RED implementation
 
