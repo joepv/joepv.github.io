@@ -54,11 +54,11 @@ That is because with the Home Center 2 I can not trigger actions based on events
 
 ## Prerequisites
 
-Before you can start with this awesome stuff you must have to following in place:
+Before you can start with this awesome stuff you must have the following in place:
 
 * Your dishwasher must be connected to [Bosch Home Connect](https://apps.apple.com/nl/app/home-connect-app/id901397789).
-* Node-Red must be installed.
-* DSMR Reader must be installed *and the API enabled* in the configuration settings.
+* [Node-RED](https://nodered.org/) must be installed.
+* [DSMR Reader](https://github.com/dennissiemensma/dsmr-reader) must be installed *and the API enabled* in the configuration settings.
 
 > **Note:** This article is based on a 3-phase power connection, find the correct phase where the dishwasher is connected to and write this down to use later.
 
@@ -76,9 +76,9 @@ npm install node-contrib-home-connect
 
 ### Set up authentication with the Bosch Developer API
 
-To use the Home Connect nodes a **Client ID** and **Client Secret** are required. Those can be received from the [home connect developer page](https://developer.home-connect.com/).
+To use the Home Connect nodes a **Client ID** and **Client Secret** are required. Those can be received from the [Home Connect Developer](https://developer.home-connect.com/) Portal.
 
-After setting up an account, register a new application and select **Authorization Code Grant Flow** as the OAuth Flow.
+After setting up an account, register a new application and select **Authorization Code Grant Flow** as the **OAuth Flow**.
 Set the **Redirect URI** to `http://<ip-address>:<port>/homeconnect/auth/callback`. Set the ip-address and port to match your Node-RED installation.
 
 ### Configure the Home Connect Auth node
@@ -92,8 +92,8 @@ Use the following settings in the **properties** dialog:
 | Property       | Information                                                            |
 | -------------- | ---------------------------------------------------------------------- |
 | Name           | Name of the node (optional)                                            |
-| Client Id	     | Enter the Client ID available on the Home Connect Developer Portal     |
-| Client Secret	 | Enter the Client Secret available on the Home Connect Developer Portal |
+| Client Id	     | `Client ID` from the Home Connect Developer Portal     |
+| Client Secret	 | `Client Secret` from the Home Connect Developer Portal |
 | Scope          | `IdentifyAppliance Dishwasher`                                         |
 | Use Simulation | Not selected                                                           |
 
