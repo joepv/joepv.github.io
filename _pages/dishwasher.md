@@ -64,6 +64,8 @@ Before you can start with this awesome stuff you must have to following in place
 
 ## Node-RED part
 
+To minimize polling API's the event Node listens to the home connect events and if the remote control is activated a flow variable is set. Every day from 09:00 to 14:00 another inject node checks every 5 minutes if the variabel is set. If this is true it start polling the kW return on the correct phase in DSMR reader.
+
 ### Home Connect node installation
 
 First install the [`node-contrib-home-connect`](https://www.npmjs.com/package/node-red-contrib-homeconnect) node in your Node-RED environment:
@@ -125,7 +127,7 @@ If you trigger this flow you get a payload in de debug messages sidebar with all
 }
 ```
 
-Write down the `haId` to use it later.
+Write down the `haId` value to use it later.
 
 ### Functions I wrote
 
