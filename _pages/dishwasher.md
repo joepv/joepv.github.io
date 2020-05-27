@@ -19,15 +19,17 @@ _**Applies to:** Node-RED, DSMR Reader, Bosch Home Connect and Fibaro Home Cente
 - [TL;DR](#tldr)
 - [Why I chose Node-RED](#why-i-chose-node-red)
 - [Prerequisites](#prerequisites)
-- [Node-RED implementation](#node-red-implementation)
-  - [Bosch Home Connect](#bosch-home-connect)
-    - [Installation](#installation)
-    - [Configuration](#configuration)
+- [Node-RED part](#node-red-part)
+  - [Home Connect node installation](#home-connect-node-installation)
+  - [Set up authentication with the Bosch Developer API](#set-up-authentication-with-the-bosch-developer-api)
+  - [Configure the Home Connect Auth node](#configure-the-home-connect-auth-node)
+  - [Get the HAID of your dishwasher](#get-the-haid-of-your-dishwasher)
   - [Functions I wrote](#functions-i-wrote)
     - [Polling State](#polling-state)
     - [DSMR request](#dsmr-request)
     - [Energy return check](#energy-return-check)
-  - [](#)
+- [Fibaro Home Center 2 part](#fibaro-home-center-2-part)
+- [More information](#more-information)
 
 ## Goal
 
@@ -55,22 +57,75 @@ That is because with the Home Center 2 I can not trigger actions based on events
 Before you can start with this awesome stuff you must have to following in place:
 
 * Your dishwasher must be connected to [Bosch Home Connect](https://apps.apple.com/nl/app/home-connect-app/id901397789).
-* Node-Red must be installed and configured with the [`node-contrib-home-connect`](https://www.npmjs.com/package/node-red-contrib-homeconnect) node.
-* DSMR Reader must be installed and the API enabled in the configuration settings.
+* Node-Red must be installed.
+* DSMR Reader must be installed *and the API enabled* in the configuration settings.
 
 > **Note:** This article is based on a 3-phase power connection, find the correct phase where the dishwasher is connected to and write this down to use later.
 
-## Node-RED implementation
+## Node-RED part
 
-### Bosch Home Connect
+### Home Connect node installation
 
-#### Installation
+First install the [`node-contrib-home-connect`](https://www.npmjs.com/package/node-red-contrib-homeconnect) node in your Node-RED environment:
 
-Node install configure info here
+```bash
+npm install node-contrib-home-connect
+```
 
-#### Configuration
+### Set up authentication with the Bosch Developer API
 
-How to get the HAIM, special option I did not know
+To use the Home Connect nodes a **Client ID** and **Client Secret** are required. Those can be received from the [home connect developer page](https://developer.home-connect.com/).
+
+After setting up an account, register a new application and select **Authorization Code Grant Flow** as the OAuth Flow.
+Set the **Redirect URI** to `http://<ip-address>:<port>/homeconnect/auth/callback`. Set the ip-address and port to match your Node-RED installation.
+
+### Configure the Home Connect Auth node
+
+The `home-connect-auth` node handles the authentication for the Home Connect Developer API.
+
+> **Note:** Start the authorization from the **edit `home-connect-auth` dialog**, finish the authorization at the Home Connect website and then save and deploy your changes.
+
+Use the following settings in the **properties** dialog:
+
+| Property       | Information                                                            |
+| -------------- | ---------------------------------------------------------------------- |
+| Name           | Name of the node (optional)                                            |
+| Client Id	     | Enter the Client ID available on the Home Connect Developer Portal     |
+| Client Secret	 | Enter the Client Secret available on the Home Connect Developer Portal |
+| Scope          | `IdentifyAppliance Dishwasher`                                         |
+| Use Simulation | Not selected                                                           |
+
+### Get the HAID of your dishwasher
+
+To direct access the dishwasher you need the `haId` of the device. At first I didn't know how to get this, but I figured out you have to add `IdentifyApplicance` to the `Scope` of the `home-connect-auth` node, else you don't have the authorisation to read general appliance settings.
+
+![dishwasher-scope](../images/screenshots/dishwasher-scope.png)
+
+Create a new flow to trigger a `get_home_appliances` action with the `home-connect-request` node to get information about all your appliances connected to Home Connect:
+
+![dishwasher-scope](../images/screenshots/dishwasher-getappliances-node.png)
+
+![dishwasher-scope](../images/screenshots/dishwasher-getappliances.png)
+
+If you trigger this flow you get a payload in de debug messages sidebar with all your connected appliances:
+
+```json
+{
+  "homeappliances": [
+    {
+      "name": "Vaatwasser",
+      "brand": "Bosch",
+      "vib": "SBEXXXXXXX",
+      "connected": true,
+      "type": "Dishwasher",
+      "enumber": "SBEXXXXXXX/00",
+      "haId": "BOSCH-SBEXXXXXXX-0123456789AB"
+    }
+  ]
+}
+```
+
+Write down the `haId` to use it later.
 
 ### Functions I wrote
 
@@ -80,4 +135,8 @@ How to get the HAIM, special option I did not know
 
 #### Energy return check
 
-### 
+## Fibaro Home Center 2 part
+
+## More information
+
+* https://developer.home-connect.com/docs/
