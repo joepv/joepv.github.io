@@ -92,14 +92,14 @@ Use the following settings in the **properties** dialog:
 | Property       | Information                                                            |
 | -------------- | ---------------------------------------------------------------------- |
 | Name           | Name of the node (optional)                                            |
-| Client Id	     | `Client ID` from the Home Connect Developer Portal     |
-| Client Secret	 | `Client Secret` from the Home Connect Developer Portal |
+| Client Id	     | `Client ID` from the Home Connect Developer Portal                     |
+| Client Secret	 | `Client Secret` from the Home Connect Developer Portal                 |
 | Scope          | `IdentifyAppliance Dishwasher`                                         |
-| Use Simulation | Not selected                                                           |
+| Use Simulation | `Not selected`                                                         |
 
 ### Get the HAID of your dishwasher
 
-To direct access the dishwasher you need the `haId` of the device. At first I didn't know how to get this, but I figured out you have to add `IdentifyApplicance` to the `Scope` of the `home-connect-auth` node, else you don't have the authorisation to read general appliance settings.
+To direct access the dishwasher you need the `haId` of the device. At first I didn't know how to get this, but I figured out you have to add `IdentifyApplicance` to the `Scope` of the `home-connect-auth` node, else you don't have the authorisation to read general appliance settings:
 
 ![dishwasher-scope](../images/screenshots/dishwasher-scope.png)
 
@@ -127,7 +127,7 @@ If you trigger this flow you get a payload in de debug messages sidebar with all
 }
 ```
 
-Write down the `haId` value to use it later.
+<i class="icon-pencil"></i> Write down the `haId` value to use it later.
 
 ### Functions I wrote
 
