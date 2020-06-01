@@ -1,7 +1,7 @@
 ---
 key: 9
 title: Smart Energy Management
-product: Bosch Home Connect, Node-RED and Fibaro Home Center 2
+product: Bosch Home Connect and Node-RED
 permalink: /dishwasher/
 excerpt: Wash your dishes with power from your solar panels!
 image: perfectdry.jpg
@@ -10,8 +10,8 @@ background-image: perfectdry.jpg
 
 # Smart Energy with Solar Panels and a Bosch Home Connected dishwasher<!-- omit in toc -->
 
-May 18, 2020   
-_**Applies to:** Node-RED, DSMR Reader, Bosch Home Connect and Fibaro Home Center 2_
+June 1, 2020   
+_**Applies to:** Node-RED, DSMR Reader and Bosch Home Connect_
 
 ## Table of Contents<!-- omit in toc -->
 
@@ -19,17 +19,16 @@ _**Applies to:** Node-RED, DSMR Reader, Bosch Home Connect and Fibaro Home Cente
 - [TL;DR](#tldr)
 - [Why I chose Node-RED](#why-i-chose-node-red)
 - [Prerequisites](#prerequisites)
-- [Node-RED part](#node-red-part)
-  - [Home Connect node installation](#home-connect-node-installation)
+- [How the flow works](#how-the-flow-works)
+- [Home Connect node installation](#home-connect-node-installation)
   - [Set up authentication with the Bosch Developer API](#set-up-authentication-with-the-bosch-developer-api)
   - [Configure the Home Connect Auth node](#configure-the-home-connect-auth-node)
   - [Get the HAID of your dishwasher](#get-the-haid-of-your-dishwasher)
-  - [Check for dishwasher events](#check-for-dishwasher-events)
-  - [Check for energy return](#check-for-energy-return)
-    - [DSMR Reader request](#dsmr-reader-request)
-    - [Read how much energy is returned](#read-how-much-energy-is-returned)
-  - [Start dishwasher](#start-dishwasher)
-- [Fibaro Home Center 2 part](#fibaro-home-center-2-part)
+- [Check for dishwasher events](#check-for-dishwasher-events)
+- [Check for energy return](#check-for-energy-return)
+  - [DSMR Reader request](#dsmr-reader-request)
+  - [Read how much energy is returned](#read-how-much-energy-is-returned)
+- [Finally start the dishwasher](#finally-start-the-dishwasher)
 - [More information](#more-information)
 
 ## Goal
@@ -49,9 +48,9 @@ One of these devices is our dishwasher made by Bosch. The dishwasher has the Hom
 
 ## Why I chose Node-RED
 
-If you read my previous articles you know I use the Fibaro System as base of my domotica system. Why do I make this smart energy system with Node-RED and not with LUA in the Home Center?
+If you read my previous articles you know I use the Fibaro System as base of my domotica system. Why do I make this smart energy system with Node-RED and not with LUA on the Home Center?
 
-That is because with the Home Center 2 I can not trigger actions based on events. You have to poll an API for new data, and I want the dishwasher virtual device to be instant updated. Also I don't want to poll API's to much because most public API's like Bosch Home Connect has limits requesting the API.
+That is because with the Home Center 2 I can not trigger actions based on *events*. You have to *poll* an API for new data, and I want the dishwasher virtual device to be instant updated. Also I don't want to poll API's to much because most public API's like Bosch Home Connect has limits requesting the API.
 
 ## Prerequisites
 
@@ -63,11 +62,11 @@ Before you can start with this awesome stuff you must have the following in plac
 
 > **Note:** This article is based on a 3-phase power connection, find the correct phase where the dishwasher is connected to and write this down to use later.
 
-## Node-RED part
+## How the flow works
 
-To minimize polling API's the event Node listens to the home connect events and if the remote control is activated a flow variable is set. Every day from 09:00 to 14:00 another inject node checks every 5 minutes if the variabel is set. If this is true it start polling the kW return on the correct phase in DSMR reader. The Eco 50 program runs 2,5 hours, so after 14:00 the dishwasher should always start, else the dishes are not ready when I come home from work.
+To minimize polling API's the `dishwasher-event` node listens to the Home Connect events. If remote control is activated on the dishwasher a *flow variable* is set. Every day from 09:00 to 14:00 another inject node checks every 5 minutes if the variable is set. If this is `true` it start polling the kW *returned* energy on the correct phase in DSMR reader. The Eco 50°C program runs 2,5 hours, so after 14:00 the dishwasher should always start, else the dishes are not ready when I come home from work.
 
-### Home Connect node installation
+## Home Connect node installation
 
 First install the [`node-contrib-home-connect`](https://www.npmjs.com/package/node-red-contrib-homeconnect) node in your Node-RED environment:
 
@@ -130,7 +129,7 @@ If you trigger this flow you get a payload in de debug messages sidebar with all
 
 Write down the `haId` value to use it later.
 
-### Check for dishwasher events
+## Check for dishwasher events
 
 The Node-RED flow starts with the correct dishwasher event by using the `home-connect-event` node. A *function* node parses the event and a decision is made what to do next.
 
@@ -141,11 +140,6 @@ if (msg.payload.key == 'BSH.Common.Status.RemoteControlStartAllowed') {
     if (msg.payload.value === true) {
         flow.set("CheckForDishwasherStart", true);
         node.status({fill:"green",shape:"ring",text:"RemoteControlStartAllowed: True"});
-        data = {
-            "id": "183",
-            "ui.lblStatus.value": "Uitgestelde start",
-            "ui.lblProgram.value": "Eco 50°C"
-        };
     }
     else {
         flow.set("CheckForDishwasherStart", false);
@@ -156,13 +150,11 @@ if (msg.payload.key == 'BSH.Common.Status.RemoteControlStartAllowed') {
 
 When you press the button the `BSH.Common.Status.RemoteControlStartAllowed` key is set to `true`. Then I set a flow variable `CheckForDishwasherStart` to `true` to start polling of the DSMR Reader API to check how much power is returned on the dishwasher phase.
 
-The `data` variable is used to update the virtual device in the Fibaro Home Center. I wrote a single scene to update all my virtual devices from Node-RED, more on that later.
-
-### Check for energy return
+## Check for energy return
 
 Every *10 minutes* between 09:00 and 18:00 I check if the flow variable  `CheckForDishwasherStart` is set to `true`. I start to check at 09:00 because before this time I don't want the dishwasher to be running. When the variable is set to `true` I start polling DSMR Reader.
 
-#### DSMR Reader request
+### DSMR Reader request
 
 To get the last telegram from the smart meter I set a time interval of -1 minute to now and get the last reading in that time:
 
@@ -212,7 +204,7 @@ return msg;
 
 The message created by this function is passed to a `http request` node.
 
-#### Read how much energy is returned
+### Read how much energy is returned
 
 My dishwasher is connected to phase 2, therefore I read the variable `phase_currently_returned_l2` from the DSMR Reader API JSON response.
 
@@ -267,13 +259,11 @@ else {
 }
 ```
 
-### Start dishwasher
+## Finally start the dishwasher
 
-If all the above check are ok, the last check is to see if the door is still open. If the door is closed the polling state is set to `false` and the *Eco 50°C* program is started to wash the dishes!
+If all the above check are ok, the last check is to see if the door is still *open*. If the door is *closed* the polling state is set to `false` and the *Eco 50°C* program is started to wash the dishes!
 
 ![dishwasher-startprogram](../images/screenshots/dishwasher-startprogram.png)
-
-## Fibaro Home Center 2 part
 
 ## More information
 
