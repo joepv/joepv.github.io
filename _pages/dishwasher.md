@@ -24,10 +24,11 @@ _**Applies to:** Node-RED, DSMR Reader, Bosch Home Connect and Fibaro Home Cente
   - [Set up authentication with the Bosch Developer API](#set-up-authentication-with-the-bosch-developer-api)
   - [Configure the Home Connect Auth node](#configure-the-home-connect-auth-node)
   - [Get the HAID of your dishwasher](#get-the-haid-of-your-dishwasher)
-  - [Functions I wrote](#functions-i-wrote)
-    - [Polling State](#polling-state)
-    - [DSMR request](#dsmr-request)
-    - [Energy return check](#energy-return-check)
+  - [Check for dishwasher events](#check-for-dishwasher-events)
+  - [Check for energy return](#check-for-energy-return)
+    - [DSMR Reader request](#dsmr-reader-request)
+    - [Read how much energy is returned](#read-how-much-energy-is-returned)
+  - [Start dishwasher](#start-dishwasher)
 - [Fibaro Home Center 2 part](#fibaro-home-center-2-part)
 - [More information](#more-information)
 
@@ -64,7 +65,7 @@ Before you can start with this awesome stuff you must have the following in plac
 
 ## Node-RED part
 
-To minimize polling API's the event Node listens to the home connect events and if the remote control is activated a flow variable is set. Every day from 09:00 to 14:00 another inject node checks every 5 minutes if the variabel is set. If this is true it start polling the kW return on the correct phase in DSMR reader.
+To minimize polling API's the event Node listens to the home connect events and if the remote control is activated a flow variable is set. Every day from 09:00 to 14:00 another inject node checks every 5 minutes if the variabel is set. If this is true it start polling the kW return on the correct phase in DSMR reader. The Eco 50 program runs 2,5 hours, so after 14:00 the dishwasher should always start, else the dishes are not ready when I come home from work.
 
 ### Home Connect node installation
 
@@ -127,15 +128,150 @@ If you trigger this flow you get a payload in de debug messages sidebar with all
 }
 ```
 
-<i class="icon-pencil"></i> Write down the `haId` value to use it later.
+Write down the `haId` value to use it later.
 
-### Functions I wrote
+### Check for dishwasher events
 
-#### Polling State
+The Node-RED flow starts with the correct dishwasher event by using the `home-connect-event` node. A *function* node parses the event and a decision is made what to do next.
 
-#### DSMR request
+First I read if the remote control button is pressed on the dishwasher button panel:
 
-#### Energy return check
+```javascript
+if (msg.payload.key == 'BSH.Common.Status.RemoteControlStartAllowed') {
+    if (msg.payload.value === true) {
+        flow.set("CheckForDishwasherStart", true);
+        node.status({fill:"green",shape:"ring",text:"RemoteControlStartAllowed: True"});
+        data = {
+            "id": "183",
+            "ui.lblStatus.value": "Uitgestelde start",
+            "ui.lblProgram.value": "Eco 50°C"
+        };
+    }
+    else {
+        flow.set("CheckForDishwasherStart", false);
+        node.status({fill:"yellow",shape:"ring",text:"RemoteControlStartAllowed: False"});
+    }
+}
+```
+
+When you press the button the `BSH.Common.Status.RemoteControlStartAllowed` key is set to `true`. Then I set a flow variable `CheckForDishwasherStart` to `true` to start polling of the DSMR Reader API to check how much power is returned on the dishwasher phase.
+
+The `data` variable is used to update the virtual device in the Fibaro Home Center. I wrote a single scene to update all my virtual devices from Node-RED, more on that later.
+
+### Check for energy return
+
+Every *10 minutes* between 09:00 and 18:00 I check if the flow variable  `CheckForDishwasherStart` is set to `true`. I start to check at 09:00 because before this time I don't want the dishwasher to be running. When the variable is set to `true` I start polling DSMR Reader.
+
+#### DSMR Reader request
+
+To get the last telegram from the smart meter I set a time interval of -1 minute to now and get the last reading in that time:
+
+```javascript
+var server  = 'http://192.168.1.1';
+var authkey = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX';
+
+var dt = new Date()
+var current_date = dt.getDate();
+var current_month = dt.getMonth() + 1;
+var current_year = dt.getFullYear();
+var current_hrs = dt.getHours();
+var current_mins = dt.getMinutes();
+var current_secs = dt.getSeconds();
+
+// add 0 before date, month, hrs, mins or secs if they are less than 0
+current_date = current_date < 10 ? '0' + current_date : current_date;
+current_month = current_month < 10 ? '0' + current_month : current_month;
+current_hrs = current_hrs < 10 ? '0' + current_hrs : current_hrs;
+current_mins = current_mins < 10 ? '0' + current_mins : current_mins;
+current_secs = current_secs < 10 ? '0' + current_secs : current_secs;
+
+var pdt = new Date(dt);
+pdt.setMinutes(dt.getMinutes() - 1);
+var past_date = pdt.getDate();
+var past_month = pdt.getMonth() + 1;
+var past_year = pdt.getFullYear();
+var past_hrs = pdt.getHours();
+var past_mins = pdt.getMinutes();
+var past_secs = pdt.getSeconds();
+
+// add 0 before date, month, hrs, mins or secs if they are less than 0
+past_date = past_date < 10 ? '0' + past_date : past_date;
+past_month = past_month < 10 ? '0' + past_month : past_month;
+past_hrs = past_hrs < 10 ? '0' + past_hrs : past_hrs;
+past_mins = past_mins < 10 ? '0' + past_mins : past_mins;
+past_secs = past_secs < 10 ? '0' + past_secs : past_secs;
+
+lte = current_year + '-' + current_month + '-' + current_date + ' ' + current_hrs + ':' + current_mins + ':' + current_secs;
+gte = past_year + '-' + past_month + '-' + past_date + ' ' + past_hrs + ':' + past_mins + ':' + past_secs;
+
+msg.payload = encodeURI(server + '/api/v2/datalogger/dsmrreading?limit=1&ordering=-timestamp&timestamp__gte=' + gte + '&timestamp__lte=' + lte);
+msg.headers = {};
+msg.headers['X-AUTHKEY'] = authkey;
+return msg;
+```
+
+The message created by this function is passed to a `http request` node.
+
+#### Read how much energy is returned
+
+My dishwasher is connected to phase 2, therefore I read the variable `phase_currently_returned_l2` from the DSMR Reader API JSON response.
+
+The response is parsed in the script as follows:
+
+* If it is tuesday and between 10:00 and 14:00 don't start the dishwasher bevause the heatpump needs all electricity for it's anti legionella program.
+* If the current return on phase 2 is more than 1000 W, then pass message through.
+* If it is after 14:00, then always start the dishwasher, so it is ready when I arrive at home from work.
+
+```javascript
+var phase_currently_returned_l2 = parseInt(msg.payload.results[0].phase_currently_returned_l2.split('.').join(""));
+
+var d  = new Date();
+var h  = d.getHours();
+var m  = d.getMinutes();
+var n  = d.getDay();
+var dd = d.getDate();
+var mm = d.getMonth()+1;
+
+if(dd < 10) { dd = '0' + dd; } 
+if(mm < 10) { mm = '0' + mm; } 
+if(m < 10) { m = '0' + m; }
+
+var statusText = phase_currently_returned_l2 + ' W return (' + dd + '-' + mm + ' ' + h + ':' + m + ')';
+
+// if it is tuesday and between 10:00 and 14:00 do nothing because the heatpump gets all
+// electricity for it's anti legionella programma
+if (n == 2 && h >=10 && h <14 ) {
+    statusText = 'halt due heatpump program! (' + dd + '-' + mm + ' ' + h + ':' + m + ')';
+    node.status({fill:"red",shape:"ring",text:statusText});
+    // set msg to null to end flow processing.
+    msg = null;
+    return msg;
+}
+else if (phase_currently_returned_l2 > 1000) {
+    // if current W on phase 2 is more than 1000 pass message through.
+    node.status({fill:"green",shape:"ring",text:statusText});
+    return msg; 
+}
+else if (h >= 14) {
+    // always start dishwasher program after 14:00
+    statusText = statusText + ' (override)';
+    node.status({fill:"green",shape:"ring",text:statusText});
+    return msg;
+    
+}
+else {
+    node.status({fill:"yellow",shape:"ring",text:statusText});
+    // set msg to null to end flow processing.
+    msg = null;
+    return msg;
+}
+```
+
+### Start dishwasher
+
+If all the above check are ok, the last check is to see if the door is still open. If the door is closed the polling state is set to `false` and the *Eco 50°C* program is started to wash the dishes!
+
+![dishwasher-startprogram](../images/screenshots/dishwasher-startprogram.png)
 
 ## Fibaro Home Center 2 part
 
