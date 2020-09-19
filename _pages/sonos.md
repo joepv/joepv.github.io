@@ -16,7 +16,7 @@ _**Applies to:** Fibaro Home Center 2, Sonos_
 ## Table of Contents<!-- omit in toc -->
 - [Goal](#goal)
 - [TL;DR](#tldr)
-- [Why write new LUA code, as there are plug-ins available?](#why-write-new-lua-code-as-there-are-plug-ins-available)
+- [Why write new LUA code? There are plug-ins available!](#why-write-new-lua-code-there-are-plug-ins-available)
 - [How I implemented it](#how-i-implemented-it)
   - [SOAP request with LUA](#soap-request-with-lua)
   - [Parsing the SOAP response](#parsing-the-soap-response)
@@ -25,7 +25,7 @@ _**Applies to:** Fibaro Home Center 2, Sonos_
 
 ## Goal
 
-Almost two years ago I wrote an article about my advanced wake-up routine. In this Fibaro Home Center 2 LUA scene I wrote back in the days I use the Philips Hue API to retrieve the wake-up routine from the Hue bridge to turn on a couple of lights and the coffee machine in the morning.
+Almost two years ago I wrote an article about my [advanced wake-up routine](https://docs.joepverhaeg.nl/wakeup/). In this Fibaro Home Center 2 LUA scene I use the Philips Hue API to retrieve the wake-up routine from the Hue bridge to turn on a couple of lights and the coffee machine in the morning.
 
 In this article I do the same, but I read the alarms set in my Sonos System with the Sonos SOAP API. Yes, Sonos still uses SOAP!
 
@@ -35,9 +35,9 @@ In this article I do the same, but I read the alarms set in my Sonos System with
 * A Fibaro Home Center 2 LUA scene reads all alarms.
 * If an alarm is set for today run a wake-up scene.
 
-## Why write new LUA code, as there are plug-ins available?
+## Why write new LUA code? There are plug-ins available!
 
-The Home Center 2 has an official Sonos plug-in, but this only enables a virtual device to press start, stop and go to the next song. On the official Fibaro forums and marketplace there are thirdparty Sonos plug-ins but they don't have the ability to read the alarm settings.
+Home Center 2 has an official Sonos plug-in, but this only enables a virtual device to press start, stop and go to the next song. On the official Fibaro forums and marketplace there are thirdparty Sonos plug-ins but they don't have the ability to read the alarm settings.
 
 ## How I implemented it
 
@@ -57,7 +57,7 @@ At first I contruct a SOAP message to use with by Fibaro System. The SOAP protoc
 </s:Envelope>
 ```
 
-Also a SOAPAction HTTP header field is needed within the HTTP POST request: 
+Also a `SOAPAction` HTTP header field is needed within the HTTP `POST` request: 
 
 ```xml
 urn:schemas-upnp-org:service:AlarmClock:1#ListAlarms
@@ -98,7 +98,7 @@ HC2:request(
 
 When the Sonos API answers the Fibaro request the `getAlarms()` function is called. In this function I parse the XML SOAP resonse with regex. There are XML parse examples for the Fibaro System on the forums, but they all didn't work, because of the SOAP headers.
 
-I know this is not the best way to do this (I you know a better way, teach me please), but the following code parses an alarm set on a Sonos device to a LUA variable:
+I know this is not the best way to do this (I you know a better way, please teach me), but the following code parses an alarm set on a Sonos device to a LUA variable:
 
 ```lua
 -- find the first <Alarm ID... /> tag char number...
