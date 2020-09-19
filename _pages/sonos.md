@@ -4,8 +4,8 @@ title: Let Sonos wake you up!
 product: Fibaro Home Center 2 and Sonos
 permalink: /sonos/
 excerpt: Wake-up with your favorite music and soft home lights
-image: perfectdry.jpg
-background-image: perfectdry.jpg  Afbeelding: Unsplash @iskubor
+image: sonos.jpg
+background-image: sonos.jpg
 ---
 
 # Smart wake-up with Sonos controlling your Fibaro enabled lights<!-- omit in toc -->
