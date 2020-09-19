@@ -10,7 +10,7 @@ background-image: sonos.jpg
 
 # Smart wake-up with Sonos controlling your Fibaro enabled lights<!-- omit in toc -->
 
-September 16, 2020   
+September 20, 2020   
 _**Applies to:** Fibaro Home Center 2, Sonos_
 
 ## Table of Contents<!-- omit in toc -->
