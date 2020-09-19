@@ -5,7 +5,7 @@ product: Fibaro Home Center 2 and Sonos
 permalink: /sonos/
 excerpt: Wake-up with your favorite music and soft home lights
 image: sonos.jpg
-background-image: sonos.jpg
+background-image: sonos2.jpg
 ---
 
 # Smart wake-up with Sonos controlling your Fibaro enabled lights<!-- omit in toc -->
