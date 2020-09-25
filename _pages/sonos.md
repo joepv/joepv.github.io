@@ -96,7 +96,7 @@ HC2:request(
 
 ### Parsing the SOAP response
 
-When the Sonos API answers the Fibaro request the `getAlarms()` function is called. In this function the XML SOAP resonse is parsed to extract the values and alarm times programmed in the Sonos System.
+When the Sonos API answers the Fibaro request the `getAlarms()` function is called. In this function the XML SOAP response is parsed to extract the values and alarm times programmed in the Sonos System.
 
 ```lua
 function getAlarms(xml)
