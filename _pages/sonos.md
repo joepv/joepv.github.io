@@ -41,7 +41,7 @@ Home Center 2 has an official Sonos plug-in, but this only enables a virtual dev
 
 ## How I implemented it
 
-I found out that the Sonos API is using SOAP messages. It was a real struggle as the Fibaro Home Center 2 doesn't support XML and SOAP, but I got it to work by parsing the XML with regular expressions.
+I found out that the Sonos API is using SOAP messages. It was a real struggle as the Fibaro Home Center 2 doesn't support XML and SOAP, but I got it to work by parsing the XML with regular expressions. After posting my work on the [official Fibaro forums](https://forum.fibaro.com/) user [@10der](https://forum.fibaro.com/profile/11270-10der/) wrote XML parsing code in LUA! 
 
 ### SOAP request with LUA
 
@@ -96,44 +96,29 @@ HC2:request(
 
 ### Parsing the SOAP response
 
-When the Sonos API answers the Fibaro request the `getAlarms()` function is called. In this function I parse the XML SOAP resonse with regex. There are XML parse examples for the Fibaro System on the forums, but they all didn't work, because of the SOAP headers.
-
-I know this is not the best way to do this (I you know a better way, please teach me), but the following code parses an alarm set on a Sonos device to a LUA variable:
+When the Sonos API answers the Fibaro request the `getAlarms()` function is called. In this function the XML SOAP resonse is parsed to extract the values and alarm times programmed in the Sonos System.
 
 ```lua
--- find the first <Alarm ID... /> tag char number...
-b = string.find(xml, "&lt;Alarm ID", e)
-if b ~= nill then
-  -- find the closing tag tag char number...
-  e = string.find(xml, "/&gt;", b)
-  -- substring the whole <Alarm .. /> tag...
-  x = string.sub(xml, b, e+3)
-  -- replace the html quote chars with real quotes for string.match
-  x = x:gsub("&quot;", "\"")
-  alarmId         = string.match(x, [[Alarm%sID="([^"]+)]])
-  alarmTime       = string.match(x, [[StartTime="([^"]+)]])
-  alarmRecurrence = string.match(x, [[Recurrence="([^"]+)]])
-  alarmEnabled    = string.match(x, [[Enabled="([^"]+)]])
-end
-```
+function getAlarms(xml)
+    local dom = parseXml(xml)
+    local results = getXmlPath(dom, "s:Envelope", "s:Body", "u:ListAlarmsResponse", "CurrentAlarmList")
 
-When I put this in a loop until all `<Alarm>` tags are read I have all alarms to work with in my morning automation.
-
-Sonos uses the words `ONCE` and `WEEKDAYS` when an alarm is scheduled once and schedulles all weekdays. Else a day number is returned. To make checking if an alarm is for today I remap them to numbers:
-
-```lua
-local dayofweek = os.date("*t").wday-1
--- remap ONCE/WEEKDAYS to day numbers for check later on
-if alarmRecurrence == 'ONCE' then
-  alarmRecurrence = 'ONCE_' .. dayofweek
-elseif alarmRecurrence == 'WEEKDAYS' then
-  alarmRecurrence = 'WEEKDAYS_12345'
+    for _, result in ipairs(results) do
+        -- Sonos store alarm list as XML in XML
+        local alarms = getXmlPath(parseXml(result[1].text), "Alarms", "Alarm")
+        for _, alarm in ipairs(alarms) do
+            for k, v in pairs(alarm.attribute) do
+                print(k, v)
+            end
+            print("-------------------------------------")
+        end
+    end
 end
 ```
 
 ### Run your wake-up scene at alarm time
 
-With the previous code all set you can check if there are any alarms set for today:
+With the previous code all set you can put the alarm times in a variable and check if there are any alarms set for today:
 
 ```lua
 if tonumber(alarmEnabled) == 1 and alarmRecurrence:match(dayofweek) then
