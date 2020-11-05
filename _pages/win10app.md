@@ -4,8 +4,8 @@ title: Windows 10 Fibaro Home Center 2 app
 product: Fibaro Home Center 2 and Windows 10
 permalink: /win10app/
 excerpt: Control your Fibaro Home Center 2 with Windows 10
-image: win10app.jpg
-background-image: win10app.jpg
+image: win10app.png
+background-image: win10app.png
 ---
 
 # Control your Fibaro Home Center 2 with Windows 10<!-- omit in toc -->
@@ -48,15 +48,14 @@ You can download the [latest release](https://github.com/joepv/fibaro-control/re
 
 Just select the `Fibaro.Contol.exe` file from the assets if you just want to use the program.
 
-![Assets](Documentation/Image004.png "Fibaro Control: Assets")
-
+![Assets](https://github.com/joepv/fibaro-control/blob/master/Documentation/Image004.png "Fibaro Control: Assets")
 ## Manual
 
 💡 Note: There is no setup. Just [download](https://github.com/joepv/fibaro-control/releases/latest) and copy the `Fibaro Control.exe` file to `C:\Program Files\`.
 
 Start the `Fibaro Control.exe` program and log in to your Fibaro HC2:
 
-![Login Screen](Documentation/Image001.png "Fibaro Control: Login Screen")
+![Login Screen](https://github.com/joepv/fibaro-control/blob/master/Documentation/Image001.png "Fibaro Control: Login Screen")
 
 The login data is automatically encrypted and saved to the Windows registry hive:
 
@@ -69,14 +68,14 @@ HKEY_CURRENT_USER\SOFTWARE\Joep\FibaroControl
 * **Right click** the **HC2 icon** in the system tray and go to the **scenes** menu.
 * **Click** on a scene to **activate** it.
 
-![Run a Scene](Documentation/Image002.png "Fibaro Control: Run a Scene")
+![Run a Scene](https://github.com/joepv/fibaro-control/blob/master/Documentation/Image002.png "Fibaro Control: Run a Scene")
 
 ## Toggle a light on/off
 
 * **Right click** the **HC2 icon** in the system tray and go to the **room** menu where the light is located.
 * **Click** on a **light source** to turn it **on** or **off**.
 
-![Toggle a Light](Documentation/Image003.png "Fibaro Control: Toggle a Light")
+![Toggle a Light](https://github.com/joepv/fibaro-control/blob/master/Documentation/Image003.png "Fibaro Control: Toggle a Light")
 
 ## Reload scenes and lights
 
