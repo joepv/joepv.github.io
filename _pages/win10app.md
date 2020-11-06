@@ -46,7 +46,7 @@ The program loads your configured rooms, devices and scenes from your HC2 and pu
 
 You can download the [latest release](https://github.com/joepv/fibaro-control/releases/latest) from the [releases](https://github.com/joepv/fibaro-control/releases) page.
 
-Just select the `Fibaro.Contol.exe` file from the assets if you just want to use the program.
+Just select the `Fibaro.Control.exe` file from the assets if you just want to use the program.
 
 ![Assets](https://raw.githubusercontent.com/joepv/fibaro-control/master/Documentation/Image004.png "Fibaro Control: Assets")
 ## Manual
