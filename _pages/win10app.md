@@ -1,21 +1,22 @@
 ---
 key: 11
-title: Windows 10 Fibaro Home Center 2 app
-product: Fibaro Home Center 2 and Windows 10
+title: Windows 10 Fibaro Home Center 2 and 3 app
+product: Fibaro Home Center 2 and 3 and Windows 10
 permalink: /win10app/
-excerpt: Control your Fibaro Home Center 2 with Windows 10
+excerpt: Control your Fibaro Home Center 2 or 3 with Windows 10
 image: win10app.png
 background-image: win10app.png
 ---
 
-# Control your Fibaro Home Center 2 with Windows 10<!-- omit in toc -->
+# Control your Fibaro Home Center 2 or 3 with Windows 10<!-- omit in toc -->
 
-November 5, 2020   
-_**Applies to:** Fibaro Home Center 2, Windows 10_
+Initial: November 5, 2020  
+Update: November 14, 2020   
+_**Applies to:** Fibaro Home Center 2, Fibaro Home Center 3, Windows 10_
 
 ## Download links for the impatient<!-- omit in toc -->
 
-* [Version 1.0.0.2 direct file download](https://github.com/joepv/fibaro-control/releases/download/v1.0.0.2/Fibaro.Control.exe) 
+* [Version 1.1.0 direct file download](https://github.com/joepv/fibaro-control/releases/download/v1.1.0.0/Fibaro.Control.exe) 
 * [Latest release page](https://github.com/joepv/fibaro-control/releases)
 
 ## Table of Contents<!-- omit in toc -->
@@ -40,7 +41,7 @@ Run a scene or toggle a light on/off from the Windows 10 system tray.
 
 ## What my application does
 
-The program loads your configured rooms, devices and scenes from your HC2 and puts them in a menu in the system tray. Now you can run a scene or toggle a light switch without reaching for a wall switch or your phone. Neat huh!
+The program loads your configured rooms, devices and scenes from your HC2/HC3/HC3 and puts them in a menu in the system tray. Now you can run a scene or toggle a light switch without reaching for a wall switch or your phone. Neat huh!
 
 ## Quick download
 
@@ -53,7 +54,7 @@ Just select the `Fibaro.Control.exe` file from the assets if you just want to us
 
 💡 Note: There is no setup. Just [download](https://github.com/joepv/fibaro-control/releases/latest) and copy the `Fibaro Control.exe` file to `C:\Program Files\`.
 
-Start the `Fibaro Control.exe` program and log in to your Fibaro HC2:
+Start the `Fibaro Control.exe` program and log in to your Fibaro HC2/HC3:
 
 ![Login Screen](https://raw.githubusercontent.com/joepv/fibaro-control/master/Documentation/Image001.png "Fibaro Control: Login Screen")
 
@@ -65,21 +66,21 @@ HKEY_CURRENT_USER\SOFTWARE\Joep\FibaroControl
 
 ## Run a scene
 
-* **Right click** the **HC2 icon** in the system tray and go to the **scenes** menu.
+* **Right click** the **HC2/HC3 icon** in the system tray and go to the **scenes** menu.
 * **Click** on a scene to **activate** it.
 
 ![Run a Scene](https://raw.githubusercontent.com/joepv/fibaro-control/master/Documentation/Image002.png "Fibaro Control: Run a Scene")
 
 ## Toggle a light on/off
 
-* **Right click** the **HC2 icon** in the system tray and go to the **room** menu where the light is located.
+* **Right click** the **HC2/HC3 icon** in the system tray and go to the **room** menu where the light is located.
 * **Click** on a **light source** to turn it **on** or **off**.
 
 ![Toggle a Light](https://raw.githubusercontent.com/joepv/fibaro-control/master/Documentation/Image003.png "Fibaro Control: Toggle a Light")
 
 ## Reload scenes and lights
 
-* **Right click** the **HC2 icon** in the system tray and click **settings**.
+* **Right click** the **Home Center icon** in the system tray and click **settings**.
 * **Click** the **reload** button.
 
 ## Future roadmap
@@ -91,4 +92,4 @@ The following functions I may add in the future:
 
 ## Disclaimer
 
-This Home Center 2 control program for Windows 10 is my personal project written in C#. I am not affiliated, associated, authorized, endorsed by, or in any way officially connected with Fibar Group S.A.
+This Home Center control program for Windows 10 is my personal project written in C#. I am not affiliated, associated, authorized, endorsed by, or in any way officially connected with Fibar Group S.A.
