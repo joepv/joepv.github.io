@@ -27,7 +27,7 @@ In this article, I'll take you through the choices I made when starting the migr
 
 ## The question, big bang migration or not?
 
-The first question you will ask yourself is whether you want to migrate big bang or device by device. The latter is a time-consuming job, so you quickly think of option 1, big bang. But this also has a number of drawbacks. I thought about both options for a long time and to make the choice easier for you, I have listed a number of facts:
+The first question you will ask yourself is whether you want to migrate big bang or device by device. The latter is a time-consuming job, so you quickly think of option 1. But this also has a number of drawbacks. I thought about both options for a long time and to make the choice easier for you, I have listed a number of facts:
 
 The Fibaro *configuration transfer* does the following:
 
@@ -39,16 +39,16 @@ The Fibaro *configuration transfer* does the following:
 
 As you can read, *Virtual Devices* and *scenes* **are not** included in the **automatic** migration from the HC2 to the HC3. *Virtual Devices* have been replaced by *Quick Apps* and *LUA scenes* have been completely changed. These now work with *conditions* and *triggers*, which is quite an improvement.
 
-> Because I have to recreate all *scenes* and convert my *Virtual Devices* to *Quick Apps* I decided to **not** migrate big bang, but **manually** exclude the Z-Wave devices from the HC2 and include them again on the HC3. So I start with a clean slate.
+> Because I have to recreate all *scenes* and convert my *Virtual Devices* to *Quick Apps* I decided to **not** migrate big bang, but **manually** exclude the Z-Wave devices from the HC2 and include them again on the HC3. So I start with a clean system.
 
 ## To keep my home automation, I did the following
 
 First I wrote down my (most important) *scenes*. Over the years I have built quite a bit of automation. The following routines are most important to me. I really don't want to miss these in my daily life:
 
-- Morning routine: wake up with music and sunrise emulation (lighting) in the bedroom. In twilight / dark weather, the lighting is also dimmed in the rooms to be entered (when leaving the bedroom), so I will always walking around in an illuminated house.
-- Leaving / arriving home routines: When leaving the house presence detection automatically switches off the music and light. If necessary the vacuum cleaner goes into action. When I get home, turn on the music and lights as it was when the last person left.
+- **Morning routine**: wake up with music and sunrise emulation (lighting) in the bedroom. In twilight / dark weather, the lighting is also dimmed in the rooms to be entered (when leaving the bedroom), so I will always walking around in an illuminated house.
+- **Leaving / arriving home routines**: When leaving the house presence detection automatically switches off the music and light. If necessary the vacuum cleaner goes into action. When I get home, turn on the music and lights as it was when the last person left.
 
-The other *scenes* that I have built are supportive and I can migrate to the new HC3 when all devices has been transferred.
+The other *scenes* that I have built are supportive. I migrate these to the new HC3 when all devices has been transferred.
 
 ## An example
 
@@ -102,11 +102,11 @@ end
 
 ## Link the scene to the house "state"
 
-*Scenes* can now have *conditions*. I could use these to determine if the house is in *night* or *away* status but in this case I'm **not** using this, but I'm using the *profiles* screen in the *settings* menu of the HC3. This gives me an easy overview and can determine under which house *state* a scene should be started:
+*Scenes* can now have *conditions*. I could use these to determine if the house is in *night* or *away* state but in this case I'm **not** using this. I'm using the *profiles* screen in the *settings* menu of the HC3. This gives me an easy overview and can determine under which house *state* a scene should be started:
 
-![Migratie%20van%20HC2%20naar%20HC3%203480f71cbe6d409eb935d54c0eb97698/Untitled.png](Migratie%20van%20HC2%20naar%20HC3%203480f71cbe6d409eb935d54c0eb97698/Untitled.png)
+![hc3-profiles](../images/screenshots/hc3-profiles.png)
 
-Suppose I program these *conditions* in the *LUA scene* I have to check which routines start when *leaving* the house by going though **all** *scenes*. By using this screen I have a clear overview if I want to make adjustments in the future.
+When I program these *conditions* in the *LUA scene* I have to check which routines start when *leaving* the house by going though **all** *scenes*. By using this screen I have a clear overview if I want to make adjustments in the future.
 
 ## The Home Center 2 part
 
@@ -166,7 +166,7 @@ net.HTTPClient():request(url, {
 
 💡 Enter the variables for your configuration in the script. The `id` of the *scene* can be found in your HC3 at *Settings* → **Scenes**:
 
-![Migratie%20van%20HC2%20naar%20HC3%203480f71cbe6d409eb935d54c0eb97698/Untitled%201.png](Migratie%20van%20HC2%20naar%20HC3%203480f71cbe6d409eb935d54c0eb97698/Untitled%201.png)
+![hc3-scenes](../images/screenshots/hc3-scenes.png)
 
 From within the old HC2 "all lights off" *LUA scene* I start the new *scene* to trigger the HC3 to run the script for the already migrated lights. Use the `id` of the just created *scene* in the following code:
 
