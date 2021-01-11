@@ -125,7 +125,7 @@ LUA code in the actions section is now triggered by pressing the momentary switc
 
 You can go one step further by defining multiple triggers and executing certain pieces of code based on the source trigger. In the LUA code you can check the variable what triggered the scene by reading the `sourceTrigger`:
 
-```jsx
+```lua
 if (sourceTrigger.id == 52 and sourceTrigger.value == 14) then
 end
 ```
