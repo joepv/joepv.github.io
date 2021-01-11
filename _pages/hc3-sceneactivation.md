@@ -10,7 +10,7 @@ background-image: hc3-sceneactivation.jpg
 
 # Home Center 3 scene activation triggered by a momentary switch<!-- omit in toc -->
 
-January 12, 2021  
+January 11, 2021  
 _**Applies to:** Fibaro Home Center 3_
 
 In my last blog I showed you how to easily migrate your Z-Wave modules to the Fibaro Home Center 3. Now that you have migrated some, or maybe all, modules you can start creating or rewriting scenes.
