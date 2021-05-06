@@ -11,12 +11,13 @@ background-image: win10app.png
 # Control your Fibaro Home Center 2 or 3 with Windows 10<!-- omit in toc -->
 
 Initial: November 5, 2020  
-Update: November 14, 2020   
+Update: November 14, 2020  
+Update: May 6, 2021  
 _**Applies to:** Fibaro Home Center 2, Fibaro Home Center 3, Windows 10_
 
 ## Download links for the impatient<!-- omit in toc -->
 
-* [Version 1.1.0 direct file download](https://github.com/joepv/fibaro-control/releases/download/v1.1.0.0/Fibaro.Control.exe) 
+* [Version 1.2.0 direct file download](https://github.com/joepv/fibaro-control/releases/download/v1.2.0.0/Fibaro.Control.exe) 
 * [Latest release page](https://github.com/joepv/fibaro-control/releases)
 
 ## Table of Contents<!-- omit in toc -->
