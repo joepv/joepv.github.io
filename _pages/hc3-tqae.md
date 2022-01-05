@@ -29,7 +29,7 @@ In this blog, I'll take you through the basic steps to set up the a Lua IDE to m
 
 ## Why install an IDE if the HC3 has an online editor?
 
-The code editor embedded in the HC3 web interface is great. It has code completion and is very fast. But if work on bigger Quick Apps you want to debug your code more easily by using brakepoints for example. [@jgab](https://forum.fibaro.com/topic/55045-tiny-quickapp-emulator-tqae/) ([Jan Gabrielsson](https://github.com/jangabrielsson)) at the [Fibaro Forum](https://forum.fibaro.com/) created a QuickApp emulator that lets you easily develop Quick Apps from ZeroBrane Studio.
+The code editor embedded in the HC3 web interface is great. It has code completion and is very fast. But if you work on bigger Quick Apps you want to debug your code more easily by using brakepoints for example. [@jgab](https://forum.fibaro.com/topic/55045-tiny-quickapp-emulator-tqae/) ([Jan Gabrielsson](https://github.com/jangabrielsson)) at the [Fibaro Forum](https://forum.fibaro.com/) created a QuickApp emulator that lets you easily develop Quick Apps from ZeroBrane Studio.
 
 ## What is so special about Tiny QuickApp Emulator?
 
