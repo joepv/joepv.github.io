@@ -3,7 +3,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}{% if page.product %} (with {{ page.product | escape }}){% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" />
-  <meta name="image" property="og:image" content="{{ imageurl }}">
   <!--[if lte IE 8]><script src="{{ "/js/ie/html5shiv.js" | prepend: site.baseurl }}"></script><![endif]-->
   <link rel="shortcut icon" href="{{ "/images/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon" />
   <link rel="icon" href="{{ "/images/favicon.ico" | prepend: site.baseurl }}" type="image/x-icon" />
@@ -31,6 +30,7 @@
     background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("{{ imageurl }}");
   }
   </style>
+  <meta name="image" property="og:image" content="{{ imageurl }}">
   <!--[if lte IE 9]>
   <style>
   #main > header {
