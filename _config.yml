@@ -4,7 +4,7 @@ title: "Everything is connected!"
 description: "Explore my smart home adventure"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
-baseurl: https://docs.joepverhaeg.nl
+baseurl: 
 google_analytics: 'UA-348944-1'
 disqus:
 mailchimp-list: 'https://joepverhaeg.us20.list-manage.com/subscribe/post?u=78f77b09ec5fd42dd902c33c1&amp;id=18d30006e8'
