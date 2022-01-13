@@ -28,7 +28,7 @@ If you appreciate my work you can buy me a coffee!
                 <p class="mt-4 mb-0 small text-center">
                     <a target="_blank" class="d-inline-block mx-1 text-dark" href="{{ author[1].linkedin }}"><i class="fab fa-linkedin-in"></i></a> 
                     <a target="_blank" class="d-inline-block mx-1 text-dark" href="{{ author[1].github }}"><i class="fab fa-github"></i></a>
-                    <a class="d-inline-block mx-1 text-dark" href="{{site.baseurl}}/contact/"><i class="fa fa-envelope"></i></a>
+                    <a class="d-inline-block mx-1 text-dark" href="{{site.baseurl}}/contact"><i class="fa fa-envelope"></i></a>
                 </p>
             </div>
             <div class="col-md-9">
