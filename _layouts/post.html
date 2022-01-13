@@ -1,63 +1,89 @@
 ---
 layout: default
+disqus: false
+archive: false
+post_class: post-template
 ---
-  <section class="wrapper{% if page.options contains 'minihead' %} minihead{% endif %} style5">
-    <div class="inner{% if page.options contains 'fullwidth' %} fullwidth{% endif %}">{%
-      unless site.navlinks == 'none'
-%}{%    if page.categories contains 'works'
-%}{%      assign idxperma = '/works/' | prepend: site.baseurl
-%}{%      assign idxtitle = 'Works Index'
-%}{%      assign idxbutton = 'Index'
-%}{%      include fn_groupsort_reverse.html unsorted=site.categories.works groupby='priority' sortby='date'
-%}{%    endif
-%}{%    if page.categories.first == 'topics' and page.categories.last != 'topics'
-%}{%      assign idxperma = page.categories | join: '/' | prepend: '/' | prepend: site.baseurl | append: '/'
-%}{%      assign idxtitle = 'Start page'
-%}{%      assign idxbutton = 'Start'
-%}{%      assign sorted_list = site.empty_array
-%}{%      for topic in site.categories.topics
-%}{%        if topic.categories.last == page.categories.last
-%}{%          assign sorted_list = sorted_list | push: topic
-%}{%        endif
-%}{%      endfor
-%}{%      assign sorted_list = sorted_list | sort: 'date'
-%}{%    endif
-%}{%  endunless
-%}{%  if sorted_list
-%}{%    if site.navlinks == 'top' or site.navlinks == 'both'
-%}{%      include fn_sortednav.html posclass='btntop'
-%}{%    endif
-%}{%  endif
-%}{%  unless page.options contains 'minihead' %}
-      <span id="post-date">{{ page.date  | date: "%-d %B %Y" }}</span><hr
-        style="margin-top:3px;" />{%
-      endunless
-%}{%  if page.categories contains 'works' and page.tags %}
-      <h4>Skills</h4>
-  {%    assign work = page
-%}{%    include techlist.html %}
-  {%  endif
-%}
 
-      {{ content }}{%
-
-
-      if sorted_list
-%}{%    if site.navlinks == 'bottom' or site.navlinks == 'both'
-%}{%      unless perma
-%}{%        assign perma = '/topics/' | prepend: site.baseurl
-%}{%      endunless
-%}{%      include fn_sortednav.html posclass='btnbottom'
-%}{%    endif
-%}{%  endif
-%}{%  unless page.author == 'none'
-%}{%    include author-block.html %}
-  {%  endunless
-%}{%  if jekyll.environment == "production"
-%}{%    unless page.options contains nocomment or page.categories contains 'works'
-%}{%      include disqus.html %}
-  {%    endunless
-%}{%  endif
-%}
+<div class="entry-header">
+    <!-- Post Title -->
+    <h1 class="posttitle">{{ page.title }}</h1>
+    <!-- Author & Date  Box -->
+    {% assign author = site.authors[page.author] %}
+    {% if page.author %}
+    <div class="d-flex align-items-center mt-4">
+        <div>
+            {% if author.avatar %}
+            <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
+            {% else %}
+            <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
+            {% endif %}
+        </div>            
+        <div>
+        Written by {{ author.display_name }} on 
+        <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
+        {% if page.last_modified_at %}
+        (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
+        {% endif %}
+        </div>            
     </div>
-  </section>
+    {% endif %}
+</div>
+
+<!-- Adsense under title if enabled from _config.yml (change your pub id and slot) -->
+{% if site.adsense == "enabled" %}
+    {% include adsense-under-header.html %}
+{% endif %}
+
+<!-- Featured Image -->
+{% include featured-image.html %}
+
+<!-- Content -->
+{% include article.html %}
+
+<!-- Rating -->
+{% if page.rating %}
+<div class="rating mt-4 mb-4 d-flex align-items-center">
+    <strong class="mr-1">Rating:</strong> {% include star_rating.html %}
+</div>
+{% endif %}
+
+<!-- Author Box if enabled from _config.yml -->
+{% include author-box.html %}
+
+<!-- Comments if not disabled with comments: false -->
+{% comment %}
+{% include comments.html %}
+{% endcomment %}
+
+<!-- Share -->
+{% include share.html %}
+
+<!-- Related Post -->
+{% include related-posts.html %}
+
+<!-- Review with LD-JSON, adapt it for your needs if you like, but make sure you test the generated HTML source code first: 
+https://search.google.com/structured-data/testing-tool/u/0/
+================================================== -->
+{% if page.rating %}
+    <script type="application/ld+json">
+    {
+    "@context": "http://schema.org/",
+    "@type": "Review",
+    "itemReviewed": {
+    "@type": "Thing",
+    "name": "{{ page.title }}"
+    },
+    "author": {
+    "@type": "Person",
+    "name": "{{ author.display_name }}"
+    },
+    "datePublished": "{{ page.date | date:"%Y-%m-%d" }}",
+    "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "{{ page.rating }}",
+    "bestRating": "5"
+    }
+    }
+    </script>
+{% endif %}

@@ -1,130 +1,72 @@
-# Welcome to Jekyll!
+# Site
+name: "Joep Verhaeg"
+title: "Everything is connected!"
+description: "Explore my smart home adventure"
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/logo.png'
+baseurl: https://docs.joepverhaeg.nl
+google_analytics: 'UA-348944-1'
+disqus:
+mailchimp-list: 'https://joepverhaeg.us20.list-manage.com/subscribe/post?u=78f77b09ec5fd42dd902c33c1&amp;id=18d30006e8'
+include: ["_pages"]
+permalink: /:title/
+email: info@joepverhaeg.nl
 
+# Authors
+authors:
+  joep:
+    name: Joep Verhaeg
+    display_name: Joep
+    avatar: 'assets/images/avatar-joep.png'
+    email: info@joepverhaeg.nl
+    linkedin: https://www.linkedin.com/in/joepverhaeg/
+    github: https://www.github.com/joepv/
+    description: "Owner and author of this smart home blog!"
 
-# In addition to these settings, there is a file _data/tokens-template.yml
-# that you'll want to customize for your site. It's named 'tokens' because
-# that was it's original purpose, but because tokens.yml is .gitexcluded, it's
-# a good place to store your site-specific data that you'd rather not have
-# forked or cloned. Of course, that means you'd want to back it up elsewhere.
-
-# Also, for your post bylines, add author info for yourself in `_data/authors.yml`.
-# (Using that method instead of site.owner, in case your posts get cloned with your repo.)
-
-# Site settings
-title: home intelligence
-description: Everything is connected
-owner:
-  name: Joep Verhaeg # or company name
-  url: "https://docs.joepverhaeg.nl" # your URL
-first_published: 1992 # if migrating another site, the year of your first publish
-                      # Must be a 4-digit integer year (math is used on it)
-url: "https://docs.joepverhaeg.nl" # the base hostname & protocol for this site
-baseurl: "" # the subpath of your site, e.g. /blog
-            # Note you'll have to move your robots.txt to the root if you want it used.
-            # And list multiple sitemaps if there are other subdirectories you want indexed
-            # besides this blog.
-lang: en-us # used in HTML lang attributes
-
-# on landing page
-# - set the greeting only if you want to display the first green section
-greeting:
-  title: Technologically advanced
-  text: Explore my smart home adventure<br />with Fibaro, Philips Hue and Node-RED
-# - displayed at the bottom
-closing-head: Thanks for visiting
-closing-para: Feel free to get in touch.
-
-# on all pages (and the first three you list display with greeting, if included)
-social:
-  linkedin-square: https://www.linkedin.com/in/joepverhaeg
-  github: https://github.com/joepv
-  instagram: https://www.instagram.com/joepverhaeg
-  twitter: https://twitter.com/Joep__
-  #facebook-official: https://facebook.com/_username_
-  #google-plus-square: https://plus.google.com/u/0/+_username_
-  email: /contact/ # you can configure and use this contact page or use your email addy
-  #flickr:
-  youtube-square: https://www.youtube.com/channel/UCtx7m36fkmkSrJzaMLC4HWQ
-  #spotify:
-  #stack-overflow:
-  #vimeo:
-  #reddit:
-  #stubleupon:
-  #delicious:
-  #pied-piper:
-  #digg:
-  #soundcloud:
-  #deviantart:
-  #angellist:
-  #tumblr-square:
-  #stackexchange:
-  #weibo:
-  #trello:
-  #foursquare:
-  #linux:
-  #bitbucket-square:
-  #vk:
-  #slack:
-  #vine:
-  #weixin:
-  #yelp:
-  #skyatlas:
-  #leanpub:
-  #connectdevelop:
-  #ils:
-  #forumbee:
-  #tripadvisor:
-  #amazon:
-
-# - title for your blog's featured posts
-features-title: Featured topics
-
-# if you use this repo's `ruby compose.rb` script to initiate new posts, put the
-# command to invoke your editor here. (I didn't spend time dealing with spaces
-# and full paths of the various OSes in compose.rb. For my Windows
-# environment, I just put a subl.cmd file in my PATH that points to the full
-# path to Sublime's subl.exe.) Also, put your most common post extension.
-compose:
-  editor: subl
-  extension: md
-
-# choose where to put back and next links:
-# top, bottom, both, none
-navlinks: bottom
-
-# expecting more works? mark your list as in-progress
-works_in_progress: yes
-
-# Github pages posts future posts by default.
-# You'll want to move the user guide posts to _drafts if you set this to true.
-future: false
-
-# If you have custom extensions, specifically includes/_my/custom.scss,
-# set this to yes
-custom_extensions: no
-
-# Build settings
-permalink: /:categories/:title.html
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-figure
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/category/:name/'
+    
+# Pagination 
+paginate: 6
+paginate_path: /page:num/
+    
+# Other
+highlighter: none
 markdown: kramdown
-#sass:
-#  style: compressed
-exclude: ['site.bat','compose.rb','README.md']
-include: ['_pages','.htaccess']
-defaults:
-  - scope:
-      path: _pages
-    values:
-      layout: page
-      #permalink: /:slug/ # dunna work. See github.com/jekyll/jekyll/issues/2280
-  - scope:
-      path: _posts
-    values:
-      layout: post
-  - scope:
-      path: _drafts
-    values:
-      layout: post
+kramdown:
+   syntax_highlighter_opts:
+      disable : true
 
-# to initialize arrays in assignments (assign myarr = site.empty_array)
-# (easier to grok than assign myarr = '' | split',')
-empty_array: []
+
+
+# Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
+adsense: "disabled"
+adsense-data-ad-client: "ca-pub-3412143450191416"
+adsense-data-ad-slot: "1363087678"
+
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "disabled"
+
+# Post Author Box ("enabled" or "disabled")
+authorbox: "enabled"
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed
+
+exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]
