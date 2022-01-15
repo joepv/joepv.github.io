@@ -1,5 +1,4 @@
----
----
 User-agent: *
-Disallow:
-Sitemap: {{ site.baseurl }}/sitemap.xml
+Allow: /
+
+Sitemap: https://docs.joepverhaeg.nl/sitemap.xml
