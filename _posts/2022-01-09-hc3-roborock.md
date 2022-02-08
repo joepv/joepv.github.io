@@ -7,7 +7,7 @@ categories: [ Home Center 3 ]
 tags: [ Lua, Scene, Quick App ]
 image: assets/images/hc3-roborock.png
 beforetoc: "In this blog I'll take you through the process and technical implementation to make your Roborock vacuum more intelligent with the Home Center 3."
-rating: 4.0
+rating: 4
 toc: true
 ---
 
