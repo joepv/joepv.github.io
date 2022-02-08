@@ -7,6 +7,7 @@ categories: [ Home Center 3, Sonos ]
 tags: [ Lua, Scene, Quick App ]
 image: assets/images/hc3-sonos-group.png
 beforetoc: "In this blog I'll show you how to use the Sonos Group Controller Quick App I created to fully integrate your Sonos System into your home automation."
+rating: 4.5
 toc: true
 ---
 
