@@ -10,9 +10,7 @@ beforetoc: "In this blog I'll show you how to use the Sonos Group Controller Qui
 toc: true
 ---
 
-## TL;DR
-
-This is the page with documentation how to use the *Sonos Group Controller* Quick App to control your [Sonos System](https://www.sonos.com/) with [Home Center 3](https://www.fibaro.com/en/products/home-center-3/) Lua scenes. If you know how to install a Quick App you can skip to the [Usage in Lua scenes](#usage-in-lua-scenes) section.
+In this article I show you how to use my *Sonos Group Controller* Quick App to control your [Sonos System](https://www.sonos.com/) with [Home Center 3](https://www.fibaro.com/en/products/home-center-3/) Lua scenes. If you know how to install a Quick App you can skip to the [Usage in Lua scenes](#usage-in-lua-scenes) section.
 
 ## Why I made this Quick App
 
@@ -24,10 +22,10 @@ From a Lua scene (or Quick App) you can:
 
 - Start a Sonos Favorite at a specified volume.
 - Set the volume of a Sonos speaker.
-- Save the player state (like `PLAY`/`STOP`) and pause.
+- Save the player state (like `PLAY`/`STOP`) and automatically pause.
 - Get the previous player state and resume this state.
 - Create or add a Sonos speaker to a group.
-- Remove a Sonos speaker from agroup.
+- Remove a Sonos speaker from a group.
 
 You can do more with the Quick App, like play an InTune / webradio station or play a local `.mp3` file from your NAS. Also you can send standard commands like `play`, `pause`, `stop`, `next` and `previous` but in this blog I focus on the above list.
 
@@ -98,34 +96,54 @@ Useful for time based automations like alarm clocks.
 ### E.g. 4: Add the Sonos player to a group (or create a new one)
 
 ```lua
-fibaro.call(qaId, "AddToGroup", "playerUuid")
+local playerSource = "x-rincon:" .. getProperty(1001, "model")
+fibaro.call(1002, "playFromUri", playerSource , "")
 ```
 
-bla
+With this command you can add a player to a group (or create one). Use the `playerUuid` from the speaker that is currently playing the music (the group master).
 
-Useful for
+In this example the livingroom speaker with an `id` of `1001` is playing and you want to create a group with the kitchen speaker (with an `id` of `1002`). You first contruct the Uri with the `id` from the livingroom speaker and then add this Uri to the kitchen speaker. Now the Sonos System creates a group.
 
-### E.g. 5: Remove the Sonos player from a group.
+Useful for automatic grouping in motion based automations.
+
+### E.g. 5: Remove the Sonos player from a group
 
 ```lua
 fibaro.call(qaId, "LeaveGroup")
 ```
 
-bla
+When you send this command to a Sonos speaker it automatically leaves the group it is in.
 
-Useful for
+Also useful for automatic grouping in motion based automations.
 
-<!-- 
+### E.g. 6: Play an mp3, InTune or other audio source from an Uri
 
--- Lua : fibaro.call(qaId, "playFromUri", "uri", "meta")
--- Desc: Play an mp3, InTune or other audio format from an Uri.
+```lua
+fibaro.call(qaId, "playFromUri", "uri", "meta")
+```
 
--- Lua : fibaro.call(qaId, "setVolume", "15")
--- Desc: Set the Sonos Player volume.
+With this command you can send an Uri or InTune station `id` to the player. It loads the source and automatically starts playing.
 
---fibaro.call(qaId, "play")
---fibaro.call(qaId, "pause")
---fibaro.call(qaId, "stop")
---fibaro.call(qaId, "next")
---fibaro.call(qaId, "prev")
--->
+### E.g. 7: Set the volume of a speaker
+
+```lua
+fibaro.call(qaId, "setVolume", "15")
+```
+
+Simply set the volume to a defined value. This is useful to lower the volumes of players at night, so you're not suprised by a high volume in the morning.
+
+### Basic player commands
+
+Besides all powerfull commands shown you can send standard commands to the Sonos player:
+
+```lua
+fibaro.call(qaId, "play")
+fibaro.call(qaId, "pause")
+fibaro.call(qaId, "stop")
+fibaro.call(qaId, "next")
+fibaro.call(qaId, "prev")
+```
+
+## Download
+
+You can download my [Sonos Group Controller](https://marketplace.fibaro.com/items/sonos-group-controller) Quick App from the [Fibaro Marketplace](https://marketplace.fibaro.com/items/sonos-group-controller).
