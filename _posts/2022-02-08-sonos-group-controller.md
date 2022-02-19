@@ -97,7 +97,7 @@ Useful for time based automations like alarm clocks.
 ### E.g. 4: Add the Sonos player to a group (or create a new one)
 
 ```lua
-local playerSource = "x-rincon:" .. getProperty(1001, "model")
+local playerSource = "x-rincon:" .. fibaro.getValue(1001, "model")
 fibaro.call(1002, "playFromUri", playerSource , "")
 ```
 
