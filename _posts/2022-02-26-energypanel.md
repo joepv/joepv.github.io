@@ -1,62 +1,74 @@
 ---
 layout: post
-title:  "FIBARO Energy Panel explained"
-description: "How to configure and use the Home Center 3 Energy Panel"
+title:  "FIBARO Energy Panel explained!"
+description: "How the Home Center 3 Energy Panel works"
 author: joep
 categories: [ Home Center 3, Smart Meter, SolarEdge ]
 tags: [ Lua, Quick App ]
 image: assets/images/hc3-energypanel.png
-beforetoc: "In this blog I'll show you what you need to configure to use the HC3 Energy Panel optimally."
+beforetoc: "In this blog I'll show how the FIBARO Energy Panel works and which devices you need to it optimally."
 toc: true
 ---
 
-Intelligent energiebeheer is belangrijker dan ooit. Alleen al in Nederland is de verwachting dat de energietarieven voor een gemiddeld huishouden in 2022 met minimaal 700 tot 1000 euro stijgen! Ook heeft het kabinet besloten de salderingsregeling voor zonnepanelen in 2023 geleidelijk af te bouwen.
+The FIBARO Energy Panel had a big update in firmware 5.093. I'll show you it gives you insight in your home energy usage and what is needed to fully utilize it.
 
-## Waarom intelligent energie beheer?
+## Why intelligent energy management?
 
-Energie management is niet alleen inzicht in het verbruik, maar ook het efficiënt benutten van energie.
+Intelligent energy management is more important than ever. In the Netherlands alone, it is expected that energy rates for an average household increase in 2022 with at least 700 to 1000 euros! Monitoring energy is not only insight into your consumption, but also the efficient use of energy in your home. With good insights you ensure that you use the energy in your home smart and you can reduce your total consumption by optimally utilizing the sustainable yield of your solar panels.
 
-Met de door mij ontwikkelde Quick App kun je de slimmer meter koppelen aan de FIBARO Home Center 3 om inzicht te krijgen in je energie verbruik/opbrengst. Ook kun je op fase niveau energie overschot uitlezen en hierop acteren door bijvoorbeeld je wasmachine te laten wassen op het moment dat je aan het terugleveren bent.
+Monitoring your energy consumption contributes to:
 
-Hiermee zorg je ervoor dat je efficiënt energie benut in je woning en kun je het totale energieverbruik verminderen door de duurzame energie van je zonnepanelen optimaal te benutten.
+- Reduction of energy costs and / or energy bills,
+- Reduction of energy consumption by 15%, sometimes even 30%!
+- Invoice control of energy suppliers with validated data,
+- CO2 reduction, which has a positive effect on global warming,
+- Insight into different types of energy consumption (active and reactive energy),
+- Mapping incorrectly configured devices.
 
-Het monitoren van het energieverbruik draagt ​​bij aan:
+## How does this work with the FIBARO Home Center 3 (Lite)?
 
-- Vermindering van energieverbruik met 15%, soms zelfs 30%!
-- Verlaging van energiekosten en/of energierekeningen.
-- Factuur controle van de energieleveranciers met gevalideerde gegevens.
-- CO2-reductie, wat een positief effect heeft op de opwarming van de aarde.
-- Inzicht in verschillende soorten energieverbruik (actieve en reactieve energie).
-- In kaart brengen van onjuist geconfigureerde apparaten.
+Your Home Center 3 (Lite) manages the energy reports of all connected equipment as well as devices that deliver energy and devices that consume energy. This makes it possible to monitor by yourself and to use automation to control your energy consumption.
 
-## Hoe werkt dit in de Home Center 3?
+> Your home automation system collects real-time and historical consumption data and gives your advice with high reliability. This allows you to find an optimal balance of energy use in your home.
 
-De controller beheert de energie rapportages van alle verbonden apparaten die zowel zijn geconfigureerd als productie of consumptie. Dit maakt het mogelijk om zelf te monitoren en met automatisering controle te krijgen over je energie verbruik. Het systeem verzamelt real-time en historische verbruiksgegevens en geeft advies met een hoog betrouwbaarheidsniveau om een optimale balans te vinden in het energie gebruik.
+## Which devices do I need?
 
-## Mooi stuk theorie! En nu de praktijk!
-
-Om inzicht te krijgen zorg je eerst dat je minimaal firmware 5.093 hebt geïnstalleerd op je Home Center 3 (Lite). Daarnaast heb je Z-Wave apparaten nodig met de klasse Power Meter en Energy Meter of een Quick App integratie voor niet Z-wave modules.
+You first make sure that you have *minimum firmware 5.093* installed on your Home Center 3 (Lite). In addition, you need Z-Wave devices with the *Power Meter* and *Energy Meter* class or a *Quick App integration* for non Z-Wave devices.
 
 ### Modules
 
-Buiten de FIBARO modules zijn de Qubino Smart Meter Z-wave modules de meest geschikte oplossing om energie te meten. Deze apparaten kunnen actief energie verbruik meten van een enkele kamer of een complete groep. Ook zijn ze zeer geschikt om tussen de omvormer en het electriciteitsnet te plaatsen.
+Besides the FIBARO actors, the *Qubino Smart Meter* Z-Wave modules are the most suitable solution to monitor energy with the FIBARO System. These devices can actively measure the consumption of a single room or a complete house. The modules are also very suitable to place between the solar inverter and the electricity grid.
 
-PLAATJE QUBINO
+![hc3-energypanel1](../assets/images/hc3-energypanel1.png)
 
-### Quick App P1 integratie
+### Quick App P1 integration
 
-Kun je geen Qubino Smart Meter Z-wave modules plaatsen dan is het met mijn ontwikkelde Quick App nu mogelijk de gegevens uit je slimme meter te lezen. Door het gebruik van de HomeWizard P1 meter icm de Quick App kun je de energie consumptie en productie direct uitlezen op de slimme meter om het Energy Panel (monitoring) te voeden en de real-time gegevens gebruiken voor automatiseringen in Lua scenes/Quick Apps.
+If you are not able to place a *Qubino Smart Meter* Z-Wave module between your home network and the electricity grid then you can use my  **[Wi-Fi P1 meter Quick app](https://marketplace.fibaro.com/items/wi-FI-P1 meter-smart-meter integration)** that reads the data directly from your Smart Meter. By using the [HomeWizard P1 meter] (https://www.homeewizard.nl/homewizard-wi-fi-p1-meter) and my Quick App allows you to read energy consumption *direct* from the Smart Meter. This allows you to feed the data to the *Energy Panel* (for monitoring) and shows the real-time data, at phase level, to use for automation in Lua Scenes / Quick Apps.
 
-PLAATJE DEVICES
+![hc3-energypanel2](../assets/images/hc3-energypanel2.png)
 
-## Energie Paneel
+## The Energy Panel
 
-Als je een Qubino Smart Meter Z-wave module hebt geplaatst tussen je thuisnetwerk en het electriciteitsnet, of als je de Wi-Fi P1 meter Quick App gebruikt dan zijn dit hoofd verbuiksmeters. Door deze toe te voegen als Main energy meters in de algemene opties van de Home Center 3 zal deze automatisch het resterende stroomverbruik, dat niet is gemeten door aangesloten Z-Wave apparaten, berekenen. Dit wordt weergeven in het Energie Paneel als rest. Hierdoor krijg je een compleet beeld van je energieverbruik in het Energie Paneel.
+If you have placed a *Qubino Smart Meter* Z-Wave module between your home network and the electricity grid, or if you use the **[Wi-Fi P1 meter Quick app](https://marketplace.fibaro.com/items/wi-FI-P1 meter-smart-meter integration)** you can configure these as *Main Energy Meters*
 
-Als je een Qubino Smart Meter Z-wave module hebt geplaatst tussen je omvormer en het electriciteitsnet, of als je bijvoorbeeld de SolarEdge Monitoring Quick App gebruikt dan zijn deze energie meters geconfigureerd als apparaten die productie rapporteren. Dit wordt in het Energie Paneel weergegeven als productie en het paneel zal dan de energie balans en kosten uitrekenen!
+By adding the devices as *Main Energy Meters* in the general options of the Home Center 3, the system will automatically calculate the remaining power consumption, which is not measured by connected Z-Wave devices. This is shown in the Energy Panel as ***rest*** and gives you a complete picture of your energy consumption in your house:
 
-PLAATJE ENERGIE PANEEL
+![hc3-energypanel3](../assets/images/hc3-energypanel3.png)
 
-### Uitleg voor ontwikkelaars
+If you have placed a *Qubino Smart Meter* Z-Wave module between your solar inverter and the electricity grid, or if you use the **[SolarEdge Monitor QuickApp](https://marketplace.fibaro.com/items/solaredge-monitor)** the energy meters are configured as devices that report *production*. This data is also displayed in the Energy Panel and the HC3 will calculate the energy balance and costs!
 
-slide 29
+![hc3-energypanel4](../assets/images/hc3-energypanel4.png)
+
+## In summary
+
+To gain insight into your energy consumption / production you can:
+
+- Install a Qubino 1 or 3 phase Smart Meter Z-Wave module in your home network to measure:
+    - Energy production by solar panels,
+    - Energy consumption of a heat pump,
+    - Energy consumption when charging an electric car,
+    - General energy consumption of your home network.
+- Connect a **[HomeWizard P1 meter](https://www.homewizard.nl/homewizard-wi-fi-p1-meter)** to your smart meter and read the data with the **[Wi-Fi P1 meter Quick App](https://marketplace.fibaro.com/items/wi-fi-p1-meter-smart-meter-integration)** to measure the general energy consumption in your home,
+- Read the energy data from your solaredge inverter with the **[SolarEdge Monitor QuickApp](https://marketplace.fibaro.com/items/solaredge-monitor)**.
+
+You then configure these devices as *Main Energy Meters* in the Home Center 3 and the *Energy Panel* will then show the consumption of the individual installed Z-Wave modules that have the class *Energy Meter* (such as a Dimmer2 module or a Wall Plug) and the Home Center 3 will automatically subtract this consumption of the consumption that is monitored by the *Main Energy Meters*. Now you get insight in the consumption that is reported by home appliances that are not connected to the Z-Wave network.
