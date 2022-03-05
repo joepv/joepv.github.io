@@ -10,7 +10,7 @@ beforetoc: "In this blog I'll show how the FIBARO Energy Panel works and which d
 toc: true
 ---
 
-The FIBARO Energy Panel had a big update in firmware 5.093. I'll show you it gives you insight in your home energy usage and what is needed to fully utilize it.
+The FIBARO Energy Panel had a big update in firmware 5.093. I'll show you how it gives you insight in your home energy usage and what is needed to fully utilize it.
 
 ## Why intelligent energy management?
 
