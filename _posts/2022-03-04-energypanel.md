@@ -31,17 +31,17 @@ Monitoring your energy consumption contributes to:
 
 ## How does this work with the FIBARO Home Center 3 (Lite)?
 
-Your Home Center 3 (Lite) manages the energy reports of all connected equipment as well as devices that deliver energy and devices that consume energy. This makes it possible to monitor by yourself and to use automation to control your energy consumption.
+Your Home Center 3 (Lite) manages the energy reports of all connected equipment as well as devices that *deliver* energy and devices that *consume* energy. This makes it possible to monitor by yourself and to use automation to control your energy consumption.
 
 ![hc3l_comp](../assets/images/hc3l_comp.png)
 
-## Which devices do I need?
+## Which other devices do I need?
 
-You first make sure that you have *minimum firmware 5.093* installed on your Home Center 3 (Lite). In addition, you need Z-Wave devices with the *Power Meter* and *Energy Meter* class or a *Quick App integration* for non Z-Wave devices.
+First make sure that you have *minimum firmware 5.093* installed on your Home Center 3 (Lite). In addition, you need Z-Wave devices with the *Power Meter* and *Energy Meter* class or a *Quick App integration* for non Z-Wave devices.
 
 ### Modules
 
-Besides the FIBARO actors, the *Qubino Smart Meter* Z-Wave modules are the most suitable solution to monitor energy with the FIBARO System. These devices can actively measure the consumption of a single room or a complete house. The modules are also very suitable to place between the solar inverter and the electricity grid.
+Besides the FIBARO actors, the *Qubino Smart Meter* Z-Wave modules are the most suitable solution to monitor energy with the FIBARO System. These devices can *actively* measure the consumption of a single room or a complete house. The modules are also very suitable to place between the solar inverter and the electricity grid.
 
 <p align="center"><img src="../assets/images/hc3-energypanel1.png" /></p>
 
