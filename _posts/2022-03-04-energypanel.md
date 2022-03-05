@@ -5,7 +5,7 @@ description: "How the Home Center 3 Energy Panel works"
 author: joep
 categories: [ Home Center 3, Smart Meter, SolarEdge ]
 tags: [ Lua, Quick App ]
-image: assets/images/hc3-energypanel.png
+image: assets/images/hc3-energypanel.jpg
 beforetoc: "In this blog I'll show how the FIBARO Energy Panel works and which devices you need to use it optimally."
 toc: true
 ---
@@ -32,6 +32,8 @@ Monitoring your energy consumption contributes to:
 ## How does this work with the FIBARO Home Center 3 (Lite)?
 
 Your Home Center 3 (Lite) manages the energy reports of all connected equipment as well as devices that deliver energy and devices that consume energy. This makes it possible to monitor by yourself and to use automation to control your energy consumption.
+
+![hc3l_comp](../assets/images/hc3l_comp.png)
 
 ## Which devices do I need?
 
