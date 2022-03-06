@@ -41,7 +41,7 @@ First make sure that you have *minimum firmware 5.093* installed on your Home Ce
 
 ### Modules
 
-Besides the FIBARO actors, the *Qubino Smart Meter* Z-Wave modules are the most suitable solution to monitor energy with the FIBARO System. These devices can *actively* measure the consumption of a single room or a complete house. The modules are also very suitable to place between the solar inverter and the electricity grid.
+Besides the FIBARO actors, the *Qubino Smart Meter* Z-Wave modules are the most suitable solution to monitor energy with the FIBARO System. These devices can *actively* measure the consumption of a device or a complete house. The modules are also very suitable to place between the solar inverter and the electricity grid.
 
 <p align="center"><img src="../assets/images/hc3-energypanel1.png" /></p>
 
