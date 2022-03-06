@@ -55,7 +55,7 @@ If you are not able to place a *Qubino Smart Meter* Z-Wave module between your h
 
 If you have placed a *Qubino Smart Meter* Z-Wave module between your home network and the electricity grid, or if you use the **[Wi-Fi P1 meter Quick app](https://marketplace.fibaro.com/items/wi-FI-P1 meter-smart-meter integration)** you need to configure these as *Main Energy Meters*
 
-By adding the devices as *Main Energy Meters* in the general options of the Home Center 3, the system will automatically calculate the remaining power consumption, which is not measured by connected Z-Wave devices. This is shown in the Energy Panel as ***rest*** and gives you a complete picture of your energy consumption in your house:
+By adding the devices as *Main Energy Meters* in the general options of the Home Center 3, the system will automatically calculate the remaining power consumption, which is not measured by connected Z-Wave devices. This is shown in the Energy Panel as ***rest*** and gives you a complete picture of your energy consumption in your house. These meters are also not included in the list that reports the top energy consuming devices:
 
 ![hc3-energypanel3](../assets/images/hc3-energypanel3.png)
 
