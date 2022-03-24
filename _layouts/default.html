@@ -6,9 +6,9 @@
 
 <link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png">
 
-<title>{{ page.title }} {% if page.subtitle %}({{ page.subtitle }}){% endif %} | {{site.name}}</title>
+<title>{{ page.title }}{% if page.subtitle %} ({{ page.subtitle }}){% endif %} by {{site.name}}</title>
 
-{% seo %}
+{% seo title=false %}
 
 <link href="{{ site.baseurl }}/assets/css/prism.css" rel="stylesheet">
 
