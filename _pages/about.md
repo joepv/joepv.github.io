@@ -11,10 +11,6 @@ Hi! my name is Joep and I'm passionate about home automation and computer techno
 
 My blog is focused on the [Fibaro System](https://www.fibaro.com/en/), but I regularly use other software such as [Node-RED](https://nodered.org/). The concepts I write about can also be implemented with other controllers like [Home Assistant](https://www.home-assistant.io/), [HomeSeer](https://homeseer.com/) and [openHAB](https://www.openhab.org/).
 
-If you appreciate my work you can buy me a coffee!
-
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="joep" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-
 <div class="list-authors mt-5">
 {% for author in site.authors %}   
     <div id="{{ author[1].name }}" class="authorbox position-relative pb-5 pt-5 mb-4 mt-4 border">   
