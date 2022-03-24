@@ -147,4 +147,4 @@ fibaro.call(qaId, "prev")
 
 ## Download
 
-You can download my *Sonos Group Controller* Quick App from my [GitHub repository](https://github.com/joepv/sonos-group-controller-quickapp/releases/tag/v1.0.0). The [Sonos_Group_Controller.v1.0.zip](https://github.com/joepv/sonos-group-controller-quickapp/releases/tag/v1.0.0) file contains the Quick App import file and quickstart documentation.
+You can download my *Sonos Group Controller* Quick App from the [FIBARO Marketplace](https://marketplace.fibaro.com/items/sonos-group-controller). The file contains the Quick App import file and quickstart documentation.
