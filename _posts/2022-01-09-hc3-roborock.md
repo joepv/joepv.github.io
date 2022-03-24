@@ -5,7 +5,7 @@ description: "Intelligent RoboRock automation with Home Center 3"
 author: joep
 categories: [ Home Center 3 ]
 tags: [ Lua, Scene, Quick App ]
-image: assets/images/hc3-roborock.png
+image: assets/images/hc3-roborock.jpg
 beforetoc: "In this blog I'll take you through the process and technical implementation to make your Roborock vacuum more intelligent with the Home Center 3."
 toc: true
 ---
