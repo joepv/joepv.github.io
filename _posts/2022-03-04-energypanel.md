@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "FIBARO Energy Panel explained!"
+title:  "FIBARO HC3 Energy Panel explained!"
 description: "How the Home Center 3 Energy Panel works"
 author: joep
 categories: [ Home Center 3, Smart Meter, SolarEdge ]
