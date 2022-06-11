@@ -14,7 +14,7 @@ In addition to my [previous blog about installing a HC3 alarm system](https://do
 
 **Before** arming the alarm the scene **checks** if there are door or window sensors in **open** state and notifies you about it with an **interactive** push message. You can answer the message with a *yes* or *no* command to to arm the alarm even though a window or door is still open.
 
-![hc3-smartalarm4.jpg](../assets/images/hc3-smartalarm4.jpg)
+![hc3-smartalarm4.png](../assets/images/hc3-smartalarm4.png)
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The implementation consists of the following parts:
 2. Choose the option **Lua scene**;
 3. Give the scene a **name** and **click** the **Save** button;
 4. **Copy** the **Lua code** from my [smart alarm activation scene](https://docs.joepverhaeg.nl/downloads/smart-alarm-activation-scene.Lua) and **paste** it in the **ACTIONS** block;
-5. In the **Declarations (Conditions/Triggers)** block enter the trigger code that you want to use to activate the alarm.
+5. In the **Declarations (Conditions/Triggers)** block enter the trigger code that you want to use to activate the alarm;
 6. The screen then looks like this:
     ![hc3-smartalarm3.png](../assets/images/hc3-smartalarm3.png)
 1. **Change** the **variable** `sceneYes` to the *id* of the first scene you have just created to activate the alarm (orange marked);
