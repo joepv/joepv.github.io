@@ -21,7 +21,7 @@ In addition to my [previous blog about installing a HC3 alarm system](https://do
 The implementation consists of the following parts:
 
 1. A **trigger** to activate the alarm;
-2. My [smart alarm activation scene](https://docs.joepverhaeg.nl/downloads/smart-alarm-activation-scene.Lua) that is started by the trigger;
+2. My [smart alarm activation scene](https://marketplace.fibaro.com/items/smart-alarm-activation-scene-with-interactive-push-message) that is started by the trigger;
 3. A simple scene that started when the user answered **yes** from the interactive push message that is sent when there are doors or windows still open;
 
 ## Scene 1 installation
@@ -42,7 +42,7 @@ The implementation consists of the following parts:
 1. **Click** on the blue **Add scene** button to add a second scene;
 2. Choose the option **Lua scene**;
 3. Give the scene a **name** and **click** the **Save** button;
-4. **Copy** the **Lua code** from my [smart alarm activation scene](https://docs.joepverhaeg.nl/downloads/smart-alarm-activation-scene.Lua) and **paste** it in the **ACTIONS** block;
+4. **Copy** the **Lua code** from my [smart alarm activation scene](https://marketplace.fibaro.com/items/smart-alarm-activation-scene-with-interactive-push-message) and **paste** it in the **ACTIONS** block;
 5. In the **Declarations (Conditions/Triggers)** block enter the trigger code that you want to use to activate the alarm;
 6. The screen then looks like this:
     ![hc3-smartalarm3.png](../assets/images/hc3-smartalarm3.png)
