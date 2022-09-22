@@ -7,6 +7,7 @@ categories: [ Home Center 3, Smart Meter, SolarEdge ]
 tags: [ Lua, Quick App ]
 image: assets/images/hc3-energypanel.jpg
 beforetoc: "In this blog I'll show how the FIBARO Energy Panel works and which devices you need to use it optimally."
+rating: 5
 toc: true
 ---
 
@@ -76,5 +77,11 @@ To gain insight into your energy consumption / production you can:
 - Read the energy data from your solaredge inverter with the **[SolarEdge Monitor QuickApp](https://marketplace.fibaro.com/items/solaredge-monitor)**.
 
 You then configure these devices as *Main Energy Meters* in the Home Center 3 and the *Energy Panel* will then show the consumption of the *individual* installed Z-Wave modules that have the class *Energy Meter* (such as a Dimmer 2 module or a Wall Plug) **and the Home Center 3 will automatically subtract this consumption of the consumption that is monitored by the *Main Energy Meters***.
+
+## Update after firmware 5.120
+
+On September 16, 2022 [FIBARO released Home Center 3 firmware **5.120**](https://forum.fibaro.com/topic/61861-fibaro-system-update-5120-for-home-center-3/) with a lot of changes. The *Main Energy Meters* settings is moved to the *Energy Panel* and accesible via the **Panel settings** button. In the **Meters configuration** tab you can configure the energy *consumption* and *production* meters:
+
+![hc3-energypanel5](../assets/images/hc3-energypanel5.png)
 
 Now you get insight in the consumption that is reported by home appliances that are not connected to the Z-Wave network.
