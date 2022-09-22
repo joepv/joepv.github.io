@@ -26,7 +26,7 @@ Not only is presence simulation important when you are on vacation. By using pro
 
 By using the following function you can easily include this in your code:
 
-```
+```lua
 function getActiveProfileName()
     local profiles = api.get("/profiles")
     for _, profile in ipairs(profiles.profiles) do
@@ -39,7 +39,7 @@ end
 
 As an example I check with the code below if the holiday profile is **not** active. That is the trigger to start the [robot vacuum](https://docs.joepverhaeg.nl/hc3-roborock/) when everybody left the house:
 
-```
+```lua
 local activeProfile = getActiveProfileName()
 if (activeProfile ~= "Vacation") then
     fibaro.call(251, "clean") -- Start the vacuum
@@ -56,7 +56,7 @@ My presence simulation scene is **automatically** started when activating the *a
 
 The simulation is performed until the first person arrives back at home and and (automatically) activates the *home* profile. If you use [my presence simulation scene](https://marketplace.fibaro.com/items/advanced-presence-simulation) from the [FIBARO Marketplace](https://marketplace.fibaro.com) you can easily adjust this time in the code:
 
-```
+```lua
 if (awayTime == 480) then -- Set vacation profile automatically after 8 hours (480 minutes) away!
 	hub.profile(3, "activateProfile") -- Set vacation profile to active.
   runSimulation()
