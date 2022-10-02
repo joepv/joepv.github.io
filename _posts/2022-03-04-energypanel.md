@@ -48,7 +48,7 @@ Besides the FIBARO actors, the *Qubino Smart Meter* Z-Wave modules are the most 
 
 ### Quick App P1 integration
 
-If you are not able to place a *Qubino Smart Meter* Z-Wave module between your home network and the electricity grid then you can use my  **[Wi-Fi P1 meter Quick App](https://marketplace.fibaro.com/items/wi-FI-P1 meter-smart-meter integration)** that reads the data directly from your Smart Meter. By using the **[HomeWizard P1 meter](https://www.homeewizard.nl/homewizard-wi-fi-p1-meter)** and my Quick App allows you to read energy consumption *direct* from the Smart Meter. This allows you to feed the data to the *Energy Panel* (for monitoring) and shows the real-time data, at phase level, to use for automation in Lua Scenes / Quick Apps.
+If you are not able to place a *Qubino Smart Meter* Z-Wave module between your home network and the electricity grid then you can use my  **[Wi-Fi P1 meter Quick App](https://marketplace.fibaro.com/items/wi-FI-P1 meter-smart-meter integration)** that reads the data directly from your Smart Meter. By using the **[HomeWizard P1 meter](https://www.homewizard.nl/homewizard-wi-fi-p1-meter)** and my Quick App allows you to read energy consumption *direct* from the Smart Meter. This allows you to feed the data to the *Energy Panel* (for monitoring) and shows the real-time data, at phase level, to use for automation in Lua Scenes / Quick Apps.
 
 ![hc3-energypanel2](../assets/images/hc3-energypanel2.png)
 
