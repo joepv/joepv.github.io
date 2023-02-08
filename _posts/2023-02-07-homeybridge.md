@@ -69,7 +69,7 @@ If you get an Homey Cloud account only, you can use the Homey App to control dev
 
 ## How does Homey Bridge compare to a Home Center 3?
 
-The FIBARO Home Center 3 is mainly for full Z-Wave based on-premises home automation installations (by certified installers) where the Homey Bridge is a cloud extender and more aimed at the home user that wants to automate their homes very easily and with lots of different device protocols. The HC3 is synonymous with the Z-Wave protocol, and today still the most stable Z-Wave controller that you can find. The Homey Bridge shines with numerous protocols supported and the Zigbee protocol is far better than on the HC3. The HC3 operates without cloud, whereas the Homey Bridge depends on it. I think it’s a more fair comparison between the HC3 and the new Homey Pro that also runs on-premises. The Homey Pro will be released in early 2013.
+The FIBARO Home Center 3 is mainly for full Z-Wave based on-premises home automation installations (by certified installers) where the Homey Bridge is a cloud extender and more aimed at the home user that wants to automate their homes very easily and with lots of different device protocols. The HC3 is synonymous with the Z-Wave protocol, and today still the most stable Z-Wave controller that you can find. The Homey Bridge shines with numerous protocols supported and the Zigbee protocol is far better than on the HC3. The HC3 operates without cloud, whereas the Homey Bridge depends on it. I think it’s a more fair comparison between the HC3 and the new Homey Pro that also runs on-premises. The Homey Pro will be released in early 2023.
 
 ## How to initially setup your Homey Bridge?
 
