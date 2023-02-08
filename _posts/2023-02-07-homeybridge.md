@@ -9,7 +9,6 @@ tags: [ Review ]
 image: assets/images/homeybridge-joep.jpg
 beforetoc: "After months of beta testing the Homey Bridge is available from today and I wrote a comprehensive review on the new hub from Athom."
 toc: true
-rating: 5
 ---
 
 As a [FIBARO](https://docs.joepverhaeg.nl/categories#Home-Center-3) user and enthusiast I follow [Homey](https://homey.app/) on the side-line because they make awesome products and their interfaces are gorgeous. I was eager to try their new Homey Bridge to test their cloud based home automation controller.
