@@ -34,7 +34,7 @@ And if you're not convinced, according to Emile, Athom has a bounty program for 
 
 ## Does Athom respect my privacy?
 
-It’s important to think about your privacy. Unnoticed, you send a lot of information to all sorts of cloud servers. Not only smart home products, but also your smartphone and computer sends a lot of information back to their homebase. For example, Google collects your data about how you use your Google devices, apps and services. They track your browsing behaviour, location history, searches and a lot more. Basically, anything that’s connected to a Google service is likely collecting your data. That is their business model. You get their services for free and you accepted their privacy policy to allow them to use your data.
+It’s important to think about your privacy. Unnoticed, you send a lot of information to all sorts of cloud servers. Not only smart home products, but also your smartphone and computer sends a lot of information back to their homebase. For example, Google collects your data about how you use your Google devices, apps and services. They track your browsing behaviour, location history, searches and a lot more. Basically, anything that’s connected to a Google service is likely collecting your data. That is their business model. You get their services for free and you accept their privacy policy to allow them to use your data.
 
 Selling user data or leveraging user data to do profiling and advertising is something [Emile](https://www.linkedin.com/in/emilenijssen/) and [Stefan](https://www.linkedin.com/in/stefanwitkamp/) from Athom don’t want. They believe in offering good products at fair prices without infringing on your privacy. Homey Bridge is a cloud based system and to maintain such a high-end system costs a lot of money. That's why they came up with the subscription, because the Homey Bridge only costs € 69,00 and doesn’t cover those costs. Your privacy seems to be in good hands when you connect your home to the Homey Cloud.
 
@@ -50,7 +50,7 @@ The concept of a *dump* box with the management interface in the cloud is alread
 
 To use the Homey Bridge at it’s full potential you have to get a € 2,99 p/m Homey Premium subscription. You can use the hub without subscription up to 5 connected devices, but you aren’t enable to use the more advanced flows and insights then. Starters can try all functionality for 3 months and after that decide if the subscription is worth it. Besides controlling more devices in your home with a subscription, you get access to Homey Logic. This enables you to create more advanced flows and  allows you to use [Homey Insights](https://support.homey.app/hc/en-us/articles/360015370454-Viewing-charts-with-Homey-Insights) for historical insights into everything your Homey Bridge measures. From temperature and energy consumption to humidity, light intensity and ppm CO2 (if you have connected these meters to Homey).
 
-Personally I don’t like subscriptions, but for € 35,88 per year and an initial buy of € 69,00 you have a full featured controller for half the price of a Homey Pro of FIBARO Home Center 3 for the next 5 years. Technology improvement is going fast, so it can safe you some money in the end. When you do some math, the subscription concept can make you think whether this is an option, because cloud based software is developed rapidly and now also embraced by vendors like Athom.
+Personally I don’t like subscriptions, but for € 35,88 per year and an initial buy of € 69,00 you have a full featured controller for half the price of a Homey Pro of FIBARO Home Center 3 for the next 5 years. Technology improvement is going fast, so it can save you some money in the end. When you do some math, the subscription concept can make you think whether this is an option, because cloud based software is developed rapidly and now also embraced by vendors like Athom.
 
 ### Are all Homey Apps compatible with the Homey Bridge?
 
@@ -70,9 +70,9 @@ If you get an Homey Cloud account only, you can use the Homey App to control dev
 
 ## How does Homey Bridge compare to a Home Center 3?
 
-The FIBARO Home Center 3 is mainly for full Z-Wave based on-premises home automation installations (by certified installers) where the Homey Bridge is a cloud extender and more aimed at the home user that wants to automate their homes very easily and with lots of different device protocols. The HC3 is synonym with the Z-Wave protocol, and today still the most stable Z-Wave controller that you can find. The Homey Bridge shines with numerous protocols support and the Zigbee protocol is by far better than on the HC3. The HC3 operates without cloud, whereas the Homey Bridge depends on it. I think it’s a more fair comparison between the HC3 and the new Homey Pro that also runs on-premises. The Homey Pro will be released in early 2013.
+The FIBARO Home Center 3 is mainly for full Z-Wave based on-premises home automation installations (by certified installers) where the Homey Bridge is a cloud extender and more aimed at the home user that wants to automate their homes very easily and with lots of different device protocols. The HC3 is synonymous with the Z-Wave protocol, and today still the most stable Z-Wave controller that you can find. The Homey Bridge shines with numerous protocols supported and the Zigbee protocol is far better than on the HC3. The HC3 operates without cloud, whereas the Homey Bridge depends on it. I think it’s a more fair comparison between the HC3 and the new Homey Pro that also runs on-premises. The Homey Pro will be released in early 2013.
 
-## How to initial setup your Homey Bridge?
+## How to initially setup your Homey Bridge?
 
 When you plug in the Homey Bridge a beautiful led ring welcomes you at full color spectrum. The hub has a very premium look. You can turn this led off in the device configuration when the led starts to annoy you. The Homey Bridge setup is very easy. Just install the Homey App on your smartphone, create an account, plug the Homey Bridge in and open the Homey App:
 
@@ -119,7 +119,7 @@ Homey Flows are very limited when you don’t have a Homey Premium subscription.
 
 ![homeybridge10.png](../assets/images/homeybridge10.png)
 
-As a HC3 user you have to let go your HC3 way of working and embrace the principle of flow. Then you get a fair amount of home automation by using Homey Flows. For example [my advanced Sonos automation](https://docs.joepverhaeg.nl/sonos-group-controller/), which saves the current player state when everybody left the house, is manageable to create with the Homey Bridge. But you have to make a flow per Sonos player and nest them in another flow. This can become a messy to manage, but it is possible.
+As a HC3 user you have to let go of your HC3 way of working and embrace the principle of flow. Then you get a fair amount of home automation by using Homey Flows. For example [my advanced Sonos automation](https://docs.joepverhaeg.nl/sonos-group-controller/), which saves the current player state when everybody left the house, is manageable to create with the Homey Bridge. But you have to make a flow per Sonos player and nest them in another flow. This can become a messy to manage, but it is possible.
 
 With the upcoming [Homey Pro](https://homey.app/nl-nl/homey-pro/) you can use HomeyScript and this gives you possibilities like the powerful HC3 Lua scenes. If you are a home automation starter, or a non technical person I think the Homey Bridge suits you very well. To create advanced home automation routines I still recommend the amazing Home Center 3. The Homey Pro looks promising, so I’m very curious about the hub when it enters the market this year.
 
