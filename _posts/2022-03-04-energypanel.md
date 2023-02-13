@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "FIBARO Home Center 3 Energy Panel explained!"
+subtitle: "with the HomeWizard P1 meter Quick App"
 description: "How the Home Center 3 Energy Panel works"
 author: joep
 categories: [ Home Center 3, Smart Meter, SolarEdge ]
@@ -12,6 +13,8 @@ toc: true
 ---
 
 The FIBARO Energy Panel had a big update in firmware 5.093. I'll show you how it gives you insight in your home energy usage and what is needed to fully utilize it.
+
+> For FIBARO installers, professionals and other commercial purposes, I recommend using the [P1 Meter WiFi Gateway](https://jdkbenelux.com/toepassingen/energie-p1/energie-meten-p1-meter/). This solution is regularly updated and maintained for best performance. View for more information the external page: [P1 Meter for FIBARO](https://jdkbenelux.com/toepassingen/energie-p1/energie-meten-p1-meter/) (Dutch).
 
 ## Why intelligent energy management?
 
@@ -48,13 +51,17 @@ Besides the FIBARO actors, the *Qubino Smart Meter* Z-Wave modules are the most 
 
 ### Quick App P1 integration
 
-If you are not able to place a *Qubino Smart Meter* Z-Wave module between your home network and the electricity grid then you can use my  **[Wi-Fi P1 meter Quick App](https://marketplace.fibaro.com/items/wi-FI-P1 meter-smart-meter integration)** that reads the data directly from your Smart Meter. By using the **[HomeWizard P1 meter](https://www.homewizard.nl/homewizard-wi-fi-p1-meter)** and my Quick App allows you to read energy consumption *direct* from the Smart Meter. This allows you to feed the data to the *Energy Panel* (for monitoring) and shows the real-time data, at phase level, to use for automation in Lua Scenes / Quick Apps.
+If you are not able to place a *Qubino Smart Meter* Z-Wave module between your home network and the electricity grid then you can use my  **[HomeWizard Wi-Fi P1 meter Quick App](https://bit.ly/hwwifip1qa)** that reads the data directly from your Smart Meter. By using the **[HomeWizard P1 meter](https://www.homewizard.nl/homewizard-wi-fi-p1-meter)** and my Quick App allows you to read energy consumption *direct* from the Smart Meter. This allows you to feed the data to the *Energy Panel* (for monitoring) and shows the real-time data, at phase level, to use for automation in Lua Scenes / Quick Apps.
 
 ![hc3-energypanel2](../assets/images/hc3-energypanel2.png)
 
+This Quick App has been developed based on available online documentation from HomeWizard. The operation and support of this Quick App is limited to the API capabilities within version v1. No guarantees can be given that the QA will continue to work in the future.
+
+***Update (February 2023):** This Quick App is no longer maintained, which means that if bugs or problems arise, they will probably not be fixed.*
+
 ## The Energy Panel
 
-If you have placed a *Qubino Smart Meter* Z-Wave module between your home network and the electricity grid, or if you use the **[Wi-Fi P1 meter Quick app](https://marketplace.fibaro.com/items/wi-FI-P1 meter-smart-meter integration)** you need to configure these as *Main Energy Meters*
+If you have placed a *Qubino Smart Meter* Z-Wave module between your home network and the electricity grid, or if you use the **[HomeWizard Wi-Fi P1 meter Quick app](https://bit.ly/hwwifip1qa)** you need to configure these as *Main Energy Meters*
 
 By adding the devices as *Main Energy Meters* in the general options of the Home Center 3, the system will automatically calculate the remaining power consumption, which is not measured by connected Z-Wave devices. This is shown in the Energy Panel as ***rest*** and gives you a complete picture of your energy consumption in your house. These meters are also not included in the list that reports the top energy consuming devices:
 
@@ -73,7 +80,7 @@ To gain insight into your energy consumption / production you can:
     - Energy consumption of a heat pump.
     - Energy consumption when charging an electric car.
     - Main energy consumption of your home network.
-- Connect a **[HomeWizard P1 meter](https://www.homewizard.nl/homewizard-wi-fi-p1-meter)** to your smart meter and read the data with the **[Wi-Fi P1 meter Quick App](https://marketplace.fibaro.com/items/wi-fi-p1-meter-smart-meter-integration)** to measure the main energy consumption in your home,
+- Connect a **[HomeWizard P1 meter](https://www.homewizard.nl/homewizard-wi-fi-p1-meter)** to your smart meter and read the data with the **[HomeWizard Wi-Fi P1 meter Quick App](https://bit.ly/hwwifip1qa)** to measure the main energy consumption in your home,
 - Read the energy data from your solaredge inverter with the **[SolarEdge Monitor QuickApp](https://marketplace.fibaro.com/items/solaredge-monitor)**.
 
 You then configure these devices as *Main Energy Meters* in the Home Center 3 and the *Energy Panel* will then show the consumption of the *individual* installed Z-Wave modules that have the class *Energy Meter* (such as a Dimmer 2 module or a Wall Plug) **and the Home Center 3 will automatically subtract this consumption of the consumption that is monitored by the *Main Energy Meters***.
