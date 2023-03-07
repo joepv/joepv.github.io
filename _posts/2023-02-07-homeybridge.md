@@ -6,7 +6,7 @@ description: "An in-depth Homey Bridge review from a FIBARO users perspective"
 author: joep
 categories: [ Homey ]
 tags: [ Review ]
-image: assets/images/homeybridge-joep.jpg
+image: assets/images/homeybridge.jpg
 beforetoc: "After months of beta testing the Homey Bridge is available from today and I wrote a comprehensive review on the new hub from Athom."
 toc: true
 ---
