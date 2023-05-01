@@ -735,3 +735,31 @@ body.active-side {
         }
     }
 }
+
+table {
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom:30px;
+}
+
+// thead th:nth-child(1) {
+//     min-width: 25%;
+// }
+
+tbody tr:nth-child(odd) {
+    background-color: #d6d6d681;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e6e6e681;
+}
+
+td {
+    padding: 5px;
+}
+
+th {
+    padding: 5px;
+    background-color: #40FFDC;
+}
