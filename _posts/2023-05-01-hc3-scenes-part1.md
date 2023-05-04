@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "HC3 scenes part 1: Lua conditions explained"
+title:  "HC3 Lua scenes part 1: Conditions explained"
 description: "A blog series about learning to write Lua scenes for FIBARO Home Center 3"
 author: joep
 categories: [ Home Center 3 ]
