@@ -11,6 +11,10 @@ Hi! my name is Joep and I'm passionate about home automation and computer techno
 
 My blog is focused on the [Fibaro System](https://www.fibaro.com/en/), but I regularly use other software such as [Node-RED](https://nodered.org/). The concepts I write about can also be implemented with other controllers like [Home Assistant](https://www.home-assistant.io/), [HomeSeer](https://homeseer.com/) and [openHAB](https://www.openhab.org/).
 
+## Notice of Non-Affiliation
+
+I’m not affiliated, associated, authorized, endorsed by, or in any way officially connected with [FIBARO](https://www.fibaro.com/) nor [FIBARO Benelux](https://fibarobenelux.com/), or any of its subsidiaries or its affiliates. All product and company names as well as related images are registered trademarks of their respective owners.
+
 <div class="list-authors mt-5">
 {% for author in site.authors %}   
     <div id="{{ author[1].name }}" class="authorbox position-relative pb-5 pt-5 mb-4 mt-4 border">   
