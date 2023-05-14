@@ -311,6 +311,6 @@ I gave you some common used examples to create conditions, but there is more pos
 - [Convert Home Center 3 block scenes to Lua](https://manuals.fibaro.com/home-center-3-block-scenes/)
 - [Scenes and Interface FIBARO forum](https://forum.fibaro.com/forum/553-scenes-and-interface/)
 
-## Notice of Non-Affiliation
+## Next part: Variables explained
 
-I’m not affiliated, associated, authorized, endorsed by, or in any way officially connected with [FIBARO](https://www.fibaro.com/) nor [FIBARO Benelux](https://fibarobenelux.com/), or any of its subsidiaries or its affiliates. All product and company names as well as related images are registered trademarks of their respective owners.
+[In the next module](https://docs.joepverhaeg.nl/hc3-scenes-part2/), I'll learn you about the different types of variables that are available in the HC3 and how you use these variables in Lua scenes or in a Quick App.
