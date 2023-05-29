@@ -13,7 +13,7 @@ My blog is focused on the [Fibaro System](https://www.fibaro.com/en/), but I reg
 
 ## Notice of Non-Affiliation
 
-I’m not affiliated, associated, authorized, endorsed by, or in any way officially connected with [FIBARO](https://www.fibaro.com/) nor [FIBARO Benelux](https://fibarobenelux.com/), or any of its subsidiaries or its affiliates. All product and company names as well as related images are registered trademarks of their respective owners.
+I’m not affiliated, associated, authorized, endorsed by, or in any way officially connected with [FIBARO](https://www.fibaro.com/). All product and company names as well as related images are registered trademarks of their respective owners.
 
 <div class="list-authors mt-5">
 {% for author in site.authors %}   
