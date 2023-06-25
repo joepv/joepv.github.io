@@ -123,3 +123,7 @@ self:debug(apiToken)
 ## Previous part: Conditions explained
 
 [In the previous module](https://docs.joepverhaeg.nl/hc3-scenes-part1/), I'll learn you about writing conditions that are available in the HC3 and how you use these conditions to trigger Lua scenes.
+
+## Next part: sourceTrigger explained
+
+[In the next module](https://docs.joepverhaeg.nl/hc3-scenes-part3/), I'll learn you about the special variable `sourceTrigger` that is available in the HC3 and how you use it Lua scenes.
