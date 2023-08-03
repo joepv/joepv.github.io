@@ -170,3 +170,7 @@ If above scene code is triggered by the motion device it first checks if my virt
 ## Previous part: Variables explained
 
 [In the previous module](https://docs.joepverhaeg.nl/hc3-scenes-part2/), I'll learn you about the different types of variables that are available in the HC3 and how you use these variables in Lua scenes or in a Quick App.
+
+## Next part: setTimeOut vs Sleep explained explained
+
+[In the next module](https://docs.joepverhaeg.nl/hc3-scenes-part4/), I'll learn you about the difference of the setTimeOut and Sleep functions that you can use in Lua scenes.
