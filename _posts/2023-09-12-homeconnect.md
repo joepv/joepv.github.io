@@ -271,7 +271,7 @@ hub.call(qaId, 'controlAppliance', hadId, '{ "data": { "key": "LaundryCare.Washe
 
 ![homeconnect9.jpg](../assets/images/homeconnect9.jpg)
 
-### Automatically make a morning cappuccino with your Siemens coffee maker and the HC3?
+### Automatically make a morning cappuccino with your Siemens coffee maker and the HC3
 
 In this example, the Home Center 3 automatically makes a cup of delicious cappuccino every morning at 7:30.
 
