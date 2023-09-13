@@ -24,7 +24,7 @@ There is a variety of Home Connect enabled appliances for sale at Bosch/Siemens.
 
 ## Prerequisites
 
-1. **Download** the Home Connect Quick App from the [FIBARO Marketplace](https://marketplace.fibaro.com/);
+1. **Download** the Home Connect Quick App from the [FIBARO Marketplace](https://marketplace.fibaro.com/items/home-connect-bosch-siemens);
 2. Visit [https://developer.home-connect.com](https://developer.home-connect.com/) and **sign up** for a **developer account**.
 3. Enter your **e-mail address** of your login that you use with the **Home Connect App** on your phone/tablet under *Default Home Connect User Account for Testing* in the sign up process.
 4. Under [Applications](https://developer.home-connect.com/applications), **register** a new App:
