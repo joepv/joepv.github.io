@@ -36,7 +36,7 @@ To create these scenes you need a motion sensor that also measures the light int
 
 ## What is the best Z-wave or Zigbee motion sensor for HC3 or Homey Pro?
 
-For the Home Center 3, a Z-Wave motion sensor works best. For example, the **[FIBARO Motion Sensor](https://www.fibaro.com/en/products/motion-sensor/)** (FGMS-001) is a great choice. In this blog I also show you how to create the scene with a Homey Advanced Flow. With the Homey I use a Zigbee motion sensor, such as the **[Aqara FP1](https://www.aqara.com/en/product/motion-sensor-p1/)** (This sensor also works on the HC3 from firmare `5,142.83`).
+For the Home Center 3, a Z-Wave motion sensor works best. For example, the **[FIBARO Motion Sensor](https://www.fibaro.com/en/products/motion-sensor/)** (FGMS-001) is a great choice. In this blog I also show you how to create the scene with a Homey Advanced Flow. With the Homey I use a Zigbee motion sensor, such as the **[Aqara FP1](https://www.aqara.com/en/product/motion-sensor-p1/)** (This sensor also works on the HC3 from firmware `5.150`).
 
 ## Home Center 3 scene example
 
