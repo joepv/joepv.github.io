@@ -19,9 +19,9 @@ With system update 5.1.50 FIBARO introduced some new GUI elements for Quick Apps
 - [How to read the selected item from a Quick App dropdown list?](#how-the-ontoggled-function-handler-works)
 - [How to add values to a dropdown list with Quick App Lua code?](#how-to-add-dropdown-values-with-lua-code)
 
-## Which new GUI elements are added in HC3 firmware 5.1.60?
+## Which new GUI elements are added in HC3 firmware 5.1.50?
 
-With system update 5.150 FIBARO introduced the following new GUI elements for Quick Apps;
+With system update 5.1.50 FIBARO introduced the following new GUI elements for Quick Apps;
 
 - *Improved auto-naming of QuickApp elements and labels.*
 - *Added switch support.*
