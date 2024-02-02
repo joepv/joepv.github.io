@@ -9,7 +9,7 @@ imageshadow: true
 
 Hi! my name is Joep and I'm passionate about home automation and computer technology! I started blogging about home automation because I find a lot of technical information on the Internet without it being clear why people automate it in a certain way. I also enjoy writing about concepts and ideas that might inspire you to make your own home even smarter.
 
-My blog is focused on the [Fibaro System](https://www.fibaro.com/en/), but I regularly use other software such as [Node-RED](https://nodered.org/). The concepts I write about can also be implemented with other controllers like [Home Assistant](https://www.home-assistant.io/), [HomeSeer](https://homeseer.com/) and [openHAB](https://www.openhab.org/).
+My blog is focused on the [FIBARO System](https://www.fibaro.com/en/), but I regularly write about the [Homey Pro](https://homey.app/) and other software such as [Node-RED](https://nodered.org/). The concepts I write about can also be implemented with other controllers like [Home Assistant](https://www.home-assistant.io/), [HomeSeer](https://homeseer.com/) and [openHAB](https://www.openhab.org/).
 
 ## Notice of Non-Affiliation
 
