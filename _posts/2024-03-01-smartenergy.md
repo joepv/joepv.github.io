@@ -44,7 +44,7 @@ To determine the correct values for the scene in your HC3, I use a [Gazelle Ecli
 4. Insert the bike charger into the Wall Plug;
 5. Turn the Wall Plug off.
 
-With Lua you can create a scene that is triggered when your Smart Meter return value is above `1000 W` or it exactly `0 W`:
+With Lua you can create a scene that is triggered when your Smart Meter return value is above `1000 W` or is exactly `0 W`:
 
 ```lua
 -- DECLARATIONS (Conditions/Triggers)
@@ -87,7 +87,6 @@ local currentime =  os.time(os.date("!*t"))
 local switchtime = hub.getSceneVariable("switchtime") or 0
 local elapsedtime = currentime - switchtime
 
--- onderstaande werkt niet! wallplug gaat aan als val 0 en elapsed 0!
 if sourceTrigger.value == 0 then
     if elapsedtime > 3600 then -- min 1 hour charging
         -- turn plug off
