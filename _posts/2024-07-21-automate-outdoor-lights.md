@@ -40,7 +40,7 @@ When you are ready the block scene looks like the example below:
 
 ![automate-outdoor-lights02.webp](../assets/images/automate-outdoor-lights02.webp)
 
-## Why I use device groups in an HC3 block scene?
+## Why I use device groups in a HC3 block scene?
 
 To enhance the readability of the block scene you see that I create two device groups. One group for all outdoor lights and another for indoor lights. This clear separation allows you to quickly identify and adjust specific parts of your scene without getting lost when you have a lot of devices.
 
