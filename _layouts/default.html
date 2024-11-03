@@ -39,8 +39,8 @@
 <!-- Begin Sidebar Navigation
 ================================================== -->
 
-<div class="sidebar">    
-</div>   
+<div class="sidebar">
+</div>
 <div class="nav-icon">
     <div class="hamburger-bar"></div>
 </div>
@@ -54,8 +54,8 @@
         <li><a href="{{ site.baseurl }}/categories#Home-Center-3">Home Center 3</a></li>
         <li><a href="{{ site.baseurl }}/categories#Home-Center-2">Home Center 2</a></li>
         <li><a href="{{ site.baseurl }}/categories">All categories</a></li>
-        <li><a href="{{ site.baseurl }}/contact">Contact</a></li>  
-    </ul>   
+        <li><a href="{{ site.baseurl }}/contact">Contact</a></li>
+    </ul>
 </nav>
 
 {% include search-lunr.html %}
@@ -70,11 +70,11 @@
 
     <!-- Site Logo/Name
     ================================================== -->
-   
+
     <a class="navbar-brand" href="{{ site.baseurl }}/">
         <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
-    </a>  
-   
+    </a>
+
 
     <!-- Site Tag
     ================================================== -->
@@ -103,7 +103,7 @@
         </form>
     </div>
     {% endif %}
-    
+
 </div>
 
 <!-- Begin Footer
@@ -112,9 +112,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-12 text-center text-lg-left">
-                Copyright © {{ site.time | date: "%Y" }} {{ site.name }} 
+                Copyright © {{ site.time | date: "%Y" }} {{ site.name }}
             </div>
-            <div class="col-md-6 col-sm-12 text-center text-lg-right">    
+            <div class="col-md-6 col-sm-12 text-center text-lg-right">
                 Everything is connected!
             </div>
         </div>
@@ -146,7 +146,9 @@
 
 {% endif %}
 
-<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+<script type='text/javascript'>kofiwidget2.init('Support me', '#f57373', 'Z8Z8SY29P');kofiwidget2.draw();</script>
+<!-- <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 <script>
   kofiWidgetOverlay.draw('joepverhaeg', {
     'type': 'floating-chat',
@@ -154,6 +156,6 @@
     'floating-chat.donateButton.background-color': '#00b9fe',
     'floating-chat.donateButton.text-color': '#fff'
   });
-</script>
+</script> -->
 </body>
 </html>
