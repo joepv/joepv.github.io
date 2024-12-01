@@ -4,7 +4,7 @@ title:  "Embracing the magic of twilight: Automating your outdoor lights"
 description: "A guide to automating your outdoor lights based on current light intensity with the HC3."
 author: joep
 categories: [ Home Center 3 ]
-tags: [ Scene ]
+tags: [ Lua, Scene ]
 image: assets/images/automate-outdoor-lights.webp
 beforetoc: "In this blog I learn you to elevate your garden lights automation by creating a cozy ambiance by also automatically turning on some porch and indoor lights to create a luxury feeling when you sit in your garden."
 toc: true
