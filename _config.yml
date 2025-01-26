@@ -7,7 +7,8 @@ favicon: 'assets/images/logo.png'
 baseurl:
 google_analytics: 'UA-348944-1'
 disqus:
-mailchimp-list: 'https://joepverhaeg.us20.list-manage.com/subscribe/post?u=78f77b09ec5fd42dd902c33c1&amp;id=18d30006e8'
+mailchimp-list:
+#mailchimp-list: 'https://joepverhaeg.us20.list-manage.com/subscribe/post?u=78f77b09ec5fd42dd902c33c1&amp;id=18d30006e8'
 include: ["_pages"]
 permalink: /:title/
 email: info@joepverhaeg.nl
