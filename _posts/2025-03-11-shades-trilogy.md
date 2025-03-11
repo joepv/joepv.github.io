@@ -17,7 +17,7 @@ My third Quick App in my shades trilogy integrates Luxaflex (Hunter Douglas) dev
 If you can't wait, you can find my Yubii Home and FIBARO QuickApp's here:
 
 1. [Luxaflex (Hunter Douglas) PowerView Gen3](https://shop.jdkbenelux.com/en/Luxaflex-PowerView-Gen3-Quick-App/QA-LUX)
-2. [Somfy Switch](https://shop.jdkbenelux.com/en/Somfy-Tahoma-Switch-Quick-App/QA-SMF)
+2. [Somfy TaHoma Switch](https://shop.jdkbenelux.com/en/Somfy-Tahoma-Switch-Quick-App/QA-SMF)
 3. [Brel Home](https://shop.jdkbenelux.com/en/BREL-Home-Quick-App/QA-BM)
 
 Before I highlight my new [PowerView Gen3 QuickApp](https://shop.jdkbenelux.com/en/Luxaflex-PowerView-Gen3-Quick-App/QA-LUX) I provide you an in-depth comparison of all three systems to help you better understand the differences between the products.
