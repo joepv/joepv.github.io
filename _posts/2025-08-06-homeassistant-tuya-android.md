@@ -54,7 +54,7 @@ After you downloaded my [Home Assistant Quick App](https://marketplace.fibaro.co
 
 ## How to configure the HA entities that the HC3 will use?
 
-Edit the Quick App and in the top of the `main` file add your Tuya led devices and Android TV Remote entities to the `HASS_ENTITIES`table:
+Edit the Quick App and in the top of the `main` file add your Tuya led devices and Android TV Remote entities to the `HASS_ENTITIES` table:
 
 ```lua
 HASS_ENTITIES = {
@@ -64,7 +64,7 @@ HASS_ENTITIES = {
 }
 ```
 
-The `entityId` is the `id` of the `entity` in Home Assistant. You can find these in **Settings** → **Devices & services → Entities**
+The `entityId` is the `id` of the `entity` in Home Assistant. You can find these in **Settings** → **Devices & services** → **Entities**
 
 ![ha-entities.webp](../assets/images/ha-entities.webp)
 
