@@ -5,14 +5,18 @@
     <div class="row">
         <div class="wrapavname col-md-3 text-center">
             {% if author.gravatar %}
-            <img  class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x" alt="{{ author.display_name }}">
+            <img class="author-thumb" src="https://www.gravatar.com/avatar/{{ author.gravatar }}?s=250&d=mm&r=x"
+                alt="{{ author.display_name }}">
             {% else %}
-            <img  class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
+            <img class="author-thumb" src="{{site.baseurl}}/{{ author.avatar }}" alt="{{ author.display_name }}">
             {% endif %}
             <p class="mt-4 mb-0 small text-center">
-                <a target="_blank" class="d-inline-block mx-1 text-dark" href="{{ author.linkedin }}"><i class="fab fa-linkedin-in"></i></a>
-                <a target="_blank" class="d-inline-block mx-1 text-dark" href="{{ author.github }}"><i class="fab fa-github"></i></a>
-                <a class="d-inline-block mx-1 text-dark" href="{{site.baseurl}}/contact"><i class="fa fa-envelope"></i></a>
+                <a target="_blank" class="d-inline-block mx-1 text-dark" href="{{ author.linkedin }}"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a target="_blank" class="d-inline-block mx-1 text-dark" href="{{ author.github }}"><i
+                        class="fab fa-github"></i></a>
+                <a class="d-inline-block mx-1 text-dark" href="{{site.baseurl}}/contact"><i
+                        class="fa fa-envelope"></i></a>
             </p>
         </div>
         <div class="col-md-9">
@@ -21,7 +25,8 @@
             <span style="margin-top: 5px;">
                 <p></p>
                 <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-                <script type='text/javascript'>kofiwidget2.init('Support me', '#f57373', 'Z8Z8SY29P');kofiwidget2.draw();</script>
+                <script
+                    type='text/javascript'>kofiwidget2.init('Buy me a coffee', '#f57373', 'Z8Z8SY29P'); kofiwidget2.draw();</script>
             </span>
         </div>
     </div>
