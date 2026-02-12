@@ -18,7 +18,7 @@ Good ventilation is essential for a healthy home. Ideally, you should open your 
 
 I also had this problem with my garage door. If I accidentally left it open, cold air got into my house and I was wasting energy.
 
-That's why I created a [Door/Window Notifier Quick App](https://marketplace.fibaro.com/items/door-window-notifier) for my FIBARO Home Center 3.
+That's why I created a [Door/Window Notifier Quick App](https://github.com/joepv/fibaro/raw/refs/heads/master/quickapps/Door_Window_Notifier_v1.0.zip) for my FIBARO Home Center 3.
 
 This QuickApp allows you to monitor a selection of doors and windows and receive a notification if they remain open longer than a predefined period.
 
@@ -35,7 +35,7 @@ The QuickApp features easy configuration options in the Yubii App or Web GUI, al
 
 ## Installation
 
-1. Download the `.fqa` file from the [FIBARO Marketplace](https://marketplace.fibaro.com/items/door-window-notifier).
+1. Download the `.fqa` file from my [GitHub Account](https://github.com/joepv/fibaro/raw/refs/heads/master/quickapps/Door_Window_Notifier_v1.0.zip).
 2. Log in to your Home Center 3.
 3. Navigate to **Settings** > **Devices**.
 4. Click the **+** icon and select **Add Device**.
@@ -116,5 +116,5 @@ This QuickApp is build to be a *set it and forget it* solution to ensure your ho
 This QuickApp is provided free and my website is ad-free. If you are an installer or deploy this for clients, supporting the project with a donation is strongly encouraged. [You can donate here 🔗](https://docs.joepverhaeg.nl/donate)
 
 ⬇️ **Download**<br />
-You can find the [Window/Door Notifier QuickApp](https://marketplace.fibaro.com/items/door-window-notifier) in the [FIBARO Marketplace](https://marketplace.fibaro.com/items/door-window-notifier).
+You can find the Window/Door Notifier QuickApp in on my [GitHub Account](https://github.com/joepv/fibaro/raw/refs/heads/master/quickapps/Door_Window_Notifier_v1.0.zip).
 
