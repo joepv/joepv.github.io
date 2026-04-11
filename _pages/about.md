@@ -16,7 +16,6 @@ This blog is focused on the [FIBARO](https://www.fibaro.com/en/)/[Yubii](https:/
 <p class="mt-4 mb-0">
     <a target="_blank" class="d-inline-block mx-1 text-dark" href="https://www.linkedin.com/in/joepverhaeg/"><i class="fab fa-linkedin-in"></i></a>
     <a target="_blank" class="d-inline-block mx-1 text-dark" href="https://github.com/joepv/"><i class="fab fa-github"></i></a>
-    <a class="d-inline-block mx-1 text-dark" href="https://docs.joepverhaeg.nl/contact"><i class="fa fa-envelope"></i></a>
 </p>
 
 <!-- <div class="list-authors mt-5">
