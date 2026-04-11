@@ -3,8 +3,6 @@ layout: page
 title: Everything is connected!
 permalink: /about
 comments: false
-image: assets/images/about2024.webp
-imageshadow: true
 ---
 
 Hi! my name is [Joep](https://www.linkedin.com/in/joepverhaeg/) and I'm passionate about home automation and computer technology! I started blogging about home automation because I find a lot of technical information on the Internet without it being clear why people automate it in a certain way. I also enjoy writing about concepts and ideas that might inspire you to make your own home even smarter.
