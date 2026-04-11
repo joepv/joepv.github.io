@@ -13,13 +13,6 @@ I also write [Quick Apps](https://marketplace.fibaro.com/profiles/fibaro-user-un
 
 This blog is focused on the [FIBARO](https://www.fibaro.com/en/)/[Yubii](https://www.yubiihome.com/en) System, but I regularly write about the [Homey Pro](https://homey.app/) and other software such as [Node-RED](https://nodered.org/). The concepts I write about can also be implemented with other controllers like [Home Assistant](https://www.home-assistant.io/), [HomeSeer](https://homeseer.com/) and [openHAB](https://www.openhab.org/).
 
-This blog and most of my [QuickApps](https://marketplace.fibaro.com/profiles/fibaro-user-unnamed-78a51d7b-088d-4247-9e91-e2f42082e817) are completely free to use and read. If you find my work useful and want to support it, you can [send me a small donation](https://ko-fi.com/joepverhaeg). Your support helps keep the blog ad-free and allows me to continue creating and sharing new content with the community.
-
-<span style="margin-top: 5px;">
-    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-    <script type='text/javascript'>kofiwidget2.init('Support me', '#f57373', 'Z8Z8SY29P');kofiwidget2.draw();</script>
-</span>
-
 <p class="mt-4 mb-0">
     <a target="_blank" class="d-inline-block mx-1 text-dark" href="https://www.linkedin.com/in/joepverhaeg/"><i class="fab fa-linkedin-in"></i></a>
     <a target="_blank" class="d-inline-block mx-1 text-dark" href="https://github.com/joepv/"><i class="fab fa-github"></i></a>

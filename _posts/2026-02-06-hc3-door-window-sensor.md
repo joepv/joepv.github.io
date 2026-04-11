@@ -112,9 +112,6 @@ This QuickApp is build to be a *set it and forget it* solution to ensure your ho
 
 ## QuickApp Download
 
-💙 **Support & Fair Use**<br />
-This QuickApp is provided free and my website is ad-free. If you are an installer or deploy this for clients, supporting the project with a donation is strongly encouraged. [You can donate here 🔗](https://docs.joepverhaeg.nl/donate)
-
 ⬇️ **Download**<br />
 You can find the Window/Door Notifier QuickApp in on my [GitHub Account](https://github.com/joepv/fibaro/raw/refs/heads/master/quickapps/Door_Window_Notifier_v1.0.zip).
 
