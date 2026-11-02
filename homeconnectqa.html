@@ -1,12 +1,92 @@
----
-layout: default
-title: Home Connect Integration for FIBARO Home Center 3
-permalink: /homeconnectqa.html
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Connect Integration for FIBARO Home Center 3</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4N7J51FRN0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-<div class="text-center">
-    <!-- <h1 class="mt-5"><span class="badge badge-dark font-weight-normal">Home Connect Integration</span></h1> -->
-    <img src="/assets/images/homeconnect-fibaro.png" alt="Home Connect FIBARO Home Center 3" width="700" height="118" />
-    <h1 class=" mt-4 mb-4">Home Center 3<br />Authorization Succesfull!</h1>
-    <p><strong>You can close this page and return to your Home Center 3!</strong></p>
-</div>
+      gtag('config', 'G-4N7J51FRN0');
+    </script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #e2e8f0;
+            --accent-color: #38bdf8;
+            --secondary-text: #94a3b8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            max-width: 550px;
+            width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .image-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.55rem;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        p {
+            line-height: 1.6;
+            color: var(--secondary-text);
+            margin-bottom: 0;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="status-badge">SUCCESS</div>
+        <h1>Home Center 3<br>Authorization Successful!</h1>
+        <p><strong>You can close this page and return to your Home Center 3!</strong></p>
+    </div>
+</body>
+</html>
